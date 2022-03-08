@@ -1,11 +1,12 @@
 <?php
-  $login = 'enaudy'/*A compléter*/;
-  $db_pwd = '9BPCJCQGHAWZ'/*A compléter*/;
+  $dsn = 'mysql:dbname=enaudy;host=localhost';
+  $user = 'enaudy'/*A compléter*/;
+  $pass = '9BPCJCQGHAWZ'/*A compléter*/;
   /* Creation de l'objet qui gere la connexion: */
-  $connection = new mysqli("vvv.enseirb-matmeca.fr", $login, $db_pwd, $login);
-  if ($conn->connect_error) {
-      echo("Connection failed");
-    die("Connection failed: " . $conn->connect_error);
-  }
-  echo "Connected successfully";
+  try {
+    $dbh = new PDO($dsn, $user, $pass);
+    $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    echo 'Échec lors de la connexion : ' . $e->getMessage();
+}
 ?>
