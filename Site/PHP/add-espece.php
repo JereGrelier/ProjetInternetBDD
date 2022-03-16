@@ -13,10 +13,10 @@
     include 'connect.php';
     $newnumber = intval($_REQUEST['number']);
     $newname = $_REQUEST['name'];
-    $zone = $_REQUEST['zone'];
-    $type = $_REQUEST['type'];
-    $sql = 'insert into ESPECE (numero, nomEspece, type, evolution, zone) values (:number, :name, :type, 1, :zone)';
+    $zone = intval($_REQUEST['zone']);
+    $type = intval($_REQUEST['type']);
+    $sql = 'insert into ESPECE (numero, nomEspece, TypeEspece) values (:number, :name, :TypeEspece); insert into HABITAT(numEspece, IdZone) values(:number, :zone)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute(array('number'=> $newnumber, 'name' => $newname, 'type' => $type, 'zone' => $zone));
+    $sth->execute(array('number'=> $newnumber, 'name' => $newname, 'TypeEspece' => $type, 'zone' => $zone));
     ?>
 </html>

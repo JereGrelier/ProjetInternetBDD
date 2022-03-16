@@ -7,7 +7,7 @@
             /* ... on récupère un tableau stockant le résultat */
                 $choices = $res->fetchAll();
                 foreach($choices as $choice) {
-                echo '<option value="'.$choice['idType'].'">'.$choice['nomType'].'</option>';
+                echo '<option value="'.$choice['IdType'].'">'.$choice['NomType'].'</option>';
                 }
                 /*liberation de l'objet requete:*/
             //$choices->closeCursor();
