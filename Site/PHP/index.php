@@ -2,6 +2,7 @@
 <html>
  <head>
  <link rel="stylesheet" href="css/monsite.css" />
+ <script src="js/nav.js"></script> 
  <meta charset="utf-8"/>
   <title>Liste des espèces</title>
  </head>
@@ -18,6 +19,8 @@
         <th>Type</th>
         <!-- <th>Evolution</th> -->
         <th>Zone</th>
+        <th>Image</th>
+        <th colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";
@@ -32,13 +35,24 @@
                 echo '<td>'.$esp['NomType'].'</td>';
                 //echo '<td>'.$esp['evolution'].'</td>';
                 echo '<td>'.$esp['NomZone'].'</td>';
-                echo '</tr>'."\n";
+                echo '<td> <img src="'.$esp['Sprite'].'"/></td>';
+                echo '<td><form method="post" action="edit.php">
+                      <input type="submit" name="action" value="Editer"/>
+                      <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
+                    </form></td>';
+                echo '<td><form method="post" action="delete.php">
+                      <input type="submit" name="action" value="Supprimer"/>
+                      <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
+                      <input type="hidden" name="table" value="ESPECE"/>
+                      <input type="hidden" name="tableId" value="Numero"/>
+                    </form></td>';
                 }
                 /*liberation de l'objet requete:*/
             $res->closeCursor();
             /*fermeture de la connexion avec la base*/
             $dbh = null;
         ?>
+      <td id='sprite'></td>
       </table>
       <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter une espèce</button>
    </div>

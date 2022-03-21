@@ -8,12 +8,13 @@
  <body>
  <?php include "topnav.php" ?>
     <div class="listeEspece">
-    <h2>Liste des zones</h2>
+    <h2>Liste des types</h2>
         <?php
         include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
         <table>
           <tr>
         <th>Nom</th>
+        <th colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from TYPE order by TYPE.IdType asc";
@@ -24,6 +25,16 @@
                 //echo print_r($espece);
                 foreach($zones as $zone) {
                 echo '<td>'.$zone['NomType'].'</td>';
+                echo '<td><form method="post" action="edit.php">
+                      <input type="submit" name="action" value="Editer"/>
+                      <input type="hidden" name="id" value="'.$zone['IdType'].'"/>
+                    </form></td>';
+                echo '<td><form method="post" action="delete.php">
+                      <input type="submit" name="action" value="Supprimer"/>
+                      <input type="hidden" name="id" value="'.$zone['IdType'].'"/>
+                      <input type="hidden" name="table" value="TYPE"/>
+                      <input type="hidden" name="tableId" value="IdType"/>
+                    </form></td>';
                 echo '</tr>'."\n";
                 }
                 /*liberation de l'objet requete:*/

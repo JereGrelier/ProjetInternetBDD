@@ -15,7 +15,8 @@
     $newname = $_REQUEST['name'];
     $zone = intval($_REQUEST['zone']);
     $type = intval($_REQUEST['type']);
-    $sql = 'insert into ESPECE (numero, nomEspece, TypeEspece) values (:number, :name, :TypeEspece); insert into HABITAT(numEspece, IdZone) values(:number, :zone)';
+    $sprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'.intval($_REQUEST['number']).'.png';
+    $sql = 'insert into ESPECE (numero, nomEspece, TypeEspece , Sprite) values (:number, :name, :TypeEspece); insert into HABITAT(numEspece, IdZone) values(:number, :zone)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('number'=> $newnumber, 'name' => $newname, 'TypeEspece' => $type, 'zone' => $zone));
     ?>
