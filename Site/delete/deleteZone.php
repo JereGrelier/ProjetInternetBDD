@@ -15,7 +15,7 @@
     $sql = 'delete from ZONE where IdZone = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>Zone '.$name. 'successfully removed from the base</h2>');
+        echo ('<h2>Zone '.$name. ' successfully removed from the base</h2>');
      } else {
         echo('Error');
      }
