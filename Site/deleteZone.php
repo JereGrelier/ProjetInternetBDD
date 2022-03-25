@@ -3,11 +3,9 @@
 <?php
     include 'connect.php';
     $id = intval($_REQUEST['id']);
-    $table = $_REQUEST['table'];
-    $tableId = $_REQUEST['tableId'];
-    $sql = 'delete from ? where ? = ? ';
+    $sql = 'delete from ZONE where ZoneId = ? ';
     $sth = $dbh->prepare($sql);
-    if ($sth->execute(array($table, $tableId, $id))) { 
+    if ($sth->execute(array($id))) { 
         echo ('Success');
      } else {
         echo('Error');
