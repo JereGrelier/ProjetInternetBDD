@@ -25,8 +25,8 @@
         <th colespan="2">Actions</th>
           </tr>
         <?php
-          $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, OBJET, ATTAQUE, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche & MOVESET.MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque
-          MONSTROPOCHE.NumEspece = ESPECE.Numero & MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire & MONSTROPOCHE.IdObjet = OBJET.IdObjet order by MONSTROPOCHE.IdMonstropoche asc";
+          $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, OBJET, ATTAQUE, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND MOVESET.MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque AND
+          MONSTROPOCHE.NumEspece = ESPECE.Numero AND MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire AND MONSTROPOCHE.IdObjet = OBJET.IdObjet order by MONSTROPOCHE.IdMonstropoche asc";
           /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
