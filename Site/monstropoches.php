@@ -33,6 +33,14 @@
                 //echo print_r($espece);
                 foreach($monstropoches as $monstropoche) {
                 echo '<td>'.$monstropoche['Surnom'].'</td>';
+                echo '<td>'.$monstropoche['Etat'].'</td>';
+                echo '<td>'.$monstropoche['PV'].'</td>';
+                echo '<td>'.$monstropoche['PE'].'</td>';
+                echo '<td>'.$monstropoche['Genre'].'</td>';
+                echo '<td>'.$monstropoche['NumEspece'].'</td>';
+                echo '<td>'.$monstropoche[''].'</td>';
+                echo '<td>'.$monstropoche['IdObjet'].'</td>';
+                echo '<td>'.$monstropoche['IdProprietaire'].'</td>';
                 echo '<td><form method="post" action="edit.php">
                       <input type="submit" name="action" value="Editer"/>
                       <input type="hidden" name="id" value="'.$monstropoche['IdType'].'"/>
