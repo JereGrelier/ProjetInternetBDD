@@ -9,7 +9,7 @@
  <body>
  <?php include "topnav.php" ?>
     <div class="listeEspece">
-    <h2>Liste des espèces de monstropochetrons (MaQueueDonald)</h2>
+    <h2>Liste des espèces de monstropochetrons</h2>
         <?php
         include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
         <table>
@@ -20,7 +20,7 @@
         <!-- <th>Evolution</th> -->
         <th>Zone</th>
         <th>Image</th>
-        <th colspan="2">Actons</th>
+        <th colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";
