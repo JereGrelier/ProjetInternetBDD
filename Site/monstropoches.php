@@ -63,8 +63,7 @@
         <option value="Femelle">Femelle</option>
         <option value="Femelle">Binaire</option>
         <option value="Femelle">Non binaire</option>
-        </select>
-        </label>
+        </select> <br> </label>
         <label>Espèce : <select name="Species" id="Species">
         <option value="">--Choisissez--</option>
         <?php include "searchEspece.php" ?>
