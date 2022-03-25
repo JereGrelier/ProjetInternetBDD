@@ -56,7 +56,7 @@
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
       <form action="./add-monstropoche.php" method="post">
-        <label>Surnom : <input type="text" id="nickname" name="nickname" required><br></label>
+        <label>Surnom : <input type="text" id="Nickname" name="Nickname" required><br></label>
         <label>PV : <input type="number" id="HP" name="HP" min=1 max="100" required><br></label>
         <label>Genre : <select name="Gender" id="Gender">
         <option value="">--Choisissez--</option>
