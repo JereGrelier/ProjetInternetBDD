@@ -16,7 +16,7 @@
     $EXP = intval('0');
     $HP = intval($_REQUEST['HP']);
     $gender = $_REQUEST['Gender'];
-    $species = $_REQUEST['Species'];
+    $species = intval($_REQUEST['Species']);
     $object = intval($_REQUEST['Object']);
     $attack = intval($_REQUEST['Attack']);
     $owner = intval($_REQUEST['Owner']);
