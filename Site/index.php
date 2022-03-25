@@ -20,7 +20,7 @@
         <!-- <th>Evolution</th> -->
         <th>Zone</th>
         <th>Image</th>
-        <th colspan="2">Actons</th>
+        <th colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";
