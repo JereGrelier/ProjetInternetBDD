@@ -44,11 +44,11 @@
                 echo '<td>'.$monstropoche['NomProprietaire'].'</td>';
                 echo '<td><form method="post" action="edit.php">
                       <input type="submit" name="action" value="Editer"/>
-                      <input type="hidden" name="id" value="'.$monstropoche['MONSTROPOCHE.IdMonstropoche'].'"/>
+                      <input type="hidden" name="id" value="'.$monstropoche['IdMonstropoche'].'"/>
                     </form></td>';
                 echo '<td><form method="post" action="delete.php">
                       <input type="submit" name="action" value="Supprimer"/>
-                      <input type="hidden" name="id" value="'.$monstropoche['MONSTROPOCHE.IdMonstropoche'].'"/>
+                      <input type="hidden" name="id" value="'.$monstropoche['IdMonstropoche'].'"/>
                       <input type="hidden" name="table" value="TYPE"/>
                       <input type="hidden" name="tableId" value="IdType"/>
                     </form></td>';
