@@ -15,7 +15,7 @@
     $sql = 'delete from PROPRIETAIRE where IdProprietaire = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>Type '.$name. ' successfully removed from the base</h2>');
+        echo ('<h2>'.$name. ' successfully removed from the owners</h2>');
      } else {
         echo('Error');
      }
