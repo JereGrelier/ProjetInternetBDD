@@ -1,7 +1,7 @@
 
 <html>
  <head>
- <link rel="stylesheet" href="css/monsite.css" />
+ <link rel="stylesheet" href="../css/monsite.css" />
  <title>Deleting zone</title>
  <script>
     setTimeout(function(){location.href="../zones.php"} , 1000);
