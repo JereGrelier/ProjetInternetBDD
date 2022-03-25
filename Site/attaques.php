@@ -38,7 +38,7 @@
                 echo '<td><form method="post" action="./delete/deleteAttaque.php">
                       <input type="submit" name="action" value="Supprimer"/>
                       <input type="hidden" name="id" value="'.$att['IdAttaque'].'"/>
-                      <input type="hidden" name="id" value="'.$esp['NomAttaque'].'"/>
+                      <input type="hidden" name="id" value="'.$att['NomAttaque'].'"/>
                     </form></td>';
                 echo '</tr>'."\n";
                 }
