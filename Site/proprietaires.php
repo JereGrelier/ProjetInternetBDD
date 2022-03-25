@@ -31,7 +31,7 @@
                       <input type="submit" name="action" value="Editer"/>
                       <input type="hidden" name="id" value="'.$zone['IdProprietaire'].'"/>
                     </form></td>';
-                echo '<td><form method="post" action="./delete/deleteType.php">
+                echo '<td><form method="post" action="./delete/deleteProprietaire.php">
                       <input type="submit" name="action" value="Supprimer"/>
                       <input type="hidden" name="id" value="'.$zone['IdProprietaire'].'"/>
                       <input type="hidden" name="name" value="'.$zone['NomProprietaire'].'"/>
