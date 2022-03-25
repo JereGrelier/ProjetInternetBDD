@@ -26,7 +26,7 @@
                 //echo print_r($espece);
                 foreach($zones as $zone) {
                 echo '<td>'.$zone['NomProprietaire'].'</td>';
-                echo '<td>'.$zone['IsJouable'] == 1 ?? "✓" , "X".'</td>';
+                echo '<td>'.$zone['IsJouable'] == 1 ? "✓" : "X".'</td>';
                 echo '<td><form method="post" action="edit.php">
                       <input type="submit" name="action" value="Editer"/>
                       <input type="hidden" name="id" value="'.$zone['IdProprietaire'].'"/>
