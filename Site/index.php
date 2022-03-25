@@ -9,7 +9,7 @@
  <body>
  <?php include "topnav.php" ?>
     <div class="listeEspece">
-    <h2>Liste des espèces de monstropochetrons</h2>
+    <h2>Liste des espèces de monstropochetrons test</h2>
         <?php
         include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
         <table>
