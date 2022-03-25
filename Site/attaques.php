@@ -17,7 +17,7 @@
         <th>Type</th>
         <th>Puissance</th>
         <th>Précision</th>
-        <th colspan="2">Actions</th>
+        <th id="right" colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from ATTAQUE, TYPE where ATTAQUE.TypeAttaque = TYPE.idType order by ATTAQUE.nomAttaque asc";

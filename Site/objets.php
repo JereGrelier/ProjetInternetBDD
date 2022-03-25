@@ -16,7 +16,7 @@
         <th>Nom</th>
         <th>Unique</th>
         <th>Bonus de puissance</th>
-        <th colspan="2">Actions</th>
+        <th id="right" colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from OBJET order by OBJET.IdObjet asc";

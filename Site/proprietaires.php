@@ -15,7 +15,7 @@
           <tr>
         <th>Nom</th>
         <th>Jouable</th>
-        <th colspan="2">Actions</th>
+        <th id="right" colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from PROPRIETAIRE order by PROPRIETAIRE.IdProprietaire asc";

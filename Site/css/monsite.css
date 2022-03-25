@@ -43,7 +43,7 @@ body {
     text-align: center;
     scroll-behavior: smooth;
     background-repeat: no-repeat;
-    background-size: 100%;
+    background-size: cover;
 }
 
 .box {
@@ -119,7 +119,18 @@ hr.rounded {
     background-color: white;
     margin: 0 auto;
     font-size: x-large;
+    border-bottom-right-radius:0 ;
+    border-top-right-radius: 0;
   }
+
+  
+  #right {
+    border-radius: 5%;
+    border-right-width: 13px;
+    border-right-style: solid;
+    border-color: #b9b9b9;
+  }
+
   
   .headerListEspece{
       border-bottom: 1px solid #bdb7b2;

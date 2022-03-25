@@ -22,7 +22,7 @@
         <th>Attaque</th>
         <th>Objet</th>
         <th>Propriétaire</th>
-        <th colespan="2">Actions</th>
+        <th id="right" colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, OBJET, ATTAQUE, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque AND
