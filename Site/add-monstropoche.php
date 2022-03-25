@@ -20,7 +20,7 @@
     $object = intval($_REQUEST['Object']);
     $attack = intval($_REQUEST['Attack']);
     $owner = intval($_REQUEST['Owner']);
-    $sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, espece, objet, attaque, proprietaire) values (:surnom, :etat, :pe, :pv, :genre, :espece, :objet, :proprietaire);';
+    $sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, espece, objet, attaque, proprietaire) values (:surnom, :etat, :pe, :pv, :genre, :espece, :objet, :attaque, :proprietaire);';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('surnom'=> $newnickame, 'etat' => $state, 'pe' => $EXP, 'pv' => $HP, 'genre' => $gender, 'espece' => $species, 'objet' => $object, 'attaque' => $attack, 'proprietaire' => $owner));
     ?>
