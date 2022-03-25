@@ -25,7 +25,8 @@
         <th colespan="2">Actions</th>
           </tr>
         <?php
-          $requete = "select * from MONSTROPOCHE order by MONSTROPOCHE.IdMonstropoche asc";
+          $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, OBJET, ATTAQUE, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche & MOVESET.MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque
+          MONSTROPOCHE.NumEspece = ESPECE.Numero & MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire & MONSTROPOCHE.IdObjet = OBJET.IdObjet order by MONSTROPOCHE.IdMonstropoche asc";
           /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
@@ -37,17 +38,17 @@
                 echo '<td>'.$monstropoche['PV'].'</td>';
                 echo '<td>'.$monstropoche['PE'].'</td>';
                 echo '<td>'.$monstropoche['Genre'].'</td>';
-                echo '<td>'.$monstropoche['NumEspece'].'</td>';
-                echo '<td>'.$monstropoche[''].'</td>';
-                echo '<td>'.$monstropoche['IdObjet'].'</td>';
-                echo '<td>'.$monstropoche['IdProprietaire'].'</td>';
+                echo '<td>'.$monstropoche['ESPECE.NomEspece'].'</td>';
+                echo '<td>'.$monstropoche['ATTAQUE.NomAttaque'].'</td>';
+                echo '<td>'.$monstropoche['OBJET.NomObjet'].'</td>';
+                echo '<td>'.$monstropoche['PROPRIETAIRE.NomProprietaire'].'</td>';
                 echo '<td><form method="post" action="edit.php">
                       <input type="submit" name="action" value="Editer"/>
-                      <input type="hidden" name="id" value="'.$monstropoche['IdMonstropoche'].'"/>
+                      <input type="hidden" name="id" value="'.$monstropoche['MONSTROPOCHE.IdMonstropoche'].'"/>
                     </form></td>';
                 echo '<td><form method="post" action="delete.php">
                       <input type="submit" name="action" value="Supprimer"/>
-                      <input type="hidden" name="id" value="'.$monstropoche['IdMonstropoche'].'"/>
+                      <input type="hidden" name="id" value="'.$monstropoche['MONSTROPOCHE.IdMonstropoche'].'"/>
                       <input type="hidden" name="table" value="TYPE"/>
                       <input type="hidden" name="tableId" value="IdType"/>
                     </form></td>';
