@@ -12,12 +12,15 @@
 <?php 
     include 'connect.php';
     $newnickame = $_REQUEST['nickname'];
+    $state = 'Repos';
+    $EXP = intval('0');
     $HP = intval($_REQUEST['HP']);
     $gender = $_REQUEST['gender'];
+    $species = $_REQUEST['species'];
     $object = intval($_REQUEST['object']);
     $owner = intval($_REQUEST['owner']);
-    $sql = 'insert into MONSTROPOCHE (surnom, pv , genre, ) values (:number, :name, :TypeEspece); insert into HABITAT(numEspece, IdZone) values(:number, :zone)';
+    $sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, espece, objet, proprietaire) values (:surnom, :etat, :pe, :pv, :genre, :espece, :objet, :proprietaire); insert into HABITAT(numEspece, IdZone) values(:number, :zone)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute(array('number'=> $newnumber, 'name' => $newname, 'TypeEspece' => $type, 'zone' => $zone));
+    $sth->execute(array('surnom'=> $newnickame, 'etat' => $state, 'pe' => $EXP 'pv' => $HP, 'genre' => $gender, 'espece' => $species, 'objet' => $object, 'proprietaire' => $owner));
     ?>
 </html>

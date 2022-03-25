@@ -18,7 +18,8 @@
         <th>PV</th>
         <th>PE</th>
         <th>Genre</th>
-        <th>N°espèce</th>
+        <th>Espèce</th>
+        <th>Attaques</th>
         <th>Objet</th>
         <th>Propriétaire</th>
         <th colespan="2">Actions</th>
