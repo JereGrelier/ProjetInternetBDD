@@ -32,7 +32,7 @@
                 echo '<td><form method="post" action="./delete/deleteType.php">
                       <input type="submit" name="action" value="Supprimer"/>
                       <input type="hidden" name="id" value="'.$zone['IdType'].'"/>
-                      <input type="hidden" name="name" value="'.$zone['nomType'].'"/>
+                      <input type="hidden" name="name" value="'.$zone['NomType'].'"/>
                     </form></td>';
                 echo '</tr>'."\n";
                 }
