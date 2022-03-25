@@ -19,7 +19,7 @@
         <th>PE</th>
         <th>Genre</th>
         <th>Espèce</th>
-        <th>Attaques</th>
+        <th>Attaque</th>
         <th>Objet</th>
         <th>Propriétaire</th>
         <th colespan="2">Actions</th>
@@ -57,7 +57,7 @@
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
       <form action="./add-monstropoche.php" method="post">
         <label>Surnom : <input type="text" id="nickname" name="nickname" required><br></label>
-        <label>PV : <input type="number" id="HP" name="HP" required><br></label>
+        <label>PV : <input type="number" id="HP" name="HP" min=1 step="100" required><br></label>
         <label>Genre : <select name="Gender" id="Gender">
         <option value="">--Choisissez--</option>
         <option value="Male">Mâle</option>
@@ -68,6 +68,10 @@
         <label>Espèce : <select name="Species" id="Species">
         <option value="">--Choisissez--</option>
         <?php include "searchEspece.php" ?>
+        </select> <br></label>
+        <label>Attaque : <select name="Attack" id="Attack">
+        <option value="">--Choisissez--</option>
+        <?php include "searchAttaque.php" ?>
         </select> <br></label>
         <label>Objet : <select name="Object" id="Object">
         <option value="">--Choisissez--</option>

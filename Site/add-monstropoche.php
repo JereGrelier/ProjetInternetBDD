@@ -18,9 +18,10 @@
     $gender = $_REQUEST['gender'];
     $species = $_REQUEST['species'];
     $object = intval($_REQUEST['object']);
+    $attack = intval($_REQUEST['attack']);
     $owner = intval($_REQUEST['owner']);
-    $sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, espece, objet, proprietaire) values (:surnom, :etat, :pe, :pv, :genre, :espece, :objet, :proprietaire); insert into HABITAT(numEspece, IdZone) values(:number, :zone)';
+    $sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, espece, objet, attaque, proprietaire) values (:surnom, :etat, :pe, :pv, :genre, :espece, :objet, :proprietaire); insert into HABITAT(numEspece, IdZone) values(:number, :zone)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute(array('surnom'=> $newnickame, 'etat' => $state, 'pe' => $EXP 'pv' => $HP, 'genre' => $gender, 'espece' => $species, 'objet' => $object, 'proprietaire' => $owner));
+    $sth->execute(array('surnom'=> $newnickame, 'etat' => $state, 'pe' => $EXP, 'pv' => $HP, 'genre' => $gender, 'espece' => $species, 'objet' => $object, 'attaque' => $attack, 'proprietaire' => $owner));
     ?>
 </html>
