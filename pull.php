@@ -29,14 +29,6 @@ $allowed_ips = array(
 );
 $allowed = false;
 
-$headers = apache_request_headers();
-
-if (@$headers["X-Forwarded-For"]) {
-    $ips = explode(",",$headers["X-Forwarded-For"]);
-    $ip  = $ips[0];
-} else {
-    $ip = $_SERVER['REMOTE_ADDR'];
-}
 
 foreach ($allowed_ips as $allow) {
     if (stripos($ip, $allow) !== false) {
