@@ -9,7 +9,7 @@
  </head>
  <body>
 <?php
-    include 'connect.php';
+    include '../connect.php';
     $id = intval($_REQUEST['id']);
     $name =$_REQUEST['name'];
     $sql = 'delete from ATTAQUE where IdAttaque = ? ';
