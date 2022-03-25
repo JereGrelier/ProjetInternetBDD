@@ -3,7 +3,7 @@
 <title>Redirection en HTML</title>
 
 <script>
-    setTimeout(function(){location.href="/"} , 500);
+    setTimeout(function(){location.href="./"} , 500);
 </script>
 </head>
 

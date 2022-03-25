@@ -53,7 +53,7 @@
    </div>
     <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une attaque</h1>
-      <form action="add-attaque.php" method="post">
+      <form action="./add-attaque.php" method="post">
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Type : <select name="type" id="type">
         <option value="">--Choisissez--</option>

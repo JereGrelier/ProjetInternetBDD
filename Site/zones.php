@@ -14,6 +14,7 @@
         <table>
           <tr>
         <th>Nom</th>
+        <th colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from ZONE order by ZONE.IdZone asc";
@@ -24,6 +25,16 @@
                 //echo print_r($espece);
                 foreach($zones as $zone) {
                 echo '<td>'.$zone['NomZone'].'</td>';
+                echo '<td><form method="post" action="edit.php">
+                      <input type="submit" name="action" value="Editer"/>
+                      <input type="hidden" name="id" value="'.$zone['IdZone'].'"/>
+                    </form></td>';
+                echo '<td><form method="post" action="delete.php">
+                      <input type="submit" name="action" value="Supprimer"/>
+                      <input type="hidden" name="id" value="'.$zone['IdZone'].'"/>
+                      <input type="hidden" name="table" value="ZONE"/>
+                      <input type="hidden" name="tableId" value="IdZone"/>
+                    </form></td>';
                 echo '</tr>'."\n";
                 }
                 /*liberation de l'objet requete:*/
@@ -36,7 +47,7 @@
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Zone</h1>
-      <form action="add-zone.php" method="post">
+      <form action="./add-zone.php" method="post">
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <input type="submit" value="valider">
       </form>
