@@ -55,21 +55,24 @@
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
       <form action="./add-monstropoche.php" method="post">
-        <label>Surnom : <input type="text" id="name" name="name" required><br></label>
-        <label>PV : <input type="number" id="name" name="name" required><br></label>
-        <label>Genre : <select name="zone" id="zone">
+        <label>Surnom : <input type="text" id="nickname" name="nickname" required><br></label>
+        <label>PV : <input type="number" id="HP" name="HP" required><br></label>
+        <label>Genre : <select name="Gender" id="Gender">
         <option value="">--Choisissez--</option>
         <option value="Male">Mâle</option>
         <option value="Femelle">Femelle</option>
         <option value="Femelle">Binaire</option>
         <option value="Femelle">Non binaire</option>
         </label>
-        <label>Objet : <select name="zone" id="zone">
+        <label>Espèce : <select name="Species" id="Species">
+        <option value="">--Choisissez--</option>
+        <?php include "searchEspece.php" ?>
+        </select> <br></label>
+        <label>Objet : <select name="Object" id="Object">
         <option value="">--Choisissez--</option>
         <?php include "searchObjet.php" ?>
         </select> <br></label>
-        <input type="submit" value="valider">
-        <label>Propriétaire : <select name="zone" id="zone">
+        <label>Propriétaire : <select name="Owner" id="Owner">
         <option value="">--Choisissez--</option>
         <?php include "searchProprietaire.php" ?>
         </select> <br></label>
