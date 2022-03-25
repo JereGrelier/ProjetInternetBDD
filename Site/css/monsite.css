@@ -12,6 +12,10 @@ a {
     color: #999999;
     text-decoration: none;
 }
+
+h2 {
+  color: white;
+}
  .bigger {
     margin: 0 auto;
     width: 90px;
@@ -29,7 +33,7 @@ a {
 }
 
 body {
-    background-color: #e5ded8;
+    background-image: url('../assets/background.jpg');
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     position: relative;
     align-content: center;
@@ -37,6 +41,8 @@ body {
     justify-content: center;
     text-align: center;
     scroll-behavior: smooth;
+    background-repeat: no-repeat;
+    background-size: 100%;
 }
 
 .box {
@@ -171,16 +177,18 @@ hr.rounded {
     margin: 0 auto;
     font-size: x-large;
   }
+  
+  .headerListEspece{
+      border-bottom: 1px solid #bdb7b2;
+      background: #b9b9b9;
+    }
 
-  .listeEspece td {
+  .listeEspece tr {
     padding-bottom: 1%;
     border-bottom: 1px solid #bdb7b2;
   }
 
-  .listeEspece th {
-      padding: 1em;
-      background: #bdb7b2;
-  }
+  
 
   .ModalAddSpecies {
     display: grid;
@@ -202,7 +210,7 @@ hr.rounded {
   z-index: 1;
   top: 0;
   left: -250px;
-  background-color: #e8e8e8;
+  background-image: url("../assets/BackgroundMewnu.png");
   padding-top: 60px;
   transition: left 0.5s ease;
 }
@@ -212,7 +220,7 @@ hr.rounded {
   padding: 8px 8px 8px 32px;
   text-decoration: none;
   font-size: 25px;
-  color: #818181;
+  color: white;
   display: block;
   transition: 0.3s;
 }
@@ -236,15 +244,27 @@ hr.rounded {
 .sidenav .close {
   position: absolute;
   top: 0;
-  right: 25px;
-  font-size: 36px;
+  left: 218px;
 }
 
 /* Icône burger */
-.burger-icon span {
-  display: block;
-  width: 35px;
-  height: 5px;
-  background-color: black;
-  margin: 6px 0;
+#MewHidden {
+  position: fixed;
+  height: 100px;
+  width: 100px;
+  z-index: 1;
+  visibility: hidden;
+}
+
+.MewShown {
+  position: sticky;
+  height: 100px;
+  width: 100px;
+  z-index: 1;
+  border-top-left-radius: 0;
+  border-bottom-left-radius:0;
+}
+
+footer {
+  color: white;
 }
