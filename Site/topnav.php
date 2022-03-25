@@ -6,9 +6,12 @@
         <h1> Menu</h1>
         <ul style="text-align:left;">
             <li><a href="./">Liste des espèces</a></li>
-            <li><a href="./attaque.php">Liste des attaques</a></li>
+            <li><a href="./attaques.php">Liste des attaques</a></li>
             <li><a href="./zones.php">Liste des zones</a></li>
             <li><a href="./types.php">Liste des types</a></li>
+            <li><a href="./monstropoches.php">Liste des monstropoches</a></li>
+            <li><a href="./objets.php">Liste des objets</a></li>
+            <li><a href="./proprietaires.php">Liste des propriétaires</a></li>
         </ul>
         </div>
         <a href="#" id="menuBouton">
