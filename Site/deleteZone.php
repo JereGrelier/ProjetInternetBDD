@@ -7,6 +7,7 @@
     setTimeout(function(){location.href="./zones.php"} , 500);
 </script>
  </head>
+ <body>
 <?php
     include 'connect.php';
     $id = intval($_REQUEST['id']);
@@ -19,3 +20,5 @@
         echo('Error');
      }
     ?>
+    </body>
+</html>
