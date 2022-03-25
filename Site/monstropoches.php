@@ -54,8 +54,25 @@
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
-      <form action="./add-type.php" method="post">
-        <label>Nom : <input type="text" id="name" name="name" required><br></label>
+      <form action="./add-monstropoche.php" method="post">
+        <label>Surnom : <input type="text" id="name" name="name" required><br></label>
+        <label>PV : <input type="number" id="name" name="name" required><br></label>
+        <label>Genre : <select name="zone" id="zone">
+        <option value="">--Choisissez--</option>
+        <option value="Male">Mâle</option>
+        <option value="Femelle">Femelle</option>
+        <option value="Femelle">Binaire</option>
+        <option value="Femelle">Non binaire</option>
+        </label>
+        <label>Objet : <select name="zone" id="zone">
+        <option value="">--Choisissez--</option>
+        <?php include "searchObjet.php" ?>
+        </select> <br></label>
+        <input type="submit" value="valider">
+        <label>Propriétaire : <select name="zone" id="zone">
+        <option value="">--Choisissez--</option>
+        <?php include "searchProprietaire.php" ?>
+        </select> <br></label>
         <input type="submit" value="valider">
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
