@@ -57,7 +57,7 @@
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
       <form action="./add-monstropoche.php" method="post">
         <label>Surnom : <input type="text" id="nickname" name="nickname" required><br></label>
-        <label>PV : <input type="number" id="HP" name="HP" min=1 step="100" required><br></label>
+        <label>PV : <input type="number" id="HP" name="HP" min=1 max="100" required><br></label>
         <label>Genre : <select name="Gender" id="Gender">
         <option value="">--Choisissez--</option>
         <option value="Male">Mâle</option>
