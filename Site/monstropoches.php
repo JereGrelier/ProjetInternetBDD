@@ -38,10 +38,10 @@
                 echo '<td>'.$monstropoche['PV'].'</td>';
                 echo '<td>'.$monstropoche['PE'].'</td>';
                 echo '<td>'.$monstropoche['Genre'].'</td>';
-                echo '<td>'.$monstropoche['ESPECE.NomEspece'].'</td>';
-                echo '<td>'.$monstropoche['ATTAQUE.NomAttaque'].'</td>';
-                echo '<td>'.$monstropoche['OBJET.NomObjet'].'</td>';
-                echo '<td>'.$monstropoche['PROPRIETAIRE.NomProprietaire'].'</td>';
+                echo '<td>'.$monstropoche['NomEspece'].'</td>';
+                echo '<td>'.$monstropoche['NomAttaque'].'</td>';
+                echo '<td>'.$monstropoche['NomObjet'].'</td>';
+                echo '<td>'.$monstropoche['NomProprietaire'].'</td>';
                 echo '<td><form method="post" action="edit.php">
                       <input type="submit" name="action" value="Editer"/>
                       <input type="hidden" name="id" value="'.$monstropoche['MONSTROPOCHE.IdMonstropoche'].'"/>
