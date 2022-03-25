@@ -4,7 +4,7 @@
  <link rel="stylesheet" href="css/monsite.css" />
  <title>Deleting zone</title>
  <script>
-    setTimeout(function(){location.href="./zones.php"} , 1000);
+    setTimeout(function(){location.href="../types.php"} , 1000);
 </script>
  </head>
  <body>
@@ -12,10 +12,10 @@
     include 'connect.php';
     $id = intval($_REQUEST['id']);
     $name =$_REQUEST['name'];
-    $sql = 'delete from ZONE where IdZone = ? ';
+    $sql = 'delete from TYPE where IdType = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h1>Zone '.$name. 'successfully removed from the base</h1>');
+        echo ('<h2>Type '.$name. 'successfully removed from the base</h2>');
      } else {
         echo('Error');
      }

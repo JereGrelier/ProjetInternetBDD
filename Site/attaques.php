@@ -35,11 +35,10 @@
                       <input type="submit" name="action" value="Editer"/>
                       <input type="hidden" name="id" value="'.$att['IdAttaque'].'"/>
                     </form></td>';
-                echo '<td><form method="post" action="delete.php">
+                echo '<td><form method="post" action="./delete/deleteAttaque.php">
                       <input type="submit" name="action" value="Supprimer"/>
                       <input type="hidden" name="id" value="'.$att['IdAttaque'].'"/>
-                      <input type="hidden" name="table" value="ATTAQUE"/>
-                      <input type="hidden" name="tableId" value="IdAttaque"/>
+                      <input type="hidden" name="id" value="'.$esp['NomAttaque'].'"/>
                     </form></td>';
                 echo '</tr>'."\n";
                 }

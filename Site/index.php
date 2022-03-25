@@ -40,11 +40,10 @@
                       <input type="submit" name="action" value="Editer"/>
                       <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
                     </form></td>';
-                echo '<td><form method="post" action="delete.php">
+                echo '<td><form method="post" action="./delete/deleteEspece.php">
                       <input type="submit" name="action" value="Supprimer"/>
                       <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
-                      <input type="hidden" name="table" value="ESPECE"/>
-                      <input type="hidden" name="tableId" value="Numero"/>
+                      <input type="hidden" name="name" value="'.$esp['NomEspece'].'"/>
                     </form></td>';
                 }
                 /*liberation de l'objet requete:*/
