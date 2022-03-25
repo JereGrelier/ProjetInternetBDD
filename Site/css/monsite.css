@@ -251,6 +251,15 @@ hr.rounded {
   left: 218px;
 }
 
+/* Icône burger */
+#MewHidden {
+  position: fixed;
+  height: 100px;
+  width: 100px;
+  z-index: 1;
+  visibility: hidden;
+}
+
 .MewShown {
   position: sticky;
   height: 100px;
