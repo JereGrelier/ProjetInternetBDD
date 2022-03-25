@@ -53,7 +53,7 @@
       <form action="./add-objet.php" method="post">
         <label>Nom : <input type="text" id="Name" name="Name" required><br></label>
         <label>Bonus de puissance : <input type="number" id="Bonus" name="Bonus" min="0" max="3" step="0.1" required><br></label>
-        <label>Jouable? <input type="checkbox" id="Unique" name="Unique"></label>
+        <label>Unique? <input type="checkbox" id="Unique" name="Unique"></label>
         <input type="submit" value="valider">
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
