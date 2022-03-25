@@ -29,11 +29,9 @@
                       <input type="submit" name="action" value="Editer"/>
                       <input type="hidden" name="id" value="'.$zone['IdZone'].'"/>
                     </form></td>';
-                echo '<td><form method="post" action="delete.php">
+                echo '<td><form method="post" action="deleteZone.php">
                       <input type="submit" name="action" value="Supprimer"/>
                       <input type="hidden" name="id" value="'.$zone['IdZone'].'"/>
-                      <input type="hidden" name="table" value="ZONE"/>
-                      <input type="hidden" name="tableId" value="IdZone"/>
                     </form></td>';
                 echo '</tr>'."\n";
                 }
