@@ -3,7 +3,7 @@
     <footer>
         <?php include 'connect.php'
             ?>
-        Copyright Jeremy Grelier
+        Copyright Jeremy Grelier & Enzo Naudy
     </footer>
 </body>
 </html>

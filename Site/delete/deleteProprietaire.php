@@ -2,7 +2,7 @@
 <html>
  <head>
  <link rel="stylesheet" href="../css/monsite.css" />
- <title>Deleting zone</title>
+ <title>Deleting owner</title>
  <script>
     setTimeout(function(){location.href="../proprietaires.php"} , 1000);
 </script>

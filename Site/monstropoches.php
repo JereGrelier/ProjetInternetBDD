@@ -22,7 +22,7 @@
         <th>Attaque</th>
         <th>Objet</th>
         <th>Propriétaire</th>
-        <th id="right" colspan="2">Actions</th>
+        <th>Actions</th>
           </tr>
         <?php
           $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, OBJET, ATTAQUE, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque AND
@@ -42,12 +42,8 @@
                 echo '<td>'.$monstropoche['NomAttaque'].'</td>';
                 echo '<td>'.$monstropoche['NomObjet'].'</td>';
                 echo '<td>'.$monstropoche['NomProprietaire'].'</td>';
-                echo '<td><form method="post" action="edit.php">
-                      <input type="submit" name="action" value="Editer"/>
-                      <input type="hidden" name="id" value="'.$monstropoche['IdMonstropoche'].'"/>
-                    </form></td>';
                 echo '<td><form method="post" action="delete.php">
-                      <input type="submit" name="action" value="Supprimer"/>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$monstropoche['IdMonstropoche'].'"/>
                       <input type="hidden" name="table" value="TYPE"/>
                       <input type="hidden" name="tableId" value="IdType"/>

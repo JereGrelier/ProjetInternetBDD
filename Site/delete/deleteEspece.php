@@ -4,7 +4,7 @@
  <link rel="stylesheet" href="../css/monsite.css" />
  <title>Deleting zone</title>
  <script>
-    setTimeout(function(){location.href="./zones.php"} , 1000);
+    setTimeout(function(){location.href="../especes.php"} , 1000);
 </script>
  </head>
  <body>
@@ -17,7 +17,7 @@
     if ($sth->execute(array($id))) { 
         echo ('<h2>Espece '.$name. ' successfully removed from the base</h2>');
      } else {
-        echo('Error');
+        echo('<h2>Error</h2>');
      }
     ?>
     </body>

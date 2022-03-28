@@ -17,7 +17,7 @@
         <th>Type</th>
         <th>Puissance</th>
         <th>Précision</th>
-        <th id="right" colspan="2">Actions</th>
+        <th>Actions</th>
           </tr>
         <?php
           $requete = "select * from ATTAQUE, TYPE where ATTAQUE.TypeAttaque = TYPE.idType order by ATTAQUE.nomAttaque asc";
@@ -31,12 +31,8 @@
                 echo '<td>'.$att['NomType'].'</td>';
                 echo '<td>'.$att['Puissance'].'</td>';
                 echo '<td>'.$att['Precision'].'</td>';
-                echo '<td><form method="post" action="edit.php">
-                      <input type="submit" name="action" value="Editer"/>
-                      <input type="hidden" name="id" value="'.$att['IdAttaque'].'"/>
-                    </form></td>';
                 echo '<td><form method="post" action="./delete/deleteAttaque.php">
-                      <input type="submit" name="action" value="Supprimer"/>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$att['IdAttaque'].'"/>
                       <input type="hidden" name="id" value="'.$att['NomAttaque'].'"/>
                     </form></td>';

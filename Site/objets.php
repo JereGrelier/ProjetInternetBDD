@@ -16,7 +16,7 @@
         <th>Nom</th>
         <th>Unique</th>
         <th>Bonus de puissance</th>
-        <th id="right" colspan="2">Actions</th>
+        <th>Actions</th>
           </tr>
         <?php
           $requete = "select * from OBJET order by OBJET.IdObjet asc";
@@ -29,12 +29,8 @@
                 echo '<td>'.$zone['NomObjet'].'</td>';
                 echo '<td>'; ($zone['IsUnique'] == 1) ?  $a='✓' :  $a='X'; echo $a.'</td>';
                 echo '<td>'.$zone['BonusPuissance'].'</td>';
-                echo '<td><form method="post" action="edit.php">
-                      <input type="submit" name="action" value="Editer"/>
-                      <input type="hidden" name="id" value="'.$zone['IdObjet'].'"/>
-                    </form></td>';
                 echo '<td><form method="post" action="./delete/deleteObjet.php">
-                      <input type="submit" name="action" value="Supprimer"/>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$zone['IdObjet'].'"/>
                       <input type="hidden" name="name" value="'.$zone['NomObjet'].'"/>
                     </form></td>';

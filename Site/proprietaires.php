@@ -15,7 +15,7 @@
           <tr>
         <th>Nom</th>
         <th>Jouable</th>
-        <th id="right" colspan="2">Actions</th>
+        <th>Actions</th>
           </tr>
         <?php
           $requete = "select * from PROPRIETAIRE order by PROPRIETAIRE.IdProprietaire asc";
@@ -27,12 +27,8 @@
                 foreach($zones as $zone) {
                 echo '<td>'.$zone['NomProprietaire'].'</td>';
                 echo '<td>'; ($zone['IsJouable'] == 1) ?  $a='✓' :  $a='X'; echo $a.'</td>';
-                echo '<td><form method="post" action="edit.php">
-                      <input type="submit" name="action" value="Editer"/>
-                      <input type="hidden" name="id" value="'.$zone['IdProprietaire'].'"/>
-                    </form></td>';
                 echo '<td><form method="post" action="./delete/deleteProprietaire.php">
-                      <input type="submit" name="action" value="Supprimer"/>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$zone['IdProprietaire'].'"/>
                       <input type="hidden" name="name" value="'.$zone['NomProprietaire'].'"/>
                     </form></td>';
