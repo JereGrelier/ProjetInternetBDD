@@ -57,7 +57,7 @@
                 }
                 if (count($attaques) < 4) {
                   for ($i=0; $i < 4-count($attaques); $i++) { 
-                    echo '<td/>';
+                    echo '<td>-</td>';
                   }
                 }
                 echo '<td>'.$monstropoche['NomObjet'].'</td>';
