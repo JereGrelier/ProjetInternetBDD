@@ -63,14 +63,14 @@
       <form action="./add-monstropoche.php" method="post">
         <label>Surnom : <input type="text" id="Nickname" name="Nickname" required><br></label>
         <label>PV : <input type="number" id="HP" name="HP" min=1 max="100" required><br></label>
-        <label>Genre : <select name="Gender" id="Gender">
+        <label>Genre : <select name="Gender" id="Gender" required>
         <option value="">--Choisissez--</option>
         <option value="Male">Mâle</option>
         <option value="Femelle">Femelle</option>
         <option value="Femelle">Binaire</option>
         <option value="Femelle">Non binaire</option>
         </select> <br> </label>
-        <label>Espèce : <select name="Species" id="Species">
+        <label>Espèce : <select name="Species" id="Species" required>
         <option value="">--Choisissez--</option>
         <?php include "searchEspece.php" ?>
         </select> <br></label>
