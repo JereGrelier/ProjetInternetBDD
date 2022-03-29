@@ -23,7 +23,7 @@
         include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
         <?php
           $requete = "select * from ESPECE, TYPE, MOVESET_ESPECE, ATTAQUE where MOVESET_ESPECE.NumEspece = ".intval($_REQUEST['id'])." and ESPECE.Numero = MOVESET_ESPECE.NumEspece and
-          MOVESET_ESPECE.IdAttaque = ATTAQUE.IdAttaque and ATTAQUE.TypeAttaque = TYPE.IdType ";          /* Si l'execution est reussie... */
+          MOVESET_ESPECE.IdAttaque = ATTAQUE.IdAttaque and ATTAQUE.TypeAttaque = TYPE.IdType order by PE_Requis";          /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
                 $moveset =  $res->fetchAll();
