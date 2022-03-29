@@ -1,8 +1,6 @@
 <?php 
         echo "<script>
-        function GetMoveset() = {
-        var javascriptVar = document.getElementById('Species').value;
-        }
+            var javascriptVar = document.getElementById('Species').value;
         </script>";
         $test = "<script>document.writeln(javascriptVar);</script>";
         include 'connect.php';  
