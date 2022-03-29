@@ -1,6 +1,6 @@
 <?php 
         echo "<script>
-        var javascriptVar = 'success';
+        var javascriptVar = document.getElementById('Species').value;
         </script>";
         $test = "<script>document.writeln(javascriptVar);</script>";
         include 'connect.php';  
