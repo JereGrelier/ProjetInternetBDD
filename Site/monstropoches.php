@@ -64,7 +64,8 @@
                 echo '</tr>'."\n";
                 }
                 /*liberation de l'objet requete:*/
-            $res->closeCursor();
+            $res1->closeCursor();
+            $res2->closeCursor();
             /*fermeture de la connexion avec la base*/
             $dbh = null;
         ?>
