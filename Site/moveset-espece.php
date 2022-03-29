@@ -27,28 +27,26 @@
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
                 $moveset =  $res->fetchAll();
-                print_r($moveset);
                 echo '<h2>Moveset de '.$moveset['nomEspece'].'</h2>';
                 echo '<table>
                 <tr class="headerListEspece">
               <th>Numero</th>
               <th>Nom</th>
               <th>Type</th>
-              <!-- <th>Evolution</th> -->
-              <th>Zone</th>
-              <th>Image</th>
+              <th>Puissance</th>
+              <th>Precision</th>
               <th>Actions</th>
                 </tr>';
                 foreach($moveset as $move) {
-                  print_r($move);
                 echo '<td>'.$move['NomAttaque'].'</td>';
                 //echo '<td>'.$esp['evolution'].'</td>';
                 echo '<td>'.$move['NomType'].'</td>';
-                echo '<td> <img src="'.$move['Sprite'].'"/></td>';
-                echo '<td><form method="post" action="./delete/deleteEspece.php">
+                echo '<td> <img src="'.$move['Puissance'].'"/></td>';
+                echo '<td> <img src="'.$move['Precision'].'"/></td>';
+                echo '<td><form method="post" action="./delete/deleteFromMovesetEspece.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
-                      <input type="hidden" name="name" value="'.$esp['NomEspece'].'"/>
+                      <input type="hidden" name="IdAttaque" value="'.$esp['IdAttaque'].'"/>
+                      <input type="hidden" name="NumEspece" value="'.$esp['Numero'].'"/>
                     </form></td>';
                 }
                 /*liberation de l'objet requete:*/
