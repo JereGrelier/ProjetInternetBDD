@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Client: localhost
--- Généré le: Mer 16 Mars 2022 à 17:52
+-- Généré le: Mar 29 Mars 2022 à 15:32
 -- Version du serveur: 5.5.29-0ubuntu0.12.04.2
 -- Version de PHP: 5.3.10-1ubuntu3.26
 
@@ -34,7 +34,7 @@ CREATE TABLE IF NOT EXISTS `ATTAQUE` (
   `TypeAttaque` int(11) NOT NULL,
   PRIMARY KEY (`IdAttaque`),
   KEY `TypeAttaque` (`TypeAttaque`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=4 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=5 ;
 
 --
 -- Contenu de la table `ATTAQUE`
@@ -43,7 +43,8 @@ CREATE TABLE IF NOT EXISTS `ATTAQUE` (
 INSERT INTO `ATTAQUE` (`IdAttaque`, `NomAttaque`, `Puissance`, `Precision`, `TypeAttaque`) VALUES
 (1, 'Tire-Bouchon', 130, 80, 1),
 (2, 'Pop', 260, 10, 2),
-(3, 'Pi-Rate', 190, 30, 6);
+(3, 'Pi-Rate', 190, 30, 6),
+(4, 'Test', 20, 100, 7);
 
 -- --------------------------------------------------------
 
@@ -69,6 +70,7 @@ CREATE TABLE IF NOT EXISTS `ESPECE` (
   `Numero` int(11) NOT NULL,
   `NomEspece` text NOT NULL,
   `TypeEspece` int(11) NOT NULL,
+  `Sprite` text NOT NULL,
   PRIMARY KEY (`Numero`),
   KEY `TypeEspece` (`TypeEspece`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -77,10 +79,17 @@ CREATE TABLE IF NOT EXISTS `ESPECE` (
 -- Contenu de la table `ESPECE`
 --
 
-INSERT INTO `ESPECE` (`Numero`, `NomEspece`, `TypeEspece`) VALUES
-(4, 'sakÃ©mÃ¨che', 5),
-(5, 'Reptincidre', 5),
-(6, 'dralcoolfeu', 5);
+INSERT INTO `ESPECE` (`Numero`, `NomEspece`, `TypeEspece`, `Sprite`) VALUES
+(1, 'Bulbabshinte', 9, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/1.png'),
+(2, 'Bierebizarre', 9, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/2.png'),
+(3, 'Florizzara', 9, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/3.png'),
+(4, 'sakÃ©mÃ¨che', 5, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/4.png'),
+(5, 'Reptincidre', 5, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/5.png'),
+(6, 'dralcoolfeu', 5, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/6.png'),
+(7, 'Vodkarapuce', 4, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/7.png'),
+(8, 'Carabu', 4, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/8.png'),
+(9, 'Tortrinque', 4, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/9.png'),
+(25, 'Pickequettechu', 6, 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/25.png');
 
 -- --------------------------------------------------------
 
@@ -102,7 +111,14 @@ CREATE TABLE IF NOT EXISTS `HABITAT` (
 INSERT INTO `HABITAT` (`NumEspece`, `IdZone`) VALUES
 (4, 1),
 (5, 1),
-(6, 1);
+(6, 1),
+(25, 3),
+(1, 4),
+(2, 4),
+(3, 4),
+(7, 5),
+(8, 5),
+(9, 5);
 
 -- --------------------------------------------------------
 
@@ -131,13 +147,21 @@ CREATE TABLE IF NOT EXISTS `MONSTROPOCHE` (
   `PE` int(11) NOT NULL,
   `Genre` enum('Mâle','Femelle','Binaire','Non binaire') NOT NULL,
   `NumEspece` int(11) NOT NULL,
-  `IdObjet` int(11) NOT NULL,
-  `IdProprietaire` int(11) NOT NULL,
+  `IdObjet` int(11) DEFAULT NULL,
+  `IdProprietaire` int(11) DEFAULT NULL,
   PRIMARY KEY (`IdMonstropoche`),
   KEY `NumEspece` (`NumEspece`,`IdObjet`,`IdProprietaire`),
   KEY `IdObjet` (`IdObjet`),
   KEY `IdProprietaire` (`IdProprietaire`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=19 ;
+
+--
+-- Contenu de la table `MONSTROPOCHE`
+--
+
+INSERT INTO `MONSTROPOCHE` (`IdMonstropoche`, `Surnom`, `Etat`, `PV`, `PE`, `Genre`, `NumEspece`, `IdObjet`, `IdProprietaire`) VALUES
+(2, 'Bastian H', 'Repos', 10, 0, 'Femelle', 5, 3, 1),
+(5, 'Flora', 'Repos', 33, 0, 'Femelle', 3, 1, 2);
 
 -- --------------------------------------------------------
 
@@ -153,6 +177,14 @@ CREATE TABLE IF NOT EXISTS `MOVESET_ESPECE` (
   KEY `NumEspece` (`NumEspece`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Contenu de la table `MOVESET_ESPECE`
+--
+
+INSERT INTO `MOVESET_ESPECE` (`IdAttaque`, `NumEspece`, `PE_Requis`) VALUES
+(2, 1, 3),
+(4, 1, 25);
+
 -- --------------------------------------------------------
 
 --
@@ -166,6 +198,16 @@ CREATE TABLE IF NOT EXISTS `MOVESET_MONSTROPOCHE` (
   PRIMARY KEY (`IdAttaque`,`IdMonstropoche`),
   KEY `IdMonstropoche` (`IdMonstropoche`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Contenu de la table `MOVESET_MONSTROPOCHE`
+--
+
+INSERT INTO `MOVESET_MONSTROPOCHE` (`IdAttaque`, `IdMonstropoche`, `Position`) VALUES
+(1, 2, '1'),
+(2, 2, '2'),
+(3, 2, '3'),
+(4, 2, '4');
 
 -- --------------------------------------------------------
 
@@ -183,6 +225,14 @@ CREATE TABLE IF NOT EXISTS `MUTATION` (
   KEY `IdPostMutation` (`IdPostMutation`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Contenu de la table `MUTATION`
+--
+
+INSERT INTO `MUTATION` (`IdPreMutation`, `IdPostMutation`, `IdObjet`, `PE_Requis`) VALUES
+(1, 2, NULL, 16),
+(2, 3, NULL, 32);
+
 -- --------------------------------------------------------
 
 --
@@ -195,7 +245,15 @@ CREATE TABLE IF NOT EXISTS `OBJET` (
   `BonusPuissance` float NOT NULL,
   `IsUnique` tinyint(1) NOT NULL,
   PRIMARY KEY (`IdObjet`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=4 ;
+
+--
+-- Contenu de la table `OBJET`
+--
+
+INSERT INTO `OBJET` (`IdObjet`, `NomObjet`, `BonusPuissance`, `IsUnique`) VALUES
+(1, 'Pierre', 1.8, 1),
+(3, 'Choppe', 2.5, 1);
 
 -- --------------------------------------------------------
 
@@ -208,7 +266,15 @@ CREATE TABLE IF NOT EXISTS `PROPRIETAIRE` (
   `NomProprietaire` text NOT NULL,
   `IsJouable` tinyint(1) NOT NULL,
   PRIMARY KEY (`IdProprietaire`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=5 ;
+
+--
+-- Contenu de la table `PROPRIETAIRE`
+--
+
+INSERT INTO `PROPRIETAIRE` (`IdProprietaire`, `NomProprietaire`, `IsJouable`) VALUES
+(1, 'Enzo Naudy', 0),
+(2, 'Jeremy Grelier', 1);
 
 -- --------------------------------------------------------
 
@@ -220,7 +286,7 @@ CREATE TABLE IF NOT EXISTS `TYPE` (
   `IdType` int(11) NOT NULL AUTO_INCREMENT,
   `NomType` text NOT NULL,
   PRIMARY KEY (`IdType`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=10 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=14 ;
 
 --
 -- Contenu de la table `TYPE`
@@ -229,7 +295,6 @@ CREATE TABLE IF NOT EXISTS `TYPE` (
 INSERT INTO `TYPE` (`IdType`, `NomType`) VALUES
 (1, 'Vin rouge'),
 (2, 'Champagne'),
-(3, 'BiÃ¨re'),
 (4, 'Vodka'),
 (5, 'Tequila'),
 (6, 'Rhum'),
@@ -260,7 +325,7 @@ CREATE TABLE IF NOT EXISTS `ZONE` (
   `IdZone` int(11) NOT NULL AUTO_INCREMENT,
   `NomZone` text NOT NULL,
   PRIMARY KEY (`IdZone`)
-) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=6 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8mb4 AUTO_INCREMENT=12 ;
 
 --
 -- Contenu de la table `ZONE`
@@ -271,7 +336,8 @@ INSERT INTO `ZONE` (`IdZone`, `NomZone`) VALUES
 (2, 'Cave a vin'),
 (3, 'Chai'),
 (4, 'Brasserie'),
-(5, 'Pub');
+(5, 'Pub'),
+(6, 'Distillerie');
 
 --
 -- Contraintes pour les tables exportées
@@ -314,9 +380,9 @@ ALTER TABLE `LOCALISATION`
 -- Contraintes pour la table `MONSTROPOCHE`
 --
 ALTER TABLE `MONSTROPOCHE`
-  ADD CONSTRAINT `MONSTROPOCHE_ibfk_3` FOREIGN KEY (`IdProprietaire`) REFERENCES `PROPRIETAIRE` (`IdProprietaire`) ON UPDATE CASCADE,
+  ADD CONSTRAINT `MONSTROPOCHE_ibfk_5` FOREIGN KEY (`IdProprietaire`) REFERENCES `PROPRIETAIRE` (`IdProprietaire`) ON UPDATE NO ACTION,
   ADD CONSTRAINT `MONSTROPOCHE_ibfk_1` FOREIGN KEY (`NumEspece`) REFERENCES `ESPECE` (`Numero`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `MONSTROPOCHE_ibfk_2` FOREIGN KEY (`IdObjet`) REFERENCES `OBJET` (`IdObjet`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `MONSTROPOCHE_ibfk_4` FOREIGN KEY (`IdObjet`) REFERENCES `OBJET` (`IdObjet`) ON UPDATE NO ACTION;
 
 --
 -- Contraintes pour la table `MOVESET_ESPECE`
@@ -336,9 +402,9 @@ ALTER TABLE `MOVESET_MONSTROPOCHE`
 -- Contraintes pour la table `MUTATION`
 --
 ALTER TABLE `MUTATION`
+  ADD CONSTRAINT `MUTATION_ibfk_5` FOREIGN KEY (`IdPostMutation`) REFERENCES `ESPECE` (`Numero`) ON UPDATE CASCADE,
   ADD CONSTRAINT `MUTATION_ibfk_3` FOREIGN KEY (`IdObjet`) REFERENCES `OBJET` (`IdObjet`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `MUTATION_ibfk_1` FOREIGN KEY (`IdPreMutation`) REFERENCES `MONSTROPOCHE` (`IdMonstropoche`) ON UPDATE CASCADE,
-  ADD CONSTRAINT `MUTATION_ibfk_2` FOREIGN KEY (`IdPostMutation`) REFERENCES `MONSTROPOCHE` (`IdMonstropoche`) ON UPDATE CASCADE;
+  ADD CONSTRAINT `MUTATION_ibfk_4` FOREIGN KEY (`IdPreMutation`) REFERENCES `ESPECE` (`Numero`) ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `TYPE_ESPECE`
