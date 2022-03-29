@@ -6,6 +6,7 @@
         {
             /* ... on récupère un tableau stockant le résultat */
                 $choices = $res->fetchAll();
+                print_r($a);
                 foreach($choices as $choice) {
                 echo '<option value="'.$choice['IdAttaque'].'">'.$choice['NomAttaque'].'</option>';
                 }
