@@ -38,7 +38,7 @@
               <th>Actions</th>
                 </tr>';
                 foreach($moveset as $move) {
-                echo '<td>'.$move['NomAttaque'].'</td>';
+                echo '<tr><td>'.$move['NomAttaque'].'</td>';
                 echo '<td>'.$move['NomType'].'</td>';
                 echo '<td>'.$move['Puissance'].'</td>';
                 echo '<td>'.$move['Precision'].'</td>';
@@ -46,7 +46,7 @@
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="IdAttaque" value="'.$move['IdAttaque'].'"/>
                       <input type="hidden" name="NumEspece" value="'.$move['Numero'].'"/>
-                    </form></td>';
+                    </form></td></tr>';
                 }
                 /*liberation de l'objet requete:*/
             $res->closeCursor();
@@ -60,7 +60,7 @@
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
       <form action="./add-to-moveset.php" method="post">
-      <label>PE Requis : <input type="number" id="PE_Requis" name="PE_Requis" min="1" max="100" path="1" required>
+      <label>PE Requis : <input type="number" id="PE_Requis" name="PE_Requis" min="1" max="100" path="1" required><br>
       <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="">--Choisissez--</option>
         ';
