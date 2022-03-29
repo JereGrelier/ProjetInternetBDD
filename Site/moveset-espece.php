@@ -30,7 +30,6 @@
                 echo '<h2>Moveset de '.$moveset['nomEspece'].'</h2>';
                 echo '<table>
                 <tr class="headerListEspece">
-              <th>Numero</th>
               <th>Nom</th>
               <th>Type</th>
               <th>Puissance</th>
@@ -41,8 +40,8 @@
                 echo '<td>'.$move['NomAttaque'].'</td>';
                 //echo '<td>'.$esp['evolution'].'</td>';
                 echo '<td>'.$move['NomType'].'</td>';
-                echo '<td> <img src="'.$move['Puissance'].'"/></td>';
-                echo '<td> <img src="'.$move['Precision'].'"/></td>';
+                echo '<td>'.$move['Puissance'].'</td>';
+                echo '<td>'.$move['Precision'].'</td>';
                 echo '<td><form method="post" action="./delete/deleteFromMovesetEspece.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="IdAttaque" value="'.$esp['IdAttaque'].'"/>
