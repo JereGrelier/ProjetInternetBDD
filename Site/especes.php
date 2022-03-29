@@ -23,8 +23,7 @@
         <th>Actions</th>
           </tr>
         <?php
-          $requete = "select distinct * from ESPECE, TYPE, HABITAT, ZONE, MUTATION where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";
-          /* Si l'execution est reussie... */
+          $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";          /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
                 $espece =  $res->fetchAll();
