@@ -34,12 +34,14 @@
         <th>Actions</th>
           </tr>
         <?php
-          $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, ATTAQUE, OBJET, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque AND
+          $requete1 = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, ATTAQUE, OBJET, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque AND
           MONSTROPOCHE.NumEspece = ESPECE.Numero AND MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire AND MONSTROPOCHE.IdObjet = OBJET.IdObjet order by MONSTROPOCHE.IdMonstropoche asc";
+          $requete2 = "select * from MOVESET_MONSTROPOCHE, ATTAQUE where MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque order by MOVESET_MONSTROPOCHE.idMonstropoche asc AND MOVESET_MONSTROPOCHE.position asc";
           /* Si l'execution est reussie... */
-          if($res = $dbh->query($requete))
+          if($res1 = $dbh->query($requete1) and $res2 = $dbh->query($requete2))
               /* ... on récupère un tableau stockant le résultat */
-                $monstropoches =  $res->fetchAll();
+                $monstropoches =  $res1->fetchAll();
+                $attaques = $res2->fetchAll();
                 //echo print_r($espece);
                 foreach($monstropoches as $monstropoche) {
                 echo '<td>'.$monstropoche['Surnom'].'</td>';
@@ -48,7 +50,9 @@
                 echo '<td>'.$monstropoche['PE'].'</td>';
                 echo '<td>'.$monstropoche['Genre'].'</td>';
                 echo '<td>'.$monstropoche['NomEspece'].'</td>';
-                echo '<td>'.$monstropoche['NomAttaque'].'</td>';
+                foreach($attaques as $attaque) {
+                  echo '<td>'.$attaque['NomAttaque'].'</td>';
+                }
                 echo '<td>'.$monstropoche['NomObjet'].'</td>';
                 echo '<td>'.$monstropoche['NomProprietaire'].'</td>';
                 echo '<td><form method="post" action="delete.php">
