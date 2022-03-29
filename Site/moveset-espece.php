@@ -28,7 +28,7 @@
               /* ... on récupère un tableau stockant le résultat */
                 $moveset =  $res->fetchAll();
                 echo '<h2>Moveset de '.$moveset[0]['NomEspece'].'</h2>';
-                $num = $moveset[0]['Numero'];
+                $num = intval($_REQUEST['id']);
                 echo '<table>
                 <tr class="headerListEspece">
               <th>Nom</th>
