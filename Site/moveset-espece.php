@@ -27,7 +27,7 @@
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
                 $moveset =  $res->fetchAll();
-                echo '<h2>Moveset de '.$moveset['NomEspece'].'</h2>';
+                echo '<h2>Moveset de '.$moveset[0]['NomEspece'].'</h2>';
                 echo '<table>
                 <tr class="headerListEspece">
               <th>Nom</th>
