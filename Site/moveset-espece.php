@@ -33,6 +33,7 @@
                 <tr class="headerListEspece">
               <th>Nom</th>
               <th>Type</th>
+              <th>PE Requis</th>
               <th>Puissance</th>
               <th>Precision</th>
               <th>Actions</th>
@@ -40,6 +41,7 @@
                 foreach($moveset as $move) {
                 echo '<tr><td>'.$move['NomAttaque'].'</td>';
                 echo '<td>'.$move['NomType'].'</td>';
+                echo '<td>'.$move['PE_Requis'].'</td>';
                 echo '<td>'.$move['Puissance'].'</td>';
                 echo '<td>'.$move['Precision'].'</td>';
                 echo '<td><form method="post" action="./delete/deleteFromMovesetEspece.php">
