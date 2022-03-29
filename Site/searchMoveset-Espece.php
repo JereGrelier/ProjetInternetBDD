@@ -1,6 +1,6 @@
 <?php 
         include 'connect.php';
-        echo '<option value="null">'.(isset($_POST['Species'])).'</option>';
+        echo '<option value="null">'.(intval(isset($_POST['Species']))).'</option>';
         $sql = 'select * from MOVESET_ESPECE, ATTAQUE where NumEspece = '.$a. ' and MOVESET_ESPECE.IdAttaque = ATTAQUE.IdAttaque';
         $res = $dbh->query($sql);
         if($res)
