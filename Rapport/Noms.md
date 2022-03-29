@@ -14,3 +14,8 @@
 ## Lien Site
 
 <a href='https://jgrelier002.vvvpedago.enseirb-matmeca.fr/ProjetInternetBDD/Site'>Ici</a>
+
+## Gestion bonus de puisance objet
+
+Si >= 1 -> affecte l'attaque du possèsseur
+Si < 1 -> affecte l'attaque de l'adversaire
