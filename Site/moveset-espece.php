@@ -38,7 +38,6 @@
                 </tr>';
                 foreach($moveset as $move) {
                 echo '<td>'.$move['NomAttaque'].'</td>';
-                //echo '<td>'.$esp['evolution'].'</td>';
                 echo '<td>'.$move['NomType'].'</td>';
                 echo '<td>'.$move['Puissance'].'</td>';
                 echo '<td>'.$move['Precision'].'</td>';
