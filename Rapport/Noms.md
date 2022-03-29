@@ -17,5 +17,5 @@
 
 ## Gestion bonus de puisance objet
 
-Si >= 1 -> affecte l'attaque du possèsseur
-Si < 1 -> affecte l'attaque de l'adversaire
+Si >= 1 -> affecte attaque possèsseur
+Si < 1 -> affecte attaque adversaire
