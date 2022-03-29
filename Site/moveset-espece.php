@@ -31,12 +31,12 @@
                 $num = intval($_REQUEST['id']);
                 echo '<table>
                 <tr class="headerListEspece">
-              <th>Nom</th>
+              './* <th>Nom</th>
               <th>Type</th>
               <th>PE Requis</th>
               <th>Puissance</th>
               <th>Precision</th>
-              <th>Actions</th>
+              <th>Actions</th> */.'
                 </tr>';
                 foreach($moveset as $move) {
                 echo '<tr><td>'.$move['NomAttaque'].'</td>';
