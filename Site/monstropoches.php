@@ -87,7 +87,7 @@
         <option value="Femelle">Binaire</option>
         <option value="Femelle">Non binaire</option>
         </select> <br> </label>
-        <label>Espèce : <select name="Species" id="Species" required>
+        <label>Espèce : <select name="Species" id="Species" required onchange="GetMoveset">
         <option value="">--Choisissez--</option>';
         include "searchEspece.php";
         echo'</select> <br></label>

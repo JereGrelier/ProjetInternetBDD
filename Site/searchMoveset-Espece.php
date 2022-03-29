@@ -1,10 +1,12 @@
 <?php 
         echo "<script>
+        function GetMoveset() = {
         var javascriptVar = document.getElementById('Species').value;
+        }
         </script>";
         $test = "<script>document.writeln(javascriptVar);</script>";
         include 'connect.php';  
-
+        echo $test;
         echo '<option value="null">'.$test.'</option>';
         $sql = 'select * from MOVESET_ESPECE, ATTAQUE where NumEspece = '.intval($test). ' and MOVESET_ESPECE.IdAttaque = ATTAQUE.IdAttaque';
         $res = $dbh->query($sql);
