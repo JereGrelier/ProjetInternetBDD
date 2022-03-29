@@ -21,18 +21,18 @@
         <?php
         include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
         <table>
-          <!-- <tr>
-        <th>Surnom</th>
-        <th>Etat</th>
-        <th>PV</th>
-        <th>PE</th>
-        <th>Genre</th>
-        <th>Espèce</th>
-        <th colspan="4">Attaque</th>
-        <th>Objet</th>
-        <th>Propriétaire</th>
-        <th>Actions</th>
-          </tr> -->
+          <tr>
+            <th>Surnom</th>
+            <th>Etat</th>
+            <th>PV</th>
+            <th>PE</th>
+            <th>Genre</th>
+            <th>Espèce</th>
+            <th colspan="4">Liste des Attaques</th>
+            <th>Objet</th>
+            <th>Propriétaire</th>
+            <th>Actions</th>
+          </tr>
         <?php
           $requete1 = "select * from MONSTROPOCHE, OBJET, ESPECE, PROPRIETAIRE where MONSTROPOCHE.NumEspece = ESPECE.Numero AND MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire AND MONSTROPOCHE.IdObjet = OBJET.IdObjet order by MONSTROPOCHE.IdMonstropoche asc";
           /* Si l'execution est reussie... */
