@@ -29,7 +29,6 @@
                 $moveset =  $res->fetchAll();
                 echo '<h2>Moveset de '.$moveset[0]['NomEspece'].'</h2>';
                 $num = $moveset[0]['Numero'];
-                echo $num;
                 echo '<table>
                 <tr class="headerListEspece">
               <th>Nom</th>
@@ -61,6 +60,7 @@
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
       <form action="./add-to-moveset.php" method="post">
+      <label>PE Requis : <input type="number" id="PE_Requis" name="PE_Requis" min="1" max="100" path="1" required>
       <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="">--Choisissez--</option>
         ';
