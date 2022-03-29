@@ -65,7 +65,7 @@
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Espèce</h1>
-      <form action="./add-espece.php" method="post">
+      <form action="./add/add-espece.php" method="post">
         <label>Numéro : <input type="number" id="number" name="number" min=1><br></label>
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Type : <select name="type" id="type">

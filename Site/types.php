@@ -51,7 +51,7 @@
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Type</h1>
-      <form action="./add-type.php" method="post">
+      <form action="./add/add-type.php" method="post">
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <input type="submit" value="valider">
       </form>

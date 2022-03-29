@@ -44,7 +44,7 @@
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Proprietaire</h1>
-      <form action="./add-proprietaire.php" method="post">
+      <form action="./add/add-proprietaire.php" method="post">
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Jouable? <input type="checkbox" id="Jouable" name="Jouable"></label>
         <input type="submit" value="valider">

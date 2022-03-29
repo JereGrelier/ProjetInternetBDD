@@ -61,7 +61,7 @@
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
-      <form action="./add-to-moveset.php" method="post">
+      <form action="./add/add/add-to-moveset.php" method="post">
       <label>PE Requis : <input type="number" id="PE_Requis" name="PE_Requis" min="1" max="100" path="1" required><br>
       <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="">--Choisissez--</option>

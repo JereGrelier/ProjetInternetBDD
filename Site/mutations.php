@@ -68,7 +68,7 @@
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Mutation</h1>
-      <form action="./add-mutation.php" method="post">
+      <form action="./add/add-mutation.php" method="post">
         <label>Premutation : <select name="pre" id="pre">
         <option value="">--Choisissez--</option>
         <?php include "searchEspece.php" ?>

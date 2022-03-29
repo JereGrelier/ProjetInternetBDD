@@ -51,7 +51,7 @@
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Zone</h1>
-      <form action="./add-zone.php" method="post">
+      <form action="./add/add-zone.php" method="post">
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <input type="submit" value="valider">
       </form>
