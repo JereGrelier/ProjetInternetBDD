@@ -77,7 +77,7 @@
             $dbh = null;
         echo'
       </table>
-      <button class="openModal" onclick="document.getElementById(\'mydialog\').style.visibility = Ajouter un Monstropoche</button>
+      <button class="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter un Monstropoche</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
