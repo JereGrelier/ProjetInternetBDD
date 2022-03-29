@@ -43,8 +43,8 @@
                 echo '<td>'.$move['Precision'].'</td>';
                 echo '<td><form method="post" action="./delete/deleteFromMovesetEspece.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="IdAttaque" value="'.$esp['IdAttaque'].'"/>
-                      <input type="hidden" name="NumEspece" value="'.$esp['Numero'].'"/>
+                      <input type="hidden" name="IdAttaque" value="'.$move['IdAttaque'].'"/>
+                      <input type="hidden" name="NumEspece" value="'.$move['Numero'].'"/>
                     </form></td>';
                 }
                 /*liberation de l'objet requete:*/
