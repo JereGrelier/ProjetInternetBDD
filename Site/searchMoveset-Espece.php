@@ -1,11 +1,11 @@
-<script>
-    var txtOne = document.getElementById('Species').value;
-    document.cookie = "myJavascriptVar = " + txtOne </script>
-</script>
 <?php 
-        $test= $_COOKIE['myJavascriptVar'];
-        include 'connect.php';
-        echo '<option value="null">'.(intval($_POST['test'])).'</option>';
+        echo "<script>
+        var javascriptVar = 'success';
+        </script>";
+        $test = "<script>document.writeln(javascriptVar);</script>";
+        include 'connect.php';  
+
+        echo '<option value="null">'.$test.'</option>';
         $sql = 'select * from MOVESET_ESPECE, ATTAQUE where NumEspece = '.$test. ' and MOVESET_ESPECE.IdAttaque = ATTAQUE.IdAttaque';
         $res = $dbh->query($sql);
         if($res)
