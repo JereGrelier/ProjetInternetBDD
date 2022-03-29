@@ -93,7 +93,7 @@
         echo'</select> <br></label>
         <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="">--Choisissez--</option>';
-         include "searchAttaque.php";
+         include "searchMoveset-Espece.php";
         echo'
         </select> <br></label>
         <label>Objet : <select name="Object" id="Object">
