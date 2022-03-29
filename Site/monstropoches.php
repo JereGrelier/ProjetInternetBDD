@@ -100,6 +100,21 @@
          include "searchMoveset-Espece.php";
         echo'
         </select> <br></label>
+        <label>Attaque : <select name="Attack2" id="Attack2" required>
+        <option value="">--Choisissez--</option>';
+         include "searchMoveset-Espece.php";
+        echo'
+        </select> <br></label>
+        <label>Attaque : <select name="Attack3" id="Attack3" required>
+        <option value="">--Choisissez--</option>';
+         include "searchMoveset-Espece.php";
+        echo'
+        </select> <br></label>
+        <label>Attaque : <select name="Attack4" id="Attack4" required>
+        <option value="">--Choisissez--</option>';
+         include "searchMoveset-Espece.php";
+        echo'
+        </select> <br></label>
         <label>Objet : <select name="Object" id="Object">
         <option value=null>--Choisissez--</option>';
         include "searchObjet.php";
