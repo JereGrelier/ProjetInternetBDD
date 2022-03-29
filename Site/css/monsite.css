@@ -72,7 +72,10 @@ img {
 }
 
 .openModal {
-  
+  position: absolute;
+  top: 0;
+  right: 5em;
+  scale: 2;
 }
 
 
