@@ -30,7 +30,7 @@
                 echo '<td>'; ($zone['IsUnique'] == 1) ?  $a='✓' :  $a='X'; echo $a.'</td>';
                 echo '<td>'.$zone['BonusPuissance'].'</td>';
                 echo '<td><form method="post" action="./delete/deleteObjet.php">
-                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$zone['IdObjet'].'"/>
                       <input type="hidden" name="name" value="'.$zone['NomObjet'].'"/>
                     </form></td>';
