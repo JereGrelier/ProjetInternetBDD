@@ -29,7 +29,7 @@
         <!-- <th>Evolution</th> -->
         <th>Zone</th>
         <th>Image</th>
-        <th>Actions</th>
+        <th colspan="2">Actions</th>
           </tr>
         <?php
           $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";          /* Si l'execution est reussie... */
@@ -49,6 +49,10 @@
                       <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
                       <input type="hidden" name="name" value="'.$esp['NomEspece'].'"/>
                     </form></td>';
+                  echo '<td><form method="post" action="./moveset-espece.php">
+                  <button type="submit" title="Envoyer"><h2 style="color:black">Voir le moveset</h2></button>
+                  <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
+                  </form></td>';
                 }
                 /*liberation de l'objet requete:*/
             $res->closeCursor();

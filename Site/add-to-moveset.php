@@ -11,7 +11,7 @@
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
 <script>
-    setTimeout(function(){location.href="./monstropoches.php"} , 500);
+    setTimeout(function(){location.href="./proprietaires.php"} , 500);
 </script>
 </head>
 
@@ -19,18 +19,11 @@
 </body>
 <?php 
     include 'connect.php';
-    $newnickame = $_REQUEST['Nickname'];
-    $HP = intval($_REQUEST['HP']);
-    $EXP = intval('0');
-    $state = 'Repos';
-    $gender = $_REQUEST['Gender'];
-    $species = intval($_REQUEST['Species']);
-    $object = intval($_REQUEST['Object']);
-    $attack = intval($_REQUEST['Attack']);
-    $owner = intval($_REQUEST['Owner']);
-    $idM = 'select max(IdMonstropoche) from MONSTROPOCHE' + 1;
-    $sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, numEspece, idObjet, idProprietaire) values (:surnom, :state, :exp, :pv, :genre, :espece, :objet, :proprietaire); insert into MOVESET_MONSTROPOCHE (IdAttaque, IdMonstopoche, Position) values (:attaque, :idMonstropoche, 1);';
+    $num = intval($_REQUEST['Numero']);
+    $pe = intval($_REQUEST['PE_Requis']);
+    $attaque = $_REQUEST['Attack'];
+    $sql = 'insert into MOVESET_ESPECE (IdAttaque, NumEspece, PE_Requis) values (:att, :num, :pe)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute(array('surnom'=> $newnickame, 'pv' => $HP, 'genre' => $gender, 'exp'=>$EXP, 'state'=>$state,  'espece' => $species, 'objet' => $object, 'proprietaire' => $owner, 'attaque' => $attack, 'idMonstropoche'=>$idM));
+    $sth->execute(array('att' => $attaque, 'num' => $num, 'pe' => $pe));
     ?>
 </html>
