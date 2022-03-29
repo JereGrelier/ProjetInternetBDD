@@ -25,7 +25,7 @@
         <th>Actions</th>
           </tr>
         <?php
-          $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, OBJET, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND
+          $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, ATTAQUE, OBJET, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque AND
           MONSTROPOCHE.NumEspece = ESPECE.Numero AND MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire AND MONSTROPOCHE.IdObjet = OBJET.IdObjet order by MONSTROPOCHE.IdMonstropoche asc";
           /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
