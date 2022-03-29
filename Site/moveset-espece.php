@@ -59,15 +59,9 @@
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
       <form action="./add-to-moveset.php" method="post">
-        <label>Numéro : <input type="number" id="number" name="number" min=1><br></label>
-        <label>Nom : <input type="text" id="name" name="name" required><br></label>
-        <label>Type : <select name="type" id="type">
+      <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="">--Choisissez--</option>
-        <?php include "searchType.php" ?>
-        </select><br> </label>
-        <label>Zone : <select name="zone" id="zone">
-        <option value="">--Choisissez--</option>
-        <?php include "searchZone.php" ?>
+        <?php include "searchAttaque.php" ?>
         </select> <br></label>
         <input type="submit" value="valider">
       </form>
