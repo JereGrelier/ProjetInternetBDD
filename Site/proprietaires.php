@@ -28,7 +28,7 @@
                 echo '<td>'.$zone['NomProprietaire'].'</td>';
                 echo '<td>'; ($zone['IsJouable'] == 1) ?  $a='✓' :  $a='X'; echo $a.'</td>';
                 echo '<td><form method="post" action="./delete/deleteProprietaire.php">
-                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="/Site/assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="/ProjetInternetBDD/Site/assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$zone['IdProprietaire'].'"/>
                       <input type="hidden" name="name" value="'.$zone['NomProprietaire'].'"/>
                     </form></td>';
