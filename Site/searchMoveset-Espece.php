@@ -1,6 +1,6 @@
 <?php 
         include 'connect.php';
-        $sql = 'select * from MOVESET_ESPECE where NumEspece = '.$a;
+        $sql = 'select * from MOVESET_ESPECE, ATTAQUE where NumEspece = '.$a. ' and MOVESET_ESPECE.IdAttaque = ATTAQUE.IdAttaque';
         $res = $dbh->query($sql);
         if($res)
         {
