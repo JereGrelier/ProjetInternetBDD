@@ -18,41 +18,38 @@
  <body>
  <?php include "topnav.php" ?>
     <div class="listeEspece">
-    <h2>Liste des espèces de monstropochetrons</h2>
+    
         <?php
         include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
-        <table>
-          <tr class="headerListEspece">
-        <th>Numero</th>
-        <th>Nom</th>
-        <th>Type</th>
-        <!-- <th>Evolution</th> -->
-        <th>Zone</th>
-        <th>Image</th>
-        <th colspan="2">Actions</th>
-          </tr>
         <?php
-          $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";          /* Si l'execution est reussie... */
+          $requete = "select * from ESPECE, TYPE, MOVESET_ESPECE, ATTAQUE where MOVESET_ESPECE.NumEspece = ".intval($_REQUEST['id'])." and ESPECE.Numero = MOVESET_ESPECE.NumEspece and
+          MOVESET_ESPECE.IdAttaque = ATTAQUE.IdAttaque and ATTAQUE.TypeAttaque = TYPE.IdType ";          /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
-                $espece =  $res->fetchAll();
-                //echo print_r($espece);
-                foreach($espece as $esp) {
-                echo "\t".'<tr><td>'.$esp['Numero'].'</td>';
-                echo '<td>'.$esp['NomEspece'].'</td>';
-                echo '<td>'.$esp['NomType'].'</td>';
+                $moveset =  $res->fetchAll();
+                print_r($moveset);
+                echo '<h2>Moveset de '.$moveset['nomEspece'].'</h2>';
+                echo '<table>
+                <tr class="headerListEspece">
+              <th>Numero</th>
+              <th>Nom</th>
+              <th>Type</th>
+              <!-- <th>Evolution</th> -->
+              <th>Zone</th>
+              <th>Image</th>
+              <th>Actions</th>
+                </tr>';
+                foreach($moveset as $move) {
+                  print_r($move);
+                echo '<td>'.$move['NomAttaque'].'</td>';
                 //echo '<td>'.$esp['evolution'].'</td>';
-                echo '<td>'.$esp['NomZone'].'</td>';
-                echo '<td> <img src="'.$esp['Sprite'].'"/></td>';
+                echo '<td>'.$move['NomType'].'</td>';
+                echo '<td> <img src="'.$move['Sprite'].'"/></td>';
                 echo '<td><form method="post" action="./delete/deleteEspece.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
                       <input type="hidden" name="name" value="'.$esp['NomEspece'].'"/>
                     </form></td>';
-                  echo '<td><form method="post" action="./moveset-espece.php">
-                  <button type="submit" title="Envoyer"><h2 style="color:black">Voir le moveset</h2></button>
-                  <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
-                  </form></td>';
                 }
                 /*liberation de l'objet requete:*/
             $res->closeCursor();
