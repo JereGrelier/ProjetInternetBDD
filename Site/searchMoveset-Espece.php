@@ -8,6 +8,7 @@
         echo '<option value="null">'.$test.'</option>';
         $sql = 'select * from MOVESET_ESPECE, ATTAQUE where NumEspece = '.intval($test). ' and MOVESET_ESPECE.IdAttaque = ATTAQUE.IdAttaque';
         $res = $dbh->query($sql);
+        print_r($res);
         if($res)
         {
             /* ... on récupère un tableau stockant le résultat */
