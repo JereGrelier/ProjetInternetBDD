@@ -93,35 +93,35 @@
         </select> <br> </label>
         <label>Espèce : <select name="Species" id="Species" required>
         <option value="">--Choisissez--</option>';
-        include "searchEspece.php";
+        include "./search/searchEspece.php";
         echo'</select> <br></label>
         <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="">--Choisissez--</option>';
-         include "searchMoveset-Espece.php";
+         include "./search/searchMoveset-Espece.php";
         echo'
         </select> <br></label>
         <label>Attaque : <select name="Attacke" id="Attacke" required>
         <option value="">--Choisissez--</option>';
-         include "searchMoveset-Espece.php";
+         include "./search/searchMoveset-Espece.php";
         echo'
         </select> <br></label>
         <label>Attaque : <select name="Attackee" id="Attackee" required>
         <option value="">--Choisissez--</option>';
-         include "searchMoveset-Espece.php";
+         include "./search/searchMoveset-Espece.php";
         echo'
         </select> <br></label>
         <label>Attaque : <select name="Attackeee" id="Attackeee" required>
         <option value="">--Choisissez--</option>';
-         include "searchMoveset-Espece.php";
+         include "./search/searchMoveset-Espece.php";
         echo'
         </select> <br></label>
         <label>Objet : <select name="Object" id="Object">
         <option value=null>--Choisissez--</option>';
-        include "searchObjet.php";
+        include "./search/searchObjet.php";
         echo '</select> <br></label>
         <label>Propriétaire : <select name="Owner" id="Owner">
         <option value=null>--Choisissez--</option>';
-        include "searchProprietaire.php";
+        include "./search/searchProprietaire.php";
         echo '</select> <br></label>
         <input type="submit" value="valider">
       </form>

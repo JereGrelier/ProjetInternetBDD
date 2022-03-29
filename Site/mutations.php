@@ -71,17 +71,17 @@
       <form action="./add/add-mutation.php" method="post">
         <label>Premutation : <select name="pre" id="pre">
         <option value="">--Choisissez--</option>
-        <?php include "searchEspece.php" ?>
+        <?php include "./search/searchEspece.php" ?>
         </select><br> </label>
         <label>PostMutation : <select name="post" id="post">
         <option value="">--Choisissez--</option>
-        <?php include "searchEspece.php" ?>
+        <?php include "./search/searchEspece.php" ?>
         </select> <br></label>
         <label>PE Requis : <input type="number" id="PERequis" name="PERequis" min="1" max="100" step="1" required><br></label>
         <label>Objet : <select name="post" id="post">
         <option value=null>--Choisissez--</option>
         <option value="">Aucun</option>
-        <?php include "searchObjet.php" ?>
+        <?php include "./search/searchObjet.php" ?>
         </select> <br></label>
         <input type="submit" value="valider">
       </form>

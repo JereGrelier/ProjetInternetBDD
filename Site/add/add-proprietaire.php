@@ -11,7 +11,7 @@
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
 <script>
-    setTimeout(function(){location.href="./proprietaires.php"} , 500);
+    setTimeout(function(){location.href="../proprietaires.php"} , 500);
 </script>
 </head>
 

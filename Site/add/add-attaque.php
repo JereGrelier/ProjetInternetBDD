@@ -11,7 +11,7 @@
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
 <script>
-    setTimeout(function(){location.href="./especes.php"} , 500);
+    setTimeout(function(){location.href="../attaques.php"} , 500);
 </script>
 </head>
 
@@ -19,13 +19,12 @@
 </body>
 <?php 
     include 'connect.php';
-    $newnumber = intval($_REQUEST['number']);
     $newname = $_REQUEST['name'];
-    $zone = intval($_REQUEST['zone']);
-    $type = intval($_REQUEST['type']);
-    $sprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'.intval($_REQUEST['number']).'.png';
-    $sql = 'insert into ESPECE (numero, nomEspece, TypeEspece , Sprite) values (:number, :name, :TypeEspece, :sprite); insert into HABITAT(numEspece, IdZone) values(:numberh, :zone)';
+    $type = $_REQUEST['type'];
+    $precision = intval($_REQUEST['precision']);
+    $power = intval($_REQUEST['power']);
+    $sql = 'insert into ATTAQUE (`NomAttaque`,`Puissance`,`Precision`,`TypeAttaque`) values (:name, :power, :precision, :type);';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute(array('number'=> $newnumber, 'name' => $newname, 'TypeEspece' => $type, 'zone' => $zone, 'sprite' => $sprite, 'numberh' => $newnumber));
+    $sth->execute(array('name' => $newname, 'power' => $power, 'precision' => $precision, 'type' => $type));
     ?>
 </html>

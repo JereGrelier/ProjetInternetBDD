@@ -24,10 +24,3 @@ Si < 1 -> affecte attaque adversaire
 
 https://datatables.net/extensions/fixedheader/examples/options/columnFiltering.html
 
-/net/r/enaudy/Documents/ProjetInternetBDD/Site/add/add-espece.php+
-/net/r/enaudy/Documents/ProjetInternetBDD/Site/add/add-monstropoche.php
-/net/r/enaudy/Documents/ProjetInternetBDD/Site/add/add-objet.php
-/net/r/enaudy/Documents/ProjetInternetBDD/Site/add/add-proprietaire.php
-/net/r/enaudy/Documents/ProjetInternetBDD/Site/add/add-to-moveset.php+
-/net/r/enaudy/Documents/ProjetInternetBDD/Site/add/add-type.php
-/net/r/enaudy/Documents/ProjetInternetBDD/Site/add/add-zone.php

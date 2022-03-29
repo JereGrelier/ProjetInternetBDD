@@ -61,7 +61,7 @@
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Type : <select name="type" id="type">
         <option value="">--Choisissez--</option>
-        <?php include "searchType.php" ?>
+        <?php include "./search/searchType.php" ?>
         </select><br> </label>
         <label>Puissance : <input type="number" id="power" name="power" min=10 step="10"><br></label>
         <label>Précision : <input type="number" id="precision" name="precision" min=10 step="10"><br></label>

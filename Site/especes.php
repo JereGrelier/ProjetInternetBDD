@@ -70,11 +70,11 @@
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Type : <select name="type" id="type">
         <option value="">--Choisissez--</option>
-        <?php include "searchType.php" ?>
+        <?php include "./search/searchType.php" ?>
         </select><br> </label>
         <label>Zone : <select name="zone" id="zone">
         <option value="">--Choisissez--</option>
-        <?php include "searchZone.php" ?>
+        <?php include "./search/searchZone.php" ?>
         </select> <br></label>
         <input type="submit" value="valider">
       </form>
