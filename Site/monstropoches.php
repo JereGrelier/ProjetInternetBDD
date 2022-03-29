@@ -52,9 +52,13 @@
                 $requete2 = "select * from MOVESET_MONSTROPOCHE, ATTAQUE where MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque and MOVESET_MONSTROPOCHE.IdMonstropoche = ".$monstropoche['IdMonstropoche']." order by MOVESET_MONSTROPOCHE.idMonstropoche asc, MOVESET_MONSTROPOCHE.position asc";
                 if($res2 = $dbh->query($requete2))
                 $attaques = $res2->fetchAll();
-                $span = 5 - count($attaques);
                 foreach($attaques as $attaque) {
-                  echo '<td colspan="'.$span.'">'.$attaque['NomAttaque'].'</td>';
+                  echo '<td>'.$attaque['NomAttaque'].'</td>';
+                }
+                if (count($attaques) < 4) {
+                  for ($i=0; $i < 4-count($attaques); $i++) { 
+                    echo '<td>-</td>';
+                  }
                 }
                 echo '<td>'.$monstropoche['NomObjet'].'</td>';
                 echo '<td>'.$monstropoche['NomProprietaire'].'</td>';
@@ -73,7 +77,7 @@
             $dbh = null;
         echo'
       </table>
-      <button onclick="document.getElementById(\'mydialog\').style.visibility = \'visible\'">Ajouter un Monstropoches</button>
+      <button onclick="document.getElementById(\'mydialog\').style.visibility = \'visible\'">Ajouter un Monstropoche</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
