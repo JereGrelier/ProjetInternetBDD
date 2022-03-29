@@ -40,7 +40,7 @@
             $dbh = null;
         ?>
       </table>
-      <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter un type</button>
+      <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter un propriétaire</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Proprietaire</h1>
