@@ -19,7 +19,7 @@ function getdata(){
                 echo '<option value="'.$choice['IdAttaque'].'">'.$choice['NomAttaque'].'</option>';
                 }
                 /*liberation de l'objet requete:*/
-            //$choices->closeCursor();
+            $res->closeCursor();
             /*fermeture de la connexion avec la base*/
             $dbh = null;
         }
