@@ -28,6 +28,8 @@
               /* ... on récupère un tableau stockant le résultat */
                 $moveset =  $res->fetchAll();
                 echo '<h2>Moveset de '.$moveset[0]['NomEspece'].'</h2>';
+                $num = $moveset[0]['Numero'];
+                echo $num;
                 echo '<table>
                 <tr class="headerListEspece">
               <th>Nom</th>
@@ -51,22 +53,25 @@
             $res->closeCursor();
             /*fermeture de la connexion avec la base*/
             $dbh = null;
-        ?>
-      <td id='sprite'></td>
+      echo'  
+      <td id="sprite"></td>
       </table>
-      <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter une espèce</button>
+      <button onclick="document.getElementById(\'mydialog\').style.visibility = \'visible\'">Ajouter une espèce</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
       <form action="./add-to-moveset.php" method="post">
       <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="">--Choisissez--</option>
-        <?php include "searchAttaque.php" ?>
-        </select> <br></label>
+        ';
+        include "searchAttaque.php";
+        echo'</select> <br></label>
+        <input type="hidden" name="Numero" value='.$num.' />
         <input type="submit" value="valider">
       </form>
-      <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
-    </dialog>
+      <button onclick="document.getElementById(\'mydialog\').style.visibility=\'hidden\'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
+    </dialog>'
+    ?>
   </div>
 <?php include "footer.php" ?>
  </body>
