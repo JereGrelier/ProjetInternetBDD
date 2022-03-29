@@ -18,7 +18,7 @@
 <body>
 </body>
 <?php 
-    include 'connect.php';
+    include '../connect.php';
     $newname = $_REQUEST['name'];
     $isJouable = $_REQUEST['Jouable'] ? 1 : 0;
     $sql = 'insert into PROPRIETAIRE (NomProprietaire, IsJouable) values (:name, :jouable)';

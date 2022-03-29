@@ -18,7 +18,7 @@
 <body>
 </body>
 <?php 
-    include 'connect.php';
+    include '../connect.php';
     $num = intval($_REQUEST['Numero']);
     $pe = intval($_REQUEST['PE_Requis']);
     $attaque = $_REQUEST['Attack'];

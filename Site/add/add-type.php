@@ -18,7 +18,7 @@
 <body>
 </body>
 <?php 
-    include 'connect.php';
+    include '../connect.php';
     $newname = $_REQUEST['name'];
     $sql = 'insert into TYPE (NomType) values (:name)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));

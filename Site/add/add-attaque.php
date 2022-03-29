@@ -18,7 +18,7 @@
 <body>
 </body>
 <?php 
-    include 'connect.php';
+    include '../connect.php';
     $newname = $_REQUEST['name'];
     $type = $_REQUEST['type'];
     $precision = intval($_REQUEST['precision']);

@@ -18,7 +18,7 @@
 <body>
 </body>
 <?php 
-    include 'connect.php';
+    include '../connect.php';
     $newnickame = $_REQUEST['Nickname'];
     $HP = intval($_REQUEST['HP']);
     $EXP = intval('0');

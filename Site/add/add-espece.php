@@ -18,7 +18,7 @@
 <body>
 </body>
 <?php 
-    include 'connect.php';
+    include '../connect.php';
     $newnumber = intval($_REQUEST['number']);
     $newname = $_REQUEST['name'];
     $zone = intval($_REQUEST['zone']);

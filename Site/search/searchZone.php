@@ -1,5 +1,5 @@
 <?php 
-        include 'connect.php';
+        include '../connect.php';
         $sql = 'select * from ZONE';
         $res = $dbh->query($sql);
         if($res)

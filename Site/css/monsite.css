@@ -165,11 +165,7 @@ hr.rounded {
     border: 3px solid #bdb7b2;
     align-items: flex-start;
   }
-
-  .close button {
-    color: red;
-  }
-
+  
   /* Sidenav menu */
 .sidenav {
   height: 100%;

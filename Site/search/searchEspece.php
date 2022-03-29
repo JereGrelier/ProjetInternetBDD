@@ -1,5 +1,5 @@
 <?php 
-        include 'connect.php';
+        include '../connect.php';
         $sql = 'select * from ESPECE';
         $res = $dbh->query($sql);
         if($res)

@@ -18,7 +18,7 @@
 <body>
 </body>
 <?php 
-    include 'connect.php';
+    include '../connect.php';
     $newname = $_REQUEST['Name'];
     $bonus = $_REQUEST['Bonus'];
     $unique = $_REQUEST['Unique'] ? 1 : 0;
