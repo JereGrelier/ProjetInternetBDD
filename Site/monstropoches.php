@@ -79,11 +79,11 @@
         <?php include "searchAttaque.php" ?>
         </select> <br></label>
         <label>Objet : <select name="Object" id="Object">
-        <option value="">--Choisissez--</option>
+        <option value=null>--Choisissez--</option>
         <?php include "searchObjet.php" ?>
         </select> <br></label>
         <label>Propriétaire : <select name="Owner" id="Owner">
-        <option value="">--Choisissez--</option>
+        <option value=null>--Choisissez--</option>
         <?php include "searchProprietaire.php" ?>
         </select> <br></label>
         <input type="submit" value="valider">
