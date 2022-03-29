@@ -100,17 +100,17 @@
          include "searchMoveset-Espece.php";
         echo'
         </select> <br></label>
-        <label>Attaque : <select name="Attack2" id="Attack2" required>
+        <label>Attaque : <select name="Attacke" id="Attacke" required>
         <option value="">--Choisissez--</option>';
          include "searchMoveset-Espece.php";
         echo'
         </select> <br></label>
-        <label>Attaque : <select name="Attack3" id="Attack3" required>
+        <label>Attaque : <select name="Attackee" id="Attackee" required>
         <option value="">--Choisissez--</option>';
          include "searchMoveset-Espece.php";
         echo'
         </select> <br></label>
-        <label>Attaque : <select name="Attack4" id="Attack4" required>
+        <label>Attaque : <select name="Attackeee" id="Attackeee" required>
         <option value="">--Choisissez--</option>';
          include "searchMoveset-Espece.php";
         echo'
