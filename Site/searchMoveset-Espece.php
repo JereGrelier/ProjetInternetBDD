@@ -1,8 +1,6 @@
 <script>
-function getdata(){
-      var txtOne = document.getElementById('Species').value;
-      document.cookie = "myJavascriptVar = " + txtOne </script>
-}
+    var txtOne = document.getElementById('Species').value;
+    document.cookie = "myJavascriptVar = " + txtOne </script>
 </script>
 <?php 
         $test= $_COOKIE['myJavascriptVar'];
