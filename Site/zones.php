@@ -47,7 +47,7 @@
             $dbh = null;
         ?>
       </table>
-      <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter une zone</button>
+      <button class="openModal" onclick="document.getElementById('mydialog').style.visibility = 'visible'"> Ajouter une zone</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Zone</h1>

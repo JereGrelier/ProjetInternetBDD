@@ -77,7 +77,7 @@
             $dbh = null;
         echo'
       </table>
-      <button onclick="document.getElementById(\'mydialog\').style.visibility = \'visible\'">Ajouter un Monstropoche</button>
+      <button class="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter un Monstropoche</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
@@ -96,6 +96,21 @@
         include "searchEspece.php";
         echo'</select> <br></label>
         <label>Attaque : <select name="Attack" id="Attack" required>
+        <option value="">--Choisissez--</option>';
+         include "searchMoveset-Espece.php";
+        echo'
+        </select> <br></label>
+        <label>Attaque : <select name="Attacke" id="Attacke" required>
+        <option value="">--Choisissez--</option>';
+         include "searchMoveset-Espece.php";
+        echo'
+        </select> <br></label>
+        <label>Attaque : <select name="Attackee" id="Attackee" required>
+        <option value="">--Choisissez--</option>';
+         include "searchMoveset-Espece.php";
+        echo'
+        </select> <br></label>
+        <label>Attaque : <select name="Attackeee" id="Attackeee" required>
         <option value="">--Choisissez--</option>';
          include "searchMoveset-Espece.php";
         echo'

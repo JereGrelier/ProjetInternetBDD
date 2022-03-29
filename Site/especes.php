@@ -61,7 +61,7 @@
         ?>
       <td id='sprite'></td>
       </table>
-      <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter une espèce</button>
+      <button class="openModal" onclick="document.getElementById('mydialog').style.visibility = 'visible'"> Ajouter une espèce</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Espèce</h1>
