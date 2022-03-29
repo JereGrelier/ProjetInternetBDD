@@ -28,7 +28,7 @@
         <th>PE</th>
         <th>Genre</th>
         <th>Espèce</th>
-        <th>Attaque</th>
+        <th colspan="4">Attaque</th>
         <th>Objet</th>
         <th>Propriétaire</th>
         <th>Actions</th>
