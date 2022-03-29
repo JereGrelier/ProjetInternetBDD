@@ -3,15 +3,6 @@
  <head>
  <link rel="stylesheet" href="css/monsite.css" />
  <meta charset="utf-8"/>
- <link rel="apple-touch-icon" sizes="180x180" href="/ProjetInternetBDD/Site/assets/icons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/ProjetInternetBDD/Site/assets/icons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/ProjetInternetBDD/Site/assets/icons/favicon-16x16.png">
-        <link rel="manifest" href="/ProjetInternetBDD/Site/assets/icons/site.webmanifest">
-        <link rel="mask-icon" href="/ProjetInternetBDD/Site/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="/ProjetInternetBDD/Site/assets/icons/favicon.ico">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">
   <title>Liste des Monstropoches</title>
  </head>
  <body>
@@ -34,7 +25,7 @@
         <th>Actions</th>
           </tr>
         <?php
-          $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, OBJET, ATTAQUE, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque OR
+          $requete = "select * from MONSTROPOCHE, MOVESET_MONSTROPOCHE, OBJET, ATTAQUE, ESPECE, PROPRIETAIRE where MONSTROPOCHE.IdMonstropoche = MOVESET_MONSTROPOCHE.IdMonstropoche AND MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque AND
           MONSTROPOCHE.NumEspece = ESPECE.Numero AND MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire AND MONSTROPOCHE.IdObjet = OBJET.IdObjet order by MONSTROPOCHE.IdMonstropoche asc";
           /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
@@ -83,7 +74,7 @@
         <option value="">--Choisissez--</option>
         <?php include "searchEspece.php" ?>
         </select> <br></label>
-        <label>Attaque : <select name="Attack" id="Attack">
+        <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="">--Choisissez--</option>
         <?php include "searchAttaque.php" ?>
         </select> <br></label>
