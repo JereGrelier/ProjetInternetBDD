@@ -36,7 +36,7 @@
                 echo '<td>'.$esp['NomZone'].'</td>';
                 echo '<td> <img src="'.$esp['Sprite'].'"/></td>';
                 echo '<td><form method="post" action="./delete/deleteEspece.php">
-                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="/assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
                       <input type="hidden" name="name" value="'.$esp['NomEspece'].'"/>
                     </form></td>';

@@ -32,7 +32,7 @@
                 echo '<td>'.$att['Puissance'].'</td>';
                 echo '<td>'.$att['Precision'].'</td>';
                 echo '<td><form method="post" action="./delete/deleteAttaque.php">
-                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="/assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$att['IdAttaque'].'"/>
                       <input type="hidden" name="id" value="'.$att['NomAttaque'].'"/>
                     </form></td>';

@@ -26,7 +26,7 @@
                 foreach($zones as $zone) {
                 echo '<td>'.$zone['NomType'].'</td>';
                 echo '<td><form method="post" action="./delete/deleteType.php">
-                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="/assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$zone['IdType'].'"/>
                       <input type="hidden" name="name" value="'.$zone['NomType'].'"/>
                     </form></td>';
