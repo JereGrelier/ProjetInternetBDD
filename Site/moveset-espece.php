@@ -27,7 +27,7 @@
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
                 $moveset =  $res->fetchAll();
-                echo '<h2>Moveset de '.$moveset['nomEspece'].'</h2>';
+                echo '<h2>Moveset de '.$moveset['NomEspece'].'</h2>';
                 echo '<table>
                 <tr class="headerListEspece">
               <th>Nom</th>
@@ -57,8 +57,8 @@
       <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter une espèce</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
-      <h1 id="modal-heading">Ajouter une Espèce</h1>
-      <form action="./add-espece.php" method="post">
+      <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
+      <form action="./add-to-moveset.php" method="post">
         <label>Numéro : <input type="number" id="number" name="number" min=1><br></label>
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Type : <select name="type" id="type">
