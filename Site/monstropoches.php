@@ -53,7 +53,6 @@
                 if($res2 = $dbh->query($requete2))
                 $attaques = $res2->fetchAll();
                 foreach($attaques as $attaque) {
-                  if(count($attaques) < 4)
                   echo '<td colspan="4 - '.count($attaques).'">'.$attaque['NomAttaque'].'</td>';
                 }
                 echo '<td>'.$monstropoche['NomObjet'].'</td>';
