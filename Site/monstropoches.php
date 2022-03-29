@@ -40,6 +40,7 @@
           if($res1 = $dbh->query($requete1) and $res2 = $dbh->query($requete2))
               /* ... on récupère un tableau stockant le résultat */
                 $monstropoches =  $res1->fetchAll();
+                $a = $monstropoches[0]['Numero'];
                 $attaques = $res2->fetchAll();
                 //echo print_r($espece);
                 foreach($monstropoches as $monstropoche) {
@@ -67,9 +68,9 @@
             $res2->closeCursor();
             /*fermeture de la connexion avec la base*/
             $dbh = null;
-        ?>
+        echo'
       </table>
-      <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter un Monstropoches</button>
+      <button onclick="document.getElementById(\'mydialog\').style.visibility = \'visible\'">Ajouter un Monstropoches</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Monstropoches</h1>
@@ -84,26 +85,27 @@
         <option value="Femelle">Non binaire</option>
         </select> <br> </label>
         <label>Espèce : <select name="Species" id="Species" required>
-        <option value="">--Choisissez--</option>
-        <?php include "searchEspece.php" ?>
-        </select> <br></label>
+        <option value="">--Choisissez--</option>';
+        include "searchEspece.php";
+        echo'</select> <br></label>
         <label>Attaque : <select name="Attack" id="Attack" required>
-        <option value="">--Choisissez--</option>
-        <?php include "searchAttaque.php" ?>
+        <option value="">--Choisissez--</option>';
+         include "searchAttaque.php";
+        echo'
         </select> <br></label>
         <label>Objet : <select name="Object" id="Object">
-        <option value=null>--Choisissez--</option>
-        <?php include "searchObjet.php" ?>
-        </select> <br></label>
+        <option value=null>--Choisissez--</option>';
+        include "searchObjet.php";
+        echo '</select> <br></label>
         <label>Propriétaire : <select name="Owner" id="Owner">
-        <option value=null>--Choisissez--</option>
-        <?php include "searchProprietaire.php" ?>
-        </select> <br></label>
+        <option value=null>--Choisissez--</option>';
+        include "searchProprietaire.php";
+        echo '</select> <br></label>
         <input type="submit" value="valider">
       </form>
-      <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
+      <button onclick="document.getElementById(\'mydialog\').style.visibility=\'hidden\'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
     </dialog>
-  </div>
+  </div>;'?>
 <?php include "footer.php" ?>
  </body>
 </html>
