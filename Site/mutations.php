@@ -55,20 +55,24 @@
         ?>
       <td id='sprite'></td>
       </table>
-      <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter une espèce</button>
+      <button onclick="document.getElementById('mydialog').style.visibility = 'visible'">Ajouter une mutation</button>
    </div>
    <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
-      <h1 id="modal-heading">Ajouter une Espèce</h1>
-      <form action="./add-espece.php" method="post">
-        <label>Numéro : <input type="number" id="number" name="number" min=1><br></label>
-        <label>Nom : <input type="text" id="name" name="name" required><br></label>
-        <label>Type : <select name="type" id="type">
+      <h1 id="modal-heading">Ajouter une Mutation</h1>
+      <form action="./add-mutation.php" method="post">
+        <label>Premutation : <select name="pre" id="pre">
         <option value="">--Choisissez--</option>
-        <?php include "searchType.php" ?>
+        <?php include "searchEspece.php" ?>
         </select><br> </label>
-        <label>Zone : <select name="zone" id="zone">
+        <label>PostMutation : <select name="post" id="post">
         <option value="">--Choisissez--</option>
-        <?php include "searchZone.php" ?>
+        <?php include "searchEspece.php" ?>
+        </select> <br></label>
+        <label>PE Requis : <input type="number" id="PERequis" name="PERequis" min="1" max="100" step="1" required><br></label>
+        <label>Objet : <select name="post" id="post">
+        <option value=null>--Choisissez--</option>
+        <option value="">Aucun</option>
+        <?php include "searchObjet.php" ?>
         </select> <br></label>
         <input type="submit" value="valider">
       </form>
