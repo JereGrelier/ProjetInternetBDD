@@ -28,7 +28,7 @@
         <th>Actions</th>
           </tr>
         <?php
-          $requete = "select * from OBJET, LOCALISATION where OBJET.IdObjet = LOCALISATION.IdObjet order by OBJET.IdObjet asc";
+          $requete = "select * from OBJET, LOCALISATION, ZONE where OBJET.IdObjet = LOCALISATION.IdObjet and LOCALISATION.IdZone = ZONE.IdZone order by OBJET.IdObjet asc";
           /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
@@ -38,6 +38,7 @@
                 echo '<td>'.$zone['NomObjet'].'</td>';
                 echo '<td>'; ($zone['IsUnique'] == 1) ?  $a='✓' :  $a='X'; echo $a.'</td>';
                 echo '<td>'.$zone['BonusPuissance'].'</td>';
+                echo '<td>'.$zone['NomZone'].'</td>';
                 echo '<td><form method="post" action="./delete/deleteObjet.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$zone['IdObjet'].'"/>
