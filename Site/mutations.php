@@ -46,11 +46,11 @@
         if ($res2 = $dbh->query($requete2))
           $especePost =  $res2->fetchAll();
           echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
-          echo '<td>' . $post[$i]['NomEspece'] . '</td>';
+          echo '<td>' . $especePost[$i]['NomEspece'] . '</td>';
           echo '<td>' . $esp['IdObjet'] . '</td>';
           echo '<td>' . $esp['PE_Requis'] . '</td>';
           echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
-          echo '<td> <img src="' . $post[$i]['Sprite'] . '"/></td>';
+          echo '<td> <img src="' . $especePost[$i]['Sprite'] . '"/></td>';
           $i = $i + 1;
         }
       /* echo '<td><form method="post" action="./delete/deleteEspece.php">
