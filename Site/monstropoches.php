@@ -94,26 +94,26 @@
         <option value="Non binaire">Non binaire</option>
         </select> <br> </label>
         <label>Espèce : <select name="Species" id="Species" required>
-        <option value="">--Choisissez--</option>';
+        <option value="null">--Choisissez--</option>';
       include "./search/searchEspece.php";
       echo '</select> <br></label>
         <label>Attaque : <select name="Attack" id="Attack" required>
-        <option value="">--Choisissez--</option>';
+        <option value="null">--Choisissez--</option>';
       include "./search/searchMoveset-Espece.php";
       echo '
         </select> <br></label>
         <label>Attaque : <select name="Attacke" id="Attacke">
-        <option value="">--Choisissez--</option>';
+        <option value="null">--Choisissez--</option>';
       include "./search/searchMoveset-Espece.php";
       echo '
         </select> <br></label>
         <label>Attaque : <select name="Attackee" id="Attackee">
-        <option value="">--Choisissez--</option>';
+        <option value="null">--Choisissez--</option>';
       include "./search/searchMoveset-Espece.php";
       echo '
         </select> <br></label>
         <label>Attaque : <select name="Attackeee" id="Attackeee">
-        <option value="">--Choisissez--</option>';
+        <option value="null">--Choisissez--</option>';
       include "./search/searchMoveset-Espece.php";
       echo '
         </select> <br></label>
