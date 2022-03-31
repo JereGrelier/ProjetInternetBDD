@@ -41,7 +41,8 @@ $sth->execute(array(
     'surnom' => $newnickame, 'pv' => $HP, 'genre' => $gender, 'exp' => $EXP, 'state' => $state,
     'espece' => $species, 'objet' => $object, 'proprietaire' => $owner
 ));
-$idM = 'select max(\'IdMonstropoche\') from MONSTROPOCHE;';
+$idM = 'SELECT max( `IdMonstropoche` )
+FROM `MONSTROPOCHE`';
 echo "IDMAX : ". $idM;
 $sth2 = $dbh->prepare($sql2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 $sth2->execute(array(
