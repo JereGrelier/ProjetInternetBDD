@@ -48,13 +48,12 @@
         $requeteobj = "select * from MONSTROPOCHE, OBJET where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdObjet = OBJET.IdObjet";
       if ($resObjet = $dbh->query($requeteobj))
         $objets = $resObjet->fetchAll();
-        echo $objets[0][10];
-        $obj = isset($monstropoche['NomObjet'][0])? $monstropoche['NomObjet'][0] : '-';
+        $obj = isset($monstropoche[0]['NomObjet'])? $monstropoche[0]['NomObjet'] : '-';
 
         $requeteproprio = "select * from MONSTROPOCHE, PROPRIETAIRE where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire";
       if ($resProprio = $dbh->query($requeteproprio))
         $proprios = $resProprio->fetchAll();
-        $proprio = isset($proprio['NomProprietaire'][0]) ? $proprios['NomProprietaire'][0] : '-';
+        $proprio = isset($proprio[0]['NomProprietaire']) ? $proprios[0]['NomProprietaire'] : '-';
         echo '<td>' . $monstropoche['Surnom'] . '</td>';
         echo '<td>' . $monstropoche['Etat'] . '</td>';
         echo '<td>' . $monstropoche['PV'] . '</td>';
