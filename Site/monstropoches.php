@@ -53,7 +53,7 @@
         $requeteproprio = "select * from MONSTROPOCHE, PROPRIETAIRE where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire";
       if ($resProprio = $dbh->query($requeteproprio))
         $proprios = $resProprio->fetchAll();
-        $proprio = isset($proprio[0]['NomProprietaire']) ? $proprios[0]['NomProprietaire'] : '-';
+        $proprio = isset($proprios[0]['NomProprietaire']) ? $proprios[0]['NomProprietaire'] : '-';
         echo '<td>' . $monstropoche['Surnom'] . '</td>';
         echo '<td>' . $monstropoche['Etat'] . '</td>';
         echo '<td>' . $monstropoche['PV'] . '</td>';
