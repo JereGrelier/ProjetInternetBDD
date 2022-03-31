@@ -14,7 +14,7 @@
     <script>
         setTimeout(function() {
             location.href = "../monstropoches.php"
-        }, 500);
+        }, 5000);
     </script>
 </head>
 
