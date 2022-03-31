@@ -22,7 +22,7 @@
     $pre = $_REQUEST['pre'];
     $post = $_REQUEST['post'];
     $PERequis = intval($_REQUEST['PERequis']);
-    $obj = intval($_REQUEST['obj']);
+    $obj = $_REQUEST['obj'];
     $sql = 'insert into MUTATION values (:pre, :post, :obj, :pe);';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('pre' => $pre, 'post' => $post, 'obj' => $obj, 'pe' => $PERequis));
