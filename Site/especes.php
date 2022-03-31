@@ -42,7 +42,7 @@
         echo "\t" . '<tr><td>' . $esp['Numero'] . '</td>';
         echo '<td>' . $esp['NomEspece'] . '</td>';
         echo '<td>' . $esp['NomType'] . '</td>';
-        $requete2 = "select * from TYPE where IdType = ".$esp['TypeEspece2'];
+        $requete2 = "select * from TYPE where IdType = ".isset($esp['TypeEspece2'])? $esp['TypeEspece2'] : NULL;
         if($res2 = $dbh->query($requete2))
           $type2 = $res2->fetchAll();
         echo '<td>'.isset($type2[0]['NomType'])?$type2[0]['NomType']:"-".'</td>';
