@@ -48,8 +48,6 @@ if ($res1 = $dbh->query($requete1))
   $monstropoches =  $res1->fetchAll();
   print_r($monstropoches);
   echo $monstropoches[0]['IdMonstropoche'];
-
-echo "IDMAX : ". $idM;
 $sth2 = $dbh->prepare($sql2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 $sth2->execute(array(
     'attaque' => $attack, 'attaquee' => $attacke,
