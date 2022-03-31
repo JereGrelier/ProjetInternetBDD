@@ -48,7 +48,7 @@
         $requeteobj = "select * from MONSTROPOCHE, OBJET where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdObjet = OBJET.IdObjet";
       if ($resObjet = $dbh->query($requeteobj))
         $objets = $resObjet->fetchAll();
-        $obj = isset($monstropoche[0]['NomObjet'])? $monstropoche[0]['NomObjet'] : '-';
+        $obj = isset($objets[0]['NomObjet'])? $objets[0]['NomObjet'] : '-';
 
         $requeteproprio = "select * from MONSTROPOCHE, PROPRIETAIRE where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire";
       if ($resProprio = $dbh->query($requeteproprio))
