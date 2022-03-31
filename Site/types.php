@@ -50,7 +50,8 @@
       </table>
       <button class="openModal" onclick="document.getElementById('mydialog').style.visibility = 'visible'"> Ajouter un type</button>
    </div>
-   <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+  <div id="mydialog">
+<dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Type</h1>
       <form action="./add/add-type.php" method="post">
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
@@ -58,6 +59,7 @@
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
     </dialog>
+</div>
   </div>
 <?php include "footer.php" ?>
 <script type="text/javascript" src="js/modal.js"></script>

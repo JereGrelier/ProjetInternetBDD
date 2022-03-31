@@ -60,7 +60,8 @@
       </table>
       <button class="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter une attaque</button>
    </div>
-   <dialog open id="mydialog" class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+  <div id="mydialog">
+<dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
       <form action="./add/add-to-moveset.php" method="post">
       <label>PE Requis : <input type="number" id="PE_Requis" name="PE_Requis" min="1" max="100" path="1" required><br>
@@ -73,7 +74,8 @@
         <input type="submit" value="valider">
       </form>
       <button onclick="document.getElementById(\'mydialog\').style.visibility=\'hidden\'" style="position: absolute ;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
-    </dialog>'
+    </dialog>
+</div>'
     ?>
   </div>
 <?php include "footer.php" ?>
