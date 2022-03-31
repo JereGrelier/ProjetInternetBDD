@@ -3,6 +3,11 @@ var button = document.getElementsById('openModal')
 
 // When the user clicks anywhere outside of the modal, close it
 
+
+button.onclick = function() {
+    modal.style.visibility='visible'
+}
+
 window.onclick = function(event) {
    if (event.target != modal && event.target != button) {
 
