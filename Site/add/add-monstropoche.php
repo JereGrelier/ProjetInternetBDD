@@ -30,9 +30,9 @@ $gender = $_REQUEST['Gender'];
 $species = intval($_REQUEST['Species']);
 $object = $_REQUEST['Object'] == "" ? NULL : $_REQUEST['Object'];
 $attack = intval($_REQUEST['Attack']);
-$attacke = $_REQUEST['Attacke']== "" ? NULL : $_REQUEST['Attacke'];
-$attackee = $_REQUEST['Attackee']== "" ? NULL : $_REQUEST['Attackee'];
-$attackeee = $_REQUEST['Attackeee']== "" ? NULL : $_REQUEST['Attackeee'];
+$attacke = $_REQUEST['Attacke'] == "" ? NULL : $_REQUEST['Attacke'];
+$attackee = $_REQUEST['Attackee'] == "" ? NULL : $_REQUEST['Attackee'];
+$attackeee = $_REQUEST['Attackeee'] == "" ? NULL : $_REQUEST['Attackeee'];
 $owner = intval($_REQUEST['Owner']);
 $sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, numEspece, idObjet, idProprietaire) values (:surnom, :state, :exp, :pv, :genre, :espece, :objet, :proprietaire);';
 $sql2 = 'insert into MOVESET_MONSTROPOCHE (IdAttaque, idMonstropoche, Position) values (:attaque, :idMonstropoche, 1), (:attaquee, :idMonstropoche, 2), (:attaqueee, :idMonstropoche, 3), (:attaqueeee, :idMonstropoche, 4);';
@@ -41,7 +41,7 @@ $sth->execute(array(
     'surnom' => $newnickame, 'pv' => $HP, 'genre' => $gender, 'exp' => $EXP, 'state' => $state,
     'espece' => $species, 'objet' => $object, 'proprietaire' => $owner
 ));
-$idM = 'select max(\'IdMonstropoche\') from MONSTROPOCHE';
+$idM = 'select max(\'IdMonstropoche\') from MONSTROPOCHE;';
 echo "IDMAX : ". $idM;
 $sth2 = $dbh->prepare($sql2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 $sth2->execute(array(
