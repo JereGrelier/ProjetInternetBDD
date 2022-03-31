@@ -51,15 +51,15 @@
         echo '<td>' . $esp['PE_Requis'] . '</td>';
         echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
         echo '<td> <img src="' . $especePost[$i]['Sprite'] . '"/></td>';
+        echo '<td><form method="post" action="./delete/deleteMutation.php">
+        <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
+        <input type="hidden" name="id" value="' . $esp['IdPreMutation'] . '"/>
+        <input type="hidden" name="idp" value="' . $esp['IdPostMutation'] . '"/>
+        <input type="hidden" name="pre" value="' . $esp['NomEspece'] . '"/>
+        <input type="hidden" name="post" value="' . $especePost[$i]['NomEspece'] . '"/>
+      </form></td>';
         $i = $i + 1;
       }
-      echo '<td><form method="post" action="./delete/deleteMutation.php">
-                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="' . $esp['IdPreMutation'] . '"/>
-                      <input type="hidden" name="idp" value="' . $esp['IdPostMutation'] . '"/>
-                      <input type="hidden" name="pre" value="' . $esp['NomEspece'] . '"/>
-                      <input type="hidden" name="post" value="' . $especePost[$i]['NomEspece'] . '"/>
-                    </form></td>';
       /*liberation de l'objet requete:*/
       $res->closeCursor();
       /*fermeture de la connexion avec la base*/
