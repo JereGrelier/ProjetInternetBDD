@@ -1,62 +1,66 @@
 <!DOCTYPE html>
 <html>
- <head>
- <link rel="stylesheet" href="css/monsite.css" />
- <meta charset="utf-8"/>
+
+<head>
+  <link rel="stylesheet" href="css/monsite.css" />
+  <meta charset="utf-8" />
   <title>Liste des objets</title>
   <link rel="apple-touch-icon" sizes="180x180" href="/ProjetInternetBDD/Site/assets/icons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/ProjetInternetBDD/Site/assets/icons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/ProjetInternetBDD/Site/assets/icons/favicon-16x16.png">
-        <link rel="manifest" href="/ProjetInternetBDD/Site/assets/icons/site.webmanifest">
-        <link rel="mask-icon" href="/ProjetInternetBDD/Site/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="/ProjetInternetBDD/Site/assets/icons/favicon.ico">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">
- </head>
- <body>
- <?php include "topnav.php" ?>
-    <div class="listeEspece">
+  <link rel="icon" type="image/png" sizes="32x32" href="/ProjetInternetBDD/Site/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/ProjetInternetBDD/Site/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/ProjetInternetBDD/Site/assets/icons/site.webmanifest">
+  <link rel="mask-icon" href="/ProjetInternetBDD/Site/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/ProjetInternetBDD/Site/assets/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
+</head>
+
+<body>
+  <?php include "topnav.php" ?>
+  <div class="listeEspece">
     <h2>Liste des objets</h2>
-        <?php
-        include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
-        <table>
-          <tr>
+    <?php
+    include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
+    <table>
+      <tr>
         <th>Nom</th>
         <th>Unique</th>
         <th>Bonus de puissance</th>
         <th>Localisation</th>
         <th>Actions</th>
-          </tr>
-        <?php
-          $requete = "select * from OBJET, LOCALISATION, ZONE where OBJET.IdObjet = LOCALISATION.IdObjet and LOCALISATION.IdZone = ZONE.IdZone order by OBJET.IdObjet asc";
-          /* Si l'execution est reussie... */
-          if($res = $dbh->query($requete))
-              /* ... on récupère un tableau stockant le résultat */
-                $zones =  $res->fetchAll();
-                //echo print_r($espece);
-                foreach($zones as $zone) {
-                echo '<td>'.$zone['NomObjet'].'</td>';
-                echo '<td>'; ($zone['IsUnique'] == 1) ?  $a='✓' :  $a='X'; echo $a.'</td>';
-                echo '<td>'.$zone['BonusPuissance'].'</td>';
-                echo '<td>'.$zone['NomZone'].'</td>';
-                echo '<td><form method="post" action="./delete/deleteObjet.php">
+      </tr>
+      <?php
+      $requete = "select * from OBJET, LOCALISATION, ZONE where OBJET.IdObjet = LOCALISATION.IdObjet and LOCALISATION.IdZone = ZONE.IdZone order by OBJET.IdObjet asc";
+      /* Si l'execution est reussie... */
+      if ($res = $dbh->query($requete))
+        /* ... on récupère un tableau stockant le résultat */
+        $zones =  $res->fetchAll();
+      //echo print_r($espece);
+      foreach ($zones as $zone) {
+        echo '<td>' . $zone['NomObjet'] . '</td>';
+        echo '<td>';
+        ($zone['IsUnique'] == 1) ?  $a = '✓' : $a = 'X';
+        echo $a . '</td>';
+        echo '<td>' . $zone['BonusPuissance'] . '</td>';
+        echo '<td>' . $zone['NomZone'] . '</td>';
+        echo '<td><form method="post" action="./delete/deleteObjet.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="'.$zone['IdObjet'].'"/>
-                      <input type="hidden" name="name" value="'.$zone['NomObjet'].'"/>
+                      <input type="hidden" name="id" value="' . $zone['IdObjet'] . '"/>
+                      <input type="hidden" name="name" value="' . $zone['NomObjet'] . '"/>
                     </form></td>';
-                echo '</tr>'."\n";
-                }
-                /*liberation de l'objet requete:*/
-            $res->closeCursor();
-            /*fermeture de la connexion avec la base*/
-            $dbh = null;
-        ?>
-      </table>
-      <button class="openModal" onclick="document.getElementByClassName('ModalAddSpecies')[0].style.visibility = 'visible'">Ajouter un objet</button>
-   </div>
+        echo '</tr>' . "\n";
+      }
+      /*liberation de l'objet requete:*/
+      $res->closeCursor();
+      /*fermeture de la connexion avec la base*/
+      $dbh = null;
+      ?>
+    </table>
+    <button class="openModal" onclick="document.getElementByClassName('ModalAddSpecies')[0].style.visibility = 'visible'">Ajouter un objet</button>
+  </div>
   <div id="mydialog">
-<dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+    <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Proprietaire</h1>
       <form action="./add/add-objet.php" method="post">
         <label>Nom : <input type="text" id="Name" name="Name" required><br></label>
@@ -64,11 +68,12 @@
         <label>Unique? <input type="checkbox" id="Unique" name="Unique"></label>
         <input type="submit" value="valider">
       </form>
-      <button onclick="document.getElementByClassName('ModalAddSpecies')[0].style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="/ProjetInternetBDD/Site/assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
+      <button onclick="document.getElementByClassName('ModalAddSpecies')[0].style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="/ProjetInternetBDD/Site/assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
     </dialog>
-</div>
   </div>
-<?php include "footer.php" ?>
-<script type="text/javascript" src="js/modal.js"></script>
- </body>
+  </div>
+  <?php include "footer.php" ?>
+  <script type="text/javascript" src="js/modal.js"></script>
+</body>
+
 </html>
