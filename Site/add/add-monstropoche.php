@@ -46,6 +46,7 @@ $requete1 = "select * from MONSTROPOCHE where MONSTROPOCHE.Surnom = '".$newnicka
 if ($res1 = $dbh->query($requete1))
   /* ... on récupère un tableau stockant le résultat */
   $monstropoches =  $res1->fetchAll();
+  print_r($monstropoches);
 $IdM = $monstropoches[0]['IdMonstropoche'];
 
 echo "IDMAX : ". $idM;
