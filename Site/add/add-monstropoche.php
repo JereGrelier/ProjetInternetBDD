@@ -46,7 +46,6 @@ $requete1 = "select * from MONSTROPOCHE where MONSTROPOCHE.Surnom = '".$newnicka
 if ($res1 = $dbh->query($requete1))
   /* ... on récupère un tableau stockant le résultat */
   $monstropoches =  $res1->fetchAll();
-  print_r($monstropoches);
   echo $monstropoches[0]['IdMonstropoche'];
 $sth2 = $dbh->prepare($sql2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 $sth2->execute(array(
