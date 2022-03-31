@@ -42,10 +42,15 @@
         echo "\t" . '<tr><td>' . $esp['Numero'] . '</td>';
         echo '<td>' . $esp['NomEspece'] . '</td>';
         echo '<td>' . $esp['NomType'] . '</td>';
-        $requete2 = "select * from TYPE where IdType = ".isset($esp['TypeEspece2'])? $esp['TypeEspece2'] : NULL;
-        if($res2 = $dbh->query($requete2))
-          $type2 = $res2->fetchAll();
-        echo '<td>'.isset($type2[0]['NomType'])?$type2[0]['NomType']:"-".'</td>';
+        if (isset($esp['TypeEspece2'])) {
+          $requete2 = "select * from TYPE where IdType = " .$esp['TypeEspece2'];
+          if ($res2 = $dbh->query($requete2))
+            $type2 = $res2->fetchAll();
+          echo '<td>' .$type2[0]['NomType']. '</td>';
+        }
+        else {
+          echo '<td>-</td>';
+        }
         echo '<td>' . $esp['NomZone'] . '</td>';
         echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
         echo '<td><form method="post" action="./delete/deleteEspece.php">
@@ -77,7 +82,7 @@
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select><br> </label>
-          <label>Type 2 : <select name="type2" id="type2">
+        <label>Type 2 : <select name="type2" id="type2">
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select><br> </label>
