@@ -43,7 +43,7 @@
         ($objet['IsUnique'] == 1) ?  $a = '✓' : $a = 'X';
         echo $a . '</td>';
         echo '<td>' . $objet['BonusPuissance'] . '</td>';
-        $requete2 = "select * from LOCALISATION, ZONE where LOCALISATIOB.IdObjer = ".$zone['IdObjet']." and LOCALISATION.IDZone = ZONE.IdZone order by ZONE.IdZone asc";
+        $requete2 = "select * from LOCALISATION, ZONE where LOCALISATIOB.IdObjer = ".$zone['IdObjet']." and LOCALISATION.IdZone = ZONE.IdZone order by ZONE.IdZone asc";
         if ($res2 = $dbh->query($requete2))
           $zones = $res2->fetchAll();
         foreach ($zones as $zone) {
