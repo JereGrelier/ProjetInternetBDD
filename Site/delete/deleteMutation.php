@@ -13,7 +13,7 @@
  <link rel="stylesheet" href="../css/monsite.css" />
  <title>Deleting zone</title>
  <script>
-    setTimeout(function(){location.href="../especes.php"} , 1000);
+    setTimeout(function(){location.href="../mutations.php"} , 1000);
 </script>
  </head>
  <body>
