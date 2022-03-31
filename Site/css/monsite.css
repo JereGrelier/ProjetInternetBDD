@@ -156,7 +156,7 @@ hr.rounded {
   #mydialog {
     display: block;
     overflow: auto;
-    width: 330px;
+    min-width: 400px;
     min-height: 100%;
     position: absolute;
     left: 50%;
