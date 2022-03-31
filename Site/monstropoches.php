@@ -102,17 +102,17 @@
       include "./search/searchMoveset-Espece.php";
       echo '
         </select> <br></label>
-        <label>Attaque : <select name="Attacke" id="Attacke" required>
+        <label>Attaque : <select name="Attacke" id="Attacke">
         <option value="">--Choisissez--</option>';
       include "./search/searchMoveset-Espece.php";
       echo '
         </select> <br></label>
-        <label>Attaque : <select name="Attackee" id="Attackee" required>
+        <label>Attaque : <select name="Attackee" id="Attackee">
         <option value="">--Choisissez--</option>';
       include "./search/searchMoveset-Espece.php";
       echo '
         </select> <br></label>
-        <label>Attaque : <select name="Attackeee" id="Attackeee" required>
+        <label>Attaque : <select name="Attackeee" id="Attackeee">
         <option value="">--Choisissez--</option>';
       include "./search/searchMoveset-Espece.php";
       echo '
