@@ -10,7 +10,7 @@ button.onclick = function() {
 
 window.onclick = function(event) {
    if (event.target != modal && event.target != button && event.target.parentNode != modal && event.target.parentNode.parentNode != modal && event.target.parentNode.parentNode.parentNode != modal) {
-        console.log(event.target);
+        console.log(event.target.parentNode.parentNode.parentNode);
         console.log("On ferme");
         modal.style.visibility='hidden';
     }
