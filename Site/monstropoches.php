@@ -45,6 +45,8 @@
 
       //echo print_r($espece);
       foreach ($monstropoches as $monstropoche) {
+        $obj = isset($monstropoche['NomObjet'])? $monstropoche['NomObjet'] : '-';
+        $proprio = isset($monstropoche['NomProprietaire']) ? $monstropoche['NomProprietaire'] : '-'
         echo '<td>' . $monstropoche['Surnom'] . '</td>';
         echo '<td>' . $monstropoche['Etat'] . '</td>';
         echo '<td>' . $monstropoche['PV'] . '</td>';
@@ -62,8 +64,8 @@
             echo '<td>-</td>';
           }
         }
-        echo '<td>' . isset($monstropoche['NomObjet'])? $monstropoche['NomObjet'] : '-' . '</td>';
-        echo '<td>' . isset($monstropoche['NomProprietaire']) ? $monstropoche['NomProprietaire'] : '-'. '</td>';
+        echo '<td>' . $obj . '</td>';
+        echo '<td>' . $proprio . '</td>';
         echo '<td><form method="post" action="delete/deleteMonstropoche.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="' . $monstropoche['IdMonstropoche'] . '"/>
