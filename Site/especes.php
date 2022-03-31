@@ -76,9 +76,9 @@
     <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Espèce</h1>
       <form action="./add/add-espece.php" method="post">
-        <label>Numéro : <input type="number" id="number" name="number" min=1><br></label>
+        <label>Numéro : <input type="number" id="number" name="number" min=1 required><br></label>
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
-        <label>Type : <select name="type" id="type">
+        <label>Type : <select name="type" id="type" required>
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select><br> </label>
@@ -86,7 +86,7 @@
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select><br> </label>
-        <label>Zone : <select name="zone" id="zone">
+        <label>Zone : <select name="zone" id="zone" required>
             <option value="">--Choisissez--</option>
             <?php include "./search/searchZone.php" ?>
           </select> <br></label>
