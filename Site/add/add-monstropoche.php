@@ -14,7 +14,7 @@
     <script>
         setTimeout(function() {
             location.href = "../monstropoches.php"
-        }, 5000);
+        }, 2000);
     </script>
 </head>
 
@@ -35,11 +35,16 @@ $attackee = intval($_REQUEST['Attackee']);
 $attackeee = intval($_REQUEST['Attackeee']);
 $owner = intval($_REQUEST['Owner']);
 $idM = 'select max(IdMonstropoche) from MONSTROPOCHE' + 1;
-$sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, numEspece, idObjet, idProprietaire) values (:surnom, :state, :exp, :pv, :genre, :espece, :objet, :proprietaire); insert into MOVESET_MONSTROPOCHE (IdAttaque, IdMonstopoche, Position) values (:attaque, :idMonstropoche, 1), (:attaquee, :idMonstropoche, 2), (:attaqueee, :idMonstropoche, 3), (:attaqueeee, :idMonstropoche, 4);';
+$sql = 'insert into MONSTROPOCHE (surnom, etat, pe, pv , genre, numEspece, idObjet, idProprietaire) values (:surnom, :state, :exp, :pv, :genre, :espece, :objet, :proprietaire);';
+$sql2 = 'insert into MOVESET_MONSTROPOCHE (IdAttaque, IdMonstopoche, Position) values (:attaque, :idMonstropoche, 1), (:attaquee, :idMonstropoche, 2), (:attaqueee, :idMonstropoche, 3), (:attaqueeee, :idMonstropoche, 4);';
 $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 $sth->execute(array(
     'surnom' => $newnickame, 'pv' => $HP, 'genre' => $gender, 'exp' => $EXP, 'state' => $state,
-    'espece' => $species, 'objet' => $object, 'proprietaire' => $owner, 'attaque' => $attack, 'attaquee' => $attacke,
+    'espece' => $species, 'objet' => $object, 'proprietaire' => $owner
+));
+$sth2 = $dbh->prepare($sql2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+$sth2->execute(array(
+    'attaque' => $attack, 'attaquee' => $attacke,
     'attaqueee' => $attackee, 'attaqueeee' => $attackeee, 'idMonstropoche' => $idM
 ));
 ?>
