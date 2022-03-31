@@ -62,7 +62,7 @@
                 }
                 echo '<td>'.$monstropoche['NomObjet'].'</td>';
                 echo '<td>'.$monstropoche['NomProprietaire'].'</td>';
-                echo '<td><form method="post" action="delete.php">
+                echo '<td><form method="post" action="delete/deleteMonstropoche.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$monstropoche['IdMonstropoche'].'"/>
                       <input type="hidden" name="table" value="TYPE"/>
