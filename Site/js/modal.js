@@ -10,8 +10,8 @@ button.onclick = function() {
 
 window.onclick = function(event) {
    if (event.target != modal && event.target != button) {
+        console.log(event.target);
         console.log("On ferme");
         modal.style.visibility='hidden';
-
     }
 }
