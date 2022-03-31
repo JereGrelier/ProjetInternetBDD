@@ -158,6 +158,7 @@ hr.rounded {
     overflow: auto;
     min-width: 400px;
     min-height: 100%;
+    max-height: max-content;
     position: absolute;
     left: 50%;
     top: 50%;

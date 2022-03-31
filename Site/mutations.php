@@ -30,6 +30,7 @@
         <th>Objet</th>
         <th>PE Requis</th>
         <th colspan="2">Sprites</th>
+        <th>Actions</th>
       </tr>
       <?php
       $requete = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = MUTATION.IdPreMutation order by ESPECE.numero asc";
