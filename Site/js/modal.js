@@ -9,7 +9,7 @@ button.onclick = function() {
 }
 
 window.onclick = function(event) {
-   if (event.target != modal || event.target != button) {
+   if (event.target != modal && event.target != button) {
 
       modal.style.visibility='hidden';
 
