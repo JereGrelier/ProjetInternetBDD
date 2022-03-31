@@ -15,6 +15,7 @@
         <meta name="theme-color" content="#ffffff">
   <title>Liste des mutations</title>
  </head>
+
  <body>
  <?php include "topnav.php" ?>
     <div class="listeEspece">
@@ -89,5 +90,6 @@
     </dialog>
   </div>
 <?php include "footer.php" ?>
+<script type="text/javascript" src="js/modal.js"></script>
  </body>
 </html>
