@@ -65,8 +65,7 @@
                 echo '<td><form method="post" action="delete/deleteMonstropoche.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$monstropoche['IdMonstropoche'].'"/>
-                      <input type="hidden" name="table" value="TYPE"/>
-                      <input type="hidden" name="tableId" value="IdType"/>
+                      <input type="hidden" name="name" value="'.$monstropoche['Surnom'].'"/>
                     </form></td>';
                 echo '</tr>'."\n";
                 }
