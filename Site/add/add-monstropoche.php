@@ -41,7 +41,7 @@ $sth->execute(array(
     'surnom' => $newnickame, 'pv' => $HP, 'genre' => $gender, 'exp' => $EXP, 'state' => $state,
     'espece' => $species, 'objet' => $object, 'proprietaire' => $owner
 ));
-$requete1 = "select * from MONSTROPOCHE where surnom=".$newnickame." and numEspece = ". $species;
+$requete1 = "select * from MONSTROPOCHE where Surnom=".$newnickame." and NumEspece = ". $species;
 /* Si l'execution est reussie... */
 if ($res1 = $dbh->query($requete1))
   /* ... on récupère un tableau stockant le résultat */
