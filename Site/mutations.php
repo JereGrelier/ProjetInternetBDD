@@ -3,7 +3,7 @@
 
 <head>
   <link rel="stylesheet" href="css/monsite.css" />
-  <script src="js/nav.js"></script>
+  <script src="./js/nav.js"></script>
   <meta charset="utf-8" />
   <link rel="apple-touch-icon" sizes="180x180" href="/ProjetInternetBDD/Site/assets/icons/apple-touch-icon.png">
   <link rel="icon" type="image/png" sizes="32x32" href="/ProjetInternetBDD/Site/assets/icons/favicon-32x32.png">
@@ -98,10 +98,9 @@
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
     </dialog>
-  </div>
-  </div>
+ </div>
   <?php include "footer.php" ?>
-  <script type="text/javascript" src="js/modal.js"></script>
+  <script type="text/javascript" src="./js/modal.js"></script>
 </body>
 
 </html>

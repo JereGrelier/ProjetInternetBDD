@@ -118,7 +118,7 @@ hr.rounded {
     margin-top: 100px;
   }
  
-  .listeEspece table {
+  table {
     width: 100%;
     border-collapse: collapse;
     border-radius: 1em;
@@ -238,3 +238,8 @@ footer {
   width: 30%;
   height: 30%;
 }
+
+.TableEff {
+  margin-top: 100px;
+}
+

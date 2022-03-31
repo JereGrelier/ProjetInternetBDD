@@ -2,8 +2,6 @@
 
 <body>
     <footer>
-        <?php include 'connect.php'
-        ?>
         Copyright Jeremy Grelier & Enzo Naudy
     </footer>
 </body>
