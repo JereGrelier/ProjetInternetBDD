@@ -45,14 +45,14 @@
        /*  $requete2 = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = " . $esp['IdPostMutation'] . " order by ESPECE.numero asc";
         if ($res2 = $dbh->query($requete2))
           $especePost =  $res2->fetchAll(); */
-        foreach ($especePost as $post) {
+        //foreach ($especePost as $post) {
           echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
           //echo '<td>' . $post['NomEspece'] . '</td>';
           echo '<td>' . $esp['IdObjet'] . '</td>';
           echo '<td>' . $esp['PE_Requis'] . '</td>';
           echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
           //echo '<td> <img src="' . $post['Sprite'] . '"/></td>';
-        }
+        //}
       }
       /* echo '<td><form method="post" action="./delete/deleteEspece.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
