@@ -43,7 +43,7 @@
                 echo '<td><form method="post" action="./delete/deleteAttaque.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$att['IdAttaque'].'"/>
-                      <input type="hidden" name="id" value="'.$att['NomAttaque'].'"/>
+                      <input type="hidden" name="name" value="'.$att['NomAttaque'].'"/>
                     </form></td>';
                 echo '</tr>'."\n";
                 }

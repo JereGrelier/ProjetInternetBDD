@@ -34,7 +34,7 @@
                 //echo print_r($espece);
                 foreach($zones as $zone) {
                 echo '<td>'.$zone['NomZone'].'</td>';
-                echo '<td><form method="post" action="deleteZone.php">
+                echo '<td><form method="post" action="./delete/deleteZone.php">
                 <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="'.$zone['IdZone'].'"/>
                       <input type="hidden" name="name" value="'.$zone['NomZone'].'"/>
