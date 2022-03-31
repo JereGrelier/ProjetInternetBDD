@@ -78,6 +78,10 @@
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select><br> </label>
+          <label>Type 2 : <select name="type2" id="type2">
+            <option value="">--Choisissez--</option>
+            <?php include "./search/searchType.php" ?>
+          </select><br> </label>
         <label>Zone : <select name="zone" id="zone">
             <option value="">--Choisissez--</option>
             <?php include "./search/searchZone.php" ?>
