@@ -48,12 +48,18 @@
           $especePost =  $res2->fetchAll();
         echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
         echo '<td>' . $especePost[$i]['NomEspece'] . '</td>';
-        echo '<td>' . $esp['IdObjet'] . '</td>';
+        if(isset($esp['IdObjet'])) {
+          $requeteObj = "select * from OBJET where IdObjet = ". $esp['IdObjet'];
+          if($resObj = $dbh->query($requeteObj))
+          $obj = $resObj->fetch();
+          echo '<td>' . $obj['NomObjet'] . '</td>';
+        }
+        else echo '<td>-</td>';
         echo '<td>' . $esp['PE_Requis'] . '</td>';
         echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
         echo '<td> <img src="' . $especePost[$i]['Sprite'] . '"/></td>';
         echo '<td><form method="post" action="./delete/deleteMutation.php">
-        <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
+        <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
         <input type="hidden" name="id" value="' . $esp['IdPreMutation'] . '"/>
         <input type="hidden" name="idp" value="' . $esp['IdPostMutation'] . '"/>
         <input type="hidden" name="pre" value="' . $esp['NomEspece'] . '"/>
