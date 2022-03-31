@@ -36,7 +36,7 @@
         <th>Actions</th>
       </tr>
       <?php
-      $requete1 = "select * from MONSTROPOCHE, OBJET, ESPECE, PROPRIETAIRE where MONSTROPOCHE.NumEspece = ESPECE.Numero AND MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire AND MONSTROPOCHE.IdObjet = OBJET.IdObjet order by MONSTROPOCHE.IdMonstropoche asc";
+      $requete1 = "select * from MONSTROPOCHE, ESPECE where MONSTROPOCHE.NumEspece = ESPECE.Numero order by MONSTROPOCHE.IdMonstropoche asc";
       /* Si l'execution est reussie... */
       if ($res1 = $dbh->query($requete1))
         /* ... on récupère un tableau stockant le résultat */
@@ -45,8 +45,15 @@
 
       //echo print_r($espece);
       foreach ($monstropoches as $monstropoche) {
-        $obj = isset($monstropoche['NomObjet'])? $monstropoche['NomObjet'] : '-';
-        $proprio = isset($monstropoche['NomProprietaire']) ? $monstropoche['NomProprietaire'] : '-';
+        $requeteobj = "select * from MONSTROPOCHE, OBJET where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdObjet = OBJET.IdObjet";
+      if ($resObjet = $dbh->query($requeteobj))
+        $objets = $resObjet->fetchAll();
+        $obj = isset($monstropoche['NomObjet'][0])? $monstropoche['NomObjet'][0] : '-';
+
+        $requeteproprio = "select * from MONSTROPOCHE, PROPRIETAIRE where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire";
+      if ($resProprio = $dbh->query($requeteproprio))
+        $proprios = $resProprio->fetchAll();
+        $proprio = isset($proprio['NomProprietaire'][0]) ? $proprios['NomProprietaire'][0] : '-';
         echo '<td>' . $monstropoche['Surnom'] . '</td>';
         echo '<td>' . $monstropoche['Etat'] . '</td>';
         echo '<td>' . $monstropoche['PV'] . '</td>';
