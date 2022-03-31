@@ -64,22 +64,13 @@
         // specify the data
         var rowData = [];
         TypesA.forEach(typeA => {
-            if (rowData.includes(typeA.NomType))
-            {
-                console.log("Dela ja");
-            }
-                console.log(typeA);
+            if (!rowData.find(element => element.typesD === typeA.NomType)) {
                 rowData.push({
                     typesD: typeA.NomType,
-                    1: 0.5,
-                    2: 1,
-                    4: 2,
-                    5: 0,
-                    6: 0.5,
-                    7: 1,
-                    8: 1.5,
-                    9: 1
                 })
+            }
+            var AttaqueT = typeA.IdTypeAttaque;
+            rowData.find(element => element.typesD === typeA.NomType)[AttaqueT] = typeA.Coefficient;
         })
 
         // let the grid know which columns and what data to use
