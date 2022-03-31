@@ -82,7 +82,7 @@
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select><br> </label>
-        <label>Type 2 : <select name="type2" id="type2">
+        <label>Type 2 : <select name="type-deux" id="type-deux">
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select><br> </label>
