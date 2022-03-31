@@ -42,16 +42,16 @@
 
       foreach ($espece as $esp) {
         /* ... on récupère un tableau stockant le résultat */
-        $requete2 = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = " . $esp['IdPostMutation'] . " order by ESPECE.numero asc";
+       /*  $requete2 = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = " . $esp['IdPostMutation'] . " order by ESPECE.numero asc";
         if ($res2 = $dbh->query($requete2))
-          $especePost =  $res2->fetchAll();
+          $especePost =  $res2->fetchAll(); */
         foreach ($especePost as $post) {
           echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
-          echo '<td>' . $post['NomEspece'] . '</td>';
+          //echo '<td>' . $post['NomEspece'] . '</td>';
           echo '<td>' . $esp['IdObjet'] . '</td>';
           echo '<td>' . $esp['PE_Requis'] . '</td>';
           echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
-          echo '<td> <img src="' . $post['Sprite'] . '"/></td>';
+          //echo '<td> <img src="' . $post['Sprite'] . '"/></td>';
         }
       }
       /* echo '<td><form method="post" action="./delete/deleteEspece.php">
