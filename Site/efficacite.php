@@ -45,7 +45,7 @@
 
     <div class="TableEff">
         <h2>Table des efficacites</h2>
-        <div id="myGrid" style="width: 95%; height: 62%;position: fixed;left: 50px;border-radius: 15px;overflow: auto;font-size: larger;" class="ag-theme-alpine"></div>
+        <div id="myGrid" style="width: 95%; height: 305px ;position: fixed;left: 50px;border-radius: 15px;overflow: auto;font-size: larger;" class="ag-theme-alpine"></div>
     </div>
     <script type="text/javascript">
         var Types = <?php echo json_encode($attaques); ?>;
