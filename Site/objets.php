@@ -27,7 +27,7 @@
         <th>Nom</th>
         <th>Unique</th>
         <th>Bonus de puissance</th>
-        <th colspan="4">Localisation</th>
+        <th colspan="5">Localisation</th>
         <th>Actions</th>
       </tr>
       <?php
@@ -49,8 +49,8 @@
         foreach ($zones as $zone) {
           echo '<td>' . $zone['NomZone'] . '</td>';
         }
-        if (count($zones) < 4) {
-          for ($i = 0; $i < 4 - count($zones); $i++) {
+        if (count($zones) < 5) {
+          for ($i = 0; $i < 5 - count($zones); $i++) {
             echo '<td>-</td>';
           }
         }
