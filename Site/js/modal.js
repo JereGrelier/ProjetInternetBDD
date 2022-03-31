@@ -1,5 +1,5 @@
 var modal = document.getElementById('mydialog');
-var button = document.getElementsById('openModal')
+var button = document.getElementById('openModal');
 
 // When the user clicks anywhere outside of the modal, close it
 
