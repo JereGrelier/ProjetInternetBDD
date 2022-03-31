@@ -23,5 +23,3 @@ Si < 1 -> affecte attaque adversaire
 ## Datafilter
 
 https://datatables.net/extensions/fixedheader/examples/options/columnFiltering.html
-
-Notice: Undefined index: name in /home/jgrelier002/vvvpedago/ProjetInternetBDD/Site/delete/deleteAttaque.php on line 23
