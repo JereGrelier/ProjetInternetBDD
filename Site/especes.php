@@ -1,28 +1,30 @@
 <!DOCTYPE html>
 <html>
- <head>
- <link rel="stylesheet" href="css/monsite.css" />
- <script src="js/nav.js"></script> 
- <meta charset="utf-8"/>
- <link rel="apple-touch-icon" sizes="180x180" href="/ProjetInternetBDD/Site/assets/icons/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/ProjetInternetBDD/Site/assets/icons/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/ProjetInternetBDD/Site/assets/icons/favicon-16x16.png">
-        <link rel="manifest" href="/ProjetInternetBDD/Site/assets/icons/site.webmanifest">
-        <link rel="mask-icon" href="/ProjetInternetBDD/Site/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="shortcut icon" href="/ProjetInternetBDD/Site/assets/icons/favicon.ico">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
-        <meta name="theme-color" content="#ffffff">
+
+<head>
+  <link rel="stylesheet" href="css/monsite.css" />
+  <script src="js/nav.js"></script>
+  <meta charset="utf-8" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/ProjetInternetBDD/Site/assets/icons/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/ProjetInternetBDD/Site/assets/icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/ProjetInternetBDD/Site/assets/icons/favicon-16x16.png">
+  <link rel="manifest" href="/ProjetInternetBDD/Site/assets/icons/site.webmanifest">
+  <link rel="mask-icon" href="/ProjetInternetBDD/Site/assets/icons/safari-pinned-tab.svg" color="#5bbad5">
+  <link rel="shortcut icon" href="/ProjetInternetBDD/Site/assets/icons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
+  <meta name="theme-color" content="#ffffff">
   <title>Liste des espèces</title>
- </head>
- <body>
- <?php include "topnav.php" ?>
-    <div class="listeEspece">
+</head>
+
+<body>
+  <?php include "topnav.php" ?>
+  <div class="listeEspece">
     <h2>Liste des espèces de monstropochetrons</h2>
-        <?php
-        include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
-        <table>
-          <tr class="headerListEspece">
+    <?php
+    include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
+    <table>
+      <tr class="headerListEspece">
         <th>Numero</th>
         <th>Nom</th>
         <th>Type</th>
@@ -30,60 +32,61 @@
         <th>Zone</th>
         <th>Image</th>
         <th colspan="2">Actions</th>
-          </tr>
-        <?php
-          $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";          /* Si l'execution est reussie... */
-          if($res = $dbh->query($requete))
-              /* ... on récupère un tableau stockant le résultat */
-                $espece =  $res->fetchAll();
-                //echo print_r($espece);
-                foreach($espece as $esp) {
-                echo "\t".'<tr><td>'.$esp['Numero'].'</td>';
-                echo '<td>'.$esp['NomEspece'].'</td>';
-                echo '<td>'.$esp['NomType'].'</td>';
-                //echo '<td>'.$esp['evolution'].'</td>';
-                echo '<td>'.$esp['NomZone'].'</td>';
-                echo '<td> <img src="'.$esp['Sprite'].'"/></td>';
-                echo '<td><form method="post" action="./delete/deleteEspece.php">
+      </tr>
+      <?php
+      $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";          /* Si l'execution est reussie... */
+      if ($res = $dbh->query($requete))
+        /* ... on récupère un tableau stockant le résultat */
+        $espece =  $res->fetchAll();
+      //echo print_r($espece);
+      foreach ($espece as $esp) {
+        echo "\t" . '<tr><td>' . $esp['Numero'] . '</td>';
+        echo '<td>' . $esp['NomEspece'] . '</td>';
+        echo '<td>' . $esp['NomType'] . '</td>';
+        //echo '<td>'.$esp['evolution'].'</td>';
+        echo '<td>' . $esp['NomZone'] . '</td>';
+        echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
+        echo '<td><form method="post" action="./delete/deleteEspece.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
-                      <input type="hidden" name="name" value="'.$esp['NomEspece'].'"/>
+                      <input type="hidden" name="id" value="' . $esp['Numero'] . '"/>
+                      <input type="hidden" name="name" value="' . $esp['NomEspece'] . '"/>
                     </form></td>';
-                  echo '<td><form method="post" action="./moveset-espece.php">
+        echo '<td><form method="post" action="./moveset-espece.php">
                   <button type="submit" title="Envoyer"><h2 style="color:black">Voir le moveset</h2></button>
-                  <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
+                  <input type="hidden" name="id" value="' . $esp['Numero'] . '"/>
                   </form></td>';
-                }
-                /*liberation de l'objet requete:*/
-            $res->closeCursor();
-            /*fermeture de la connexion avec la base*/
-            $dbh = null;
-        ?>
+      }
+      /*liberation de l'objet requete:*/
+      $res->closeCursor();
+      /*fermeture de la connexion avec la base*/
+      $dbh = null;
+      ?>
       <td id='sprite'></td>
-      </table>
-      <button id="openModal" > Ajouter une espèce</button>
-   </div>
+    </table>
+    <button id="openModal"> Ajouter une espèce</button>
+  </div>
   <div id="mydialog">
-<dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+    <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Espèce</h1>
       <form action="./add/add-espece.php" method="post">
         <label>Numéro : <input type="number" id="number" name="number" min=1><br></label>
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Type : <select name="type" id="type">
-        <option value="">--Choisissez--</option>
-        <?php include "./search/searchType.php" ?>
-        </select><br> </label>
+            <option value="">--Choisissez--</option>
+            <?php include "./search/searchType.php" ?>
+          </select><br> </label>
         <label>Zone : <select name="zone" id="zone">
-        <option value="">--Choisissez--</option>
-        <?php include "./search/searchZone.php" ?>
-        </select> <br></label>
+            <option value="">--Choisissez--</option>
+            <?php include "./search/searchZone.php" ?>
+          </select> <br></label>
         <input type="submit" value="valider">
       </form>
-      <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
+      <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
     </dialog>
-</div>
   </div>
-<?php include "footer.php" ?>
-<script type="text/javascript" src="js/modal.js"></script>
- </body>
+  </div>
+  <?php include "footer.php" ?>
+  <script type="text/javascript" src="js/modal.js"></script>
+</body>
+
 </html>
