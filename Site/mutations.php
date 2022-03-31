@@ -45,19 +45,21 @@
         $requete2 = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = " . $esp['IdPostMutation'] . " order by ESPECE.numero asc";
         if ($res2 = $dbh->query($requete2))
           $especePost =  $res2->fetchAll();
-          echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
-          echo '<td>' . $especePost[$i]['NomEspece'] . '</td>';
-          echo '<td>' . $esp['IdObjet'] . '</td>';
-          echo '<td>' . $esp['PE_Requis'] . '</td>';
-          echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
-          echo '<td> <img src="' . $especePost[$i]['Sprite'] . '"/></td>';
-          $i = $i + 1;
-        }
-      /* echo '<td><form method="post" action="./delete/deleteEspece.php">
+        echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
+        echo '<td>' . $especePost[$i]['NomEspece'] . '</td>';
+        echo '<td>' . $esp['IdObjet'] . '</td>';
+        echo '<td>' . $esp['PE_Requis'] . '</td>';
+        echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
+        echo '<td> <img src="' . $especePost[$i]['Sprite'] . '"/></td>';
+        $i = $i + 1;
+      }
+      echo '<td><form method="post" action="./delete/deleteMutation.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><img class="delete" src="../assets/376.png" alt="" /><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="'.$esp['Numero'].'"/>
-                      <input type="hidden" name="name" value="'.$esp['NomEspece'].'"/>
-                    </form></td>'; */
+                      <input type="hidden" name="id" value="' . $esp['IdPreMutation'] . '"/>
+                      <input type="hidden" name="idp" value="' . $esp['IdPostMutation'] . '"/>
+                      <input type="hidden" name="pre" value="' . $esp['NomEspece'] . '"/>
+                      <input type="hidden" name="post" value="' . $especePost[$i]['NomEspece'] . '"/>
+                    </form></td>';
       /*liberation de l'objet requete:*/
       $res->closeCursor();
       /*fermeture de la connexion avec la base*/
@@ -80,7 +82,7 @@
             <?php include "./search/searchEspece.php" ?>
           </select> <br></label>
         <label>PE Requis : <input type="number" id="PERequis" name="PERequis" min="1" max="100" step="1" required><br></label>
-        <label>Objet : <select name="post" id="post">
+        <label>Objet : <select name="obj" id="obj">
             <option value=null>--Choisissez--</option>
             <option value="">Aucun</option>
             <?php include "./search/searchObjet.php" ?>
