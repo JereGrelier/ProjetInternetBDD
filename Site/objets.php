@@ -27,27 +27,37 @@
         <th>Nom</th>
         <th>Unique</th>
         <th>Bonus de puissance</th>
-        <th>Localisation</th>
+        <th colspan="4">Localisation</th>
         <th>Actions</th>
       </tr>
       <?php
-      $requete = "select * from OBJET, LOCALISATION, ZONE where OBJET.IdObjet = LOCALISATION.IdObjet and LOCALISATION.IdZone = ZONE.IdZone order by OBJET.IdObjet asc";
+      $requete = "select * from OBJET order by OBJET.IdObjet asc";
       /* Si l'execution est reussie... */
       if ($res = $dbh->query($requete))
         /* ... on récupère un tableau stockant le résultat */
-        $zones =  $res->fetchAll();
+        $objets =  $res->fetchAll();
       //echo print_r($espece);
-      foreach ($zones as $zone) {
-        echo '<td>' . $zone['NomObjet'] . '</td>';
+      foreach ($objets as $objet) {
+        echo '<td>' . $objet['NomObjet'] . '</td>';
         echo '<td>';
-        ($zone['IsUnique'] == 1) ?  $a = '✓' : $a = 'X';
+        ($objet['IsUnique'] == 1) ?  $a = '✓' : $a = 'X';
         echo $a . '</td>';
-        echo '<td>' . $zone['BonusPuissance'] . '</td>';
-        echo '<td>' . $zone['NomZone'] . '</td>';
+        echo '<td>' . $objet['BonusPuissance'] . '</td>';
+        $requete2 = "select * from LOCALISATION, ZONE where LOCALISATIOB.IdObjer = ".$zone['IdObjet']." and LOCALISATION.IDZone = ZONE.IdZone order by ZONE.IdZone asc";
+        if ($res2 = $dbh->query($requete2))
+          $zones = $res2->fetchAll();
+        foreach ($zones as $zone) {
+          echo '<td>' . $zone['NomZone'] . '</td>';
+        }
+        if (count($zones) < 4) {
+          for ($i = 0; $i < 4 - count($zones); $i++) {
+            echo '<td>-</td>';
+          }
+        }
         echo '<td><form method="post" action="./delete/deleteObjet.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="' . $zone['IdObjet'] . '"/>
-                      <input type="hidden" name="name" value="' . $zone['NomObjet'] . '"/>
+                      <input type="hidden" name="id" value="' . $objet['IdObjet'] . '"/>
+                      <input type="hidden" name="name" value="' . $objet['NomObjet'] . '"/>
                     </form></td>';
         echo '</tr>' . "\n";
       }
