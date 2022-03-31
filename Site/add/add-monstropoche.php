@@ -47,13 +47,13 @@ if ($res1 = $dbh->query($requete1))
   /* ... on récupère un tableau stockant le résultat */
   $monstropoches =  $res1->fetchAll();
   print_r($monstropoches);
-$IdM = $monstropoches[0]['IdMonstropoche'];
+  echo $monstropoches[0]['IdMonstropoche'];
 
 echo "IDMAX : ". $idM;
 $sth2 = $dbh->prepare($sql2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 $sth2->execute(array(
     'attaque' => $attack, 'attaquee' => $attacke,
-    'attaqueee' => $attackee, 'attaqueeee' => $attackeee, 'idMonstropoche' => $idM
+    'attaqueee' => $attackee, 'attaqueeee' => $attackeee, 'idMonstropoche' => $monstropoches[0]['IdMonstropoche']
 ));
 ?>
 
