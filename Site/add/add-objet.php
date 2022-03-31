@@ -23,7 +23,7 @@
     $localisation = $_REQUEST['Zone'];
     $bonus = $_REQUEST['Bonus'];
     $idO = 'select max(IdObjet) from OBJET' + 1;
-    $unique = $_REQUEST['Unique'] ? 1 : 0;
+    $unique = isset($_REQUEST['Unique']) ? 1 : 0;
     $sql = 'insert into OBJET (NomObjet, BonusPuissance, IsUnique) values (:name, :bonus, :unique);
             insert into LOCALISATION values (:id, :zone)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));

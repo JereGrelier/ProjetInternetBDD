@@ -49,16 +49,16 @@
                       <input type="hidden" name="id" value="' . $zone['IdObjet'] . '"/>
                       <input type="hidden" name="name" value="' . $zone['NomObjet'] . '"/>
                     </form></td>';
-                echo '</tr>'."\n";
-                }
-                /*liberation de l'objet requete:*/
-            $res->closeCursor();
-            /*fermeture de la connexion avec la base*/
-            $dbh = null;
-        ?>
-      </table>
-      <button id="openModal" >Ajouter un objet</button>
-   </div>
+        echo '</tr>' . "\n";
+      }
+      /*liberation de l'objet requete:*/
+      $res->closeCursor();
+      /*fermeture de la connexion avec la base*/
+      $dbh = null;
+      ?>
+    </table>
+    <button id="openModal">Ajouter un objet</button>
+  </div>
   <div id="mydialog">
     <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un objet</h1>
@@ -66,9 +66,9 @@
         <label>Nom : <input type="text" id="Name" name="Name" required><br></label>
         <label>Bonus : <input type="number" id="Bonus" name="Bonus" min="0" max="3" step="0.1" required><br></label>
         <label>Zone : <select name="Zone" id="Zone">
-        <option value="">--Choisissez--</option>
-        <?php include "./search/searchZone.php" ?>
-        </select><br> </label>
+            <option value="">--Choisissez--</option>
+            <?php include "./search/searchZone.php" ?>
+          </select><br> </label>
         <label>Unique? <input type="checkbox" id="Unique" name="Unique"><br></label>
         <input type="submit" value="valider">
       </form>
