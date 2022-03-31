@@ -28,7 +28,7 @@
         <th>Actions</th>
           </tr>
         <?php
-          $requete = "select * from OBJET order by OBJET.IdObjet asc";
+          $requete = "select * from OBJET, LOCALISATION where OBJET.idObjet = LOACLISATION.idObjet order by OBJET.IdObjet asc";
           /* Si l'execution est reussie... */
           if($res = $dbh->query($requete))
               /* ... on récupère un tableau stockant le résultat */
