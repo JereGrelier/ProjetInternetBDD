@@ -14,7 +14,6 @@
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
  </head>
- <script type="text/javascript" src="js/modal.js"></script>
  <body>
  <?php include "topnav.php" ?>
     <div class="listeEspece">
@@ -66,5 +65,6 @@
     </dialog>
   </div>
 <?php include "footer.php" ?>
+<script type="text/javascript" src="js/modal.js"></script>
  </body>
 </html>
