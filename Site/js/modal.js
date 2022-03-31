@@ -5,7 +5,7 @@ var images_modal = document.getElementById('mydialog');
 window.onclick = function(event) {
    if (event.target == images_modal) {
 
-      images_modal.style.display = "none";
+      images_modal.style.visibility='hidden';
 
     }
 }
