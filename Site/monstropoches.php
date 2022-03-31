@@ -90,8 +90,8 @@
         <option value="">--Choisissez--</option>
         <option value="Male">Mâle</option>
         <option value="Femelle">Femelle</option>
-        <option value="Femelle">Binaire</option>
-        <option value="Femelle">Non binaire</option>
+        <option value="Binaire">Binaire</option>
+        <option value="Non binaire">Non binaire</option>
         </select> <br> </label>
         <label>Espèce : <select name="Species" id="Species" required>
         <option value="">--Choisissez--</option>';
