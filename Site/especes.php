@@ -43,7 +43,10 @@
         echo "\t" . '<tr><td>' . $esp['Numero'] . '</td>';
         echo '<td>' . $esp['NomEspece'] . '</td>';
         echo '<td>' . $esp['NomType'] . '</td>';
-        //echo '<td>'.$esp['evolution'].'</td>';
+        $requete2 = "select * from ESPECE, TYPE where ".$esp['TypeEspece2']."= TYPE.IdType";
+        if($res2 = $dbh->query($requete2))
+          $type2 = $res2->fetchAll();
+        echo '<td>'.isset($type2[0]['NomType'])?$type2[0]['NomType']:"-".'</td>';
         echo '<td>' . $esp['NomZone'] . '</td>';
         echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
         echo '<td><form method="post" action="./delete/deleteEspece.php">
