@@ -25,6 +25,7 @@
         <th>Nom</th>
         <th>Unique</th>
         <th>Bonus de puissance</th>
+        <th>Localisation</th>
         <th>Actions</th>
           </tr>
         <?php
