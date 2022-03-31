@@ -21,7 +21,7 @@
     include '../connect.php';
     $id = intval($_REQUEST['id']);
     $name =$_REQUEST['name'];
-    $sql = 'delete from MONSTROPOCHES where IdMonstropoche = ? ';
+    $sql = 'delete from MONSTROPOCHE where IdMonstropoche = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
         echo ('<h2>Monstropoche '.$name. ' successfully removed from the base</h2>');
