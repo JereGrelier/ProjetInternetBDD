@@ -14,6 +14,7 @@
         <meta name="theme-color" content="#ffffff">
   <title>Liste des Types</title>
  </head>
+ <script type="text/javascript" src="js/modal.js"></script>
  <body>
  <?php include "topnav.php" ?>
     <div class="listeEspece">

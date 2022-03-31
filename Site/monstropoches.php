@@ -14,6 +14,7 @@
  <meta charset="utf-8"/>
   <title>Liste des Monstropoches</title>
  </head>
+ <script type="text/javascript" src="js/modal.js"></script>
  <body>
  <?php include "topnav.php" ?>
     <div class="listeEspece">
