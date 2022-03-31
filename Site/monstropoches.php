@@ -46,7 +46,7 @@
       //echo print_r($espece);
       foreach ($monstropoches as $monstropoche) {
         $obj = isset($monstropoche['NomObjet'])? $monstropoche['NomObjet'] : '-';
-        $proprio = isset($monstropoche['NomProprietaire']) ? $monstropoche['NomProprietaire'] : '-'
+        $proprio = isset($monstropoche['NomProprietaire']) ? $monstropoche['NomProprietaire'] : '-';
         echo '<td>' . $monstropoche['Surnom'] . '</td>';
         echo '<td>' . $monstropoche['Etat'] . '</td>';
         echo '<td>' . $monstropoche['PV'] . '</td>';
