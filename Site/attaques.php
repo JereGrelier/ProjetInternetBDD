@@ -53,7 +53,7 @@
                         $dbh = null;
         ?>
       </table>
-      <button class="openModal" onclick="document.getElementByClassName('ModalAddSpecies')[0].style.visibility='visible'">Ajouter une attaque</button>
+      <button id="openModal" >Ajouter une attaque</button>
    </div>
    <div id="mydialog">
 <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">

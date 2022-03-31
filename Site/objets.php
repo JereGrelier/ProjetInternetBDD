@@ -49,16 +49,16 @@
                       <input type="hidden" name="id" value="' . $zone['IdObjet'] . '"/>
                       <input type="hidden" name="name" value="' . $zone['NomObjet'] . '"/>
                     </form></td>';
-        echo '</tr>' . "\n";
-      }
-      /*liberation de l'objet requete:*/
-      $res->closeCursor();
-      /*fermeture de la connexion avec la base*/
-      $dbh = null;
-      ?>
-    </table>
-    <button class="openModal" onclick="document.getElementByClassName('ModalAddSpecies')[0].style.visibility = 'visible'">Ajouter un objet</button>
-  </div>
+                echo '</tr>'."\n";
+                }
+                /*liberation de l'objet requete:*/
+            $res->closeCursor();
+            /*fermeture de la connexion avec la base*/
+            $dbh = null;
+        ?>
+      </table>
+      <button id="openModal" >Ajouter un objet</button>
+   </div>
   <div id="mydialog">
     <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter un Proprietaire</h1>

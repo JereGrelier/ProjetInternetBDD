@@ -58,7 +58,7 @@
       echo'  
       <td id="sprite"></td>
       </table>
-      <button class="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter une attaque</button>
+      <button id="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter une attaque</button>
    </div>
   <div id="mydialog">
 <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">

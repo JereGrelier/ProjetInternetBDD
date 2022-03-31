@@ -65,7 +65,7 @@
         ?>
       <td id='sprite'></td>
       </table>
-      <button class="openModal" onclick="document.getElementByClassName('ModalAddSpecies')[0].style.visibility = 'visible'"> Ajouter une mutation</button>
+      <button id="openModal" > Ajouter une mutation</button>
    </div>
   <div id="mydialog">
 <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
