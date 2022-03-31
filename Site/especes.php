@@ -27,8 +27,7 @@
       <tr class="headerListEspece">
         <th>Numero</th>
         <th>Nom</th>
-        <th>Type</th>
-        <!-- <th>Evolution</th> -->
+        <th colspan="2">Type</th>
         <th>Zone</th>
         <th>Image</th>
         <th colspan="2">Actions</th>
