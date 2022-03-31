@@ -41,8 +41,13 @@ $sth->execute(array(
     'surnom' => $newnickame, 'pv' => $HP, 'genre' => $gender, 'exp' => $EXP, 'state' => $state,
     'espece' => $species, 'objet' => $object, 'proprietaire' => $owner
 ));
-$idM = 'SELECT max( `IdMonstropoche` )
-FROM `MONSTROPOCHE`';
+$requete1 = "select * from MONSTROPOCHE where surnom=".$newnickame." and numEspece = ". $species;
+/* Si l'execution est reussie... */
+if ($res1 = $dbh->query($requete1))
+  /* ... on récupère un tableau stockant le résultat */
+  $monstropoches =  $res1->fetchAll();
+$IdM = $monstropoches[0]['IdMonstropoche'];
+
 echo "IDMAX : ". $idM;
 $sth2 = $dbh->prepare($sql2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 $sth2->execute(array(
