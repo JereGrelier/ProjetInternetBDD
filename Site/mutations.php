@@ -71,7 +71,7 @@
     <button id="openModal"> Ajouter une mutation</button>
   </div>
   <div id="mydialog">
-    <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading" style="height: 420px;">
+    <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Mutation</h1>
       <form action="./add/add-mutation.php" method="post">
         <label>Premutation : <select name="pre" id="pre">
