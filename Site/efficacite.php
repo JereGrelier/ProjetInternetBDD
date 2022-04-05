@@ -106,5 +106,4 @@
         </dialog>
     </div>
     <script type="text/javascript" src="./js/modal.js"></script>
-    <script type="text/javascript" src="./js/tri.js"></script>
 </body>
