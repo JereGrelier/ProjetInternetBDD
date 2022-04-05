@@ -19,7 +19,7 @@
         <h1> Menu</h1>
         <ul style="text-align:left;">
             <li><a href="./">Accueil</a></li>
-            <li><a href="./monstropoches.php">Liste des monstropoches</a></li>
+            <li><a href="./monstropoches.php">Liste des monstropochetrons</a></li>
             <li><a href="./especes.php">Liste des especes</a></li>
             <li><a href="./mutations.php">Liste des mutations</a></li>
             <li><a href="./attaques.php">Liste des attaques</a></li>
