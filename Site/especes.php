@@ -95,7 +95,11 @@
                 let link = `<form method="post" action="delete/deleteEspece.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value=${params.value}/>
-                    </form>`;
+                    </form>
+                    <form method="post" action="./moveset-espece.php">
+                  <button type="submit" title="Envoyer"><h2 style="color:black">Voir le moveset</h2></button>
+                  <input type="hidden" name="id" value=${params.value}/>
+                  </form>`;
                 return link;
             }
       },
@@ -123,7 +127,7 @@
     },
       columnDefs: columnDefs,
       rowData: rowData,
-      rowHeight: 100,
+      rowHeight: 130,
     };
 
     // setup the grid after the page has finished loading
