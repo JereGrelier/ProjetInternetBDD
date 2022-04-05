@@ -55,25 +55,41 @@
         headerName: "Nom",
         field: 'name',
         resizable: true,
-        filter: 'agTextColumnFilter'
+        filter: 'agTextColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => {
+                if (valueA == valueB) return 0;
+                return (valueA > valueB) ? 1 : -1;
+            }
       },
       {
         headerName: "Type 1",
         field: 'TypeUn',
         resizable: true,
-        filter: 'agTextColumnFilter'
+        filter: 'agTextColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => {
+                if (valueA == valueB) return 0;
+                return (valueA > valueB) ? 1 : -1;
+            }
       },
       {
         headerName: "Type 2",
         field: 'TypeDeux',
         resizable: true,
-        filter: 'agTextColumnFilter'
+        filter: 'agTextColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => {
+                if (valueA == valueB) return 0;
+                return (valueA > valueB) ? 1 : -1;
+            }
       },
       {
         headerName: "Zone",
         field: 'Zone',
         resizable: true,
-        filter: 'agTextColumnFilter'
+        filter: 'agTextColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => {
+                if (valueA == valueB) return 0;
+                return (valueA > valueB) ? 1 : -1;
+            }
       },
       {
         headerName: "Image",
