@@ -55,11 +55,11 @@
                     </form></td></tr>';
     }
     /*liberation de l'objet requete:*/
-    echo "</tbody></table>";
+    echo "</tbody></table></div>";
     $res->closeCursor();
     /*fermeture de la connexion avec la base*/
     $dbh = null;
-    echo '<button id="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter une attaque</button>
+    echo '<button id="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'" > Ajouter une attaque </button>
   <div id="mydialog">
     <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
           <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
