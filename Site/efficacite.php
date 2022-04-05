@@ -88,11 +88,11 @@
     <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading" class="effi">
       <h1 id="modal-heading">Ajouter une Efficacité</h1>
       <form action="./add/add-efficacite.php" method="post">
-        <label>Premutation : <select name="attaque" id="attaque" required>
+        <label>Type attaque : <select name="attaque" id="attaque" required>
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select><br> </label>
-        <label>PostMutation : <select name="defense" id="defense" required>
+        <label>Type défense : <select name="defense" id="defense" required>
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select> <br></label>
