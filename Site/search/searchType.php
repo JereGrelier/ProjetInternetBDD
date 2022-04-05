@@ -10,7 +10,8 @@
                 echo '<option value="'.$choice['IdType'].'">'.$choice['NomType'].'</option>';
                 }
                 /*liberation de l'objet requete:*/
-            //$choices->closeCursor();
+                print_r($choices);
+            $res->closeCursor();
             /*fermeture de la connexion avec la base*/
             $dbh = null;
         }

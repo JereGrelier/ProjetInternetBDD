@@ -96,7 +96,7 @@
                         <?php include "./search/searchType.php" ?>
                     </select><br> </label>
                 <label>Type défense : <select name="defense" id="defense" required>
-                        <option value="">--Choisissez--</option>
+                        <option value="null">--Choisissez--</option>
                         <?php include "./search/searchType.php" ?>
                     </select> <br></label>
                 <label>PE Requis : <input type="number" id="coefficient" name="coefficient" min="0" max="3" step="0.5" required><br></label>
