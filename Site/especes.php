@@ -78,11 +78,26 @@
         headerName: "Image",
         field: 'img',
         resizable: true,
+        cellRenderer: function(params) {
+                // Display the image
+                /* This is a function that will display the image of the species. */
+                let link = `<img src=${params.value} alt=${params.value} />`;
+                return link;
+            }
       },
       {
         headerName: "Action",
         field: 'Action',
         resizable: true,
+        cellRenderer: function(params) {
+                // Display the image
+                /* This is a function that will display the image of the species. */
+                let link = `<form method="post" action="delete/deleteEspece.php">
+                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
+                      <input type="hidden" name="id" value=${params.value}/>
+                    </form>`;
+                return link;
+            }
       },
     ];
 
@@ -95,7 +110,8 @@
         TypeUn: espece.NomType,
         TypeDeux: espece.TypeEspece2,
         Zone: espece.NomZone,
-        img: 'src: \'' + espece.Sprite + '\'',
+        img: espece.Sprite,
+        Action: espece.Numero
       })
     });
 
@@ -103,9 +119,11 @@
     var gridOptions = {
       defaultColDef: {
         sortable: true,
+        cellStyle: {fontSize: '22px', textAlign: 'center'}
     },
       columnDefs: columnDefs,
       rowData: rowData,
+      rowHeight: 100,
     };
 
     // setup the grid after the page has finished loading
