@@ -157,6 +157,20 @@ hr.rounded {
     display: block;
     overflow: auto;
     min-width: 400px;
+    min-height: 300%;
+    height: max-content;
+    position: absolute;
+    left: 50%;
+    top: 150%;
+    transform: translate(-50%, -50%);
+    visibility: hidden;
+    align-items: flex-start;
+  }
+
+  #mydialog .effi {
+    display: block;
+    overflow: auto;
+    min-width: 400px;
     min-height: 900%;
     height: max-content;
     position: absolute;

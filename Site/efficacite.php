@@ -83,7 +83,7 @@
             new agGrid.Grid(gridDiv, gridOptions);
         });
     </script>
-     <button id="openModal"> Ajouter une efficacité</button>
+     <button id="openModal" class="effi"> Ajouter une efficacité</button>
     <div id="mydialog">
     <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
       <h1 id="modal-heading">Ajouter une Efficacité</h1>
