@@ -132,6 +132,13 @@ hr.rounded {
     border-top-right-radius: 0;
   }
 
+  .listeEspece tr {
+    padding-bottom: 1%;
+    border-bottom: 1px solid #bdb7b2;
+  }
+
+  
+
   #mydialog {
     display: block;
     overflow: auto;
