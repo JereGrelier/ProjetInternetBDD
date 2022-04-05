@@ -27,6 +27,6 @@
     $sprite = 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/shiny/'.intval($_REQUEST['number']).'.png';
     $sql = 'insert into ESPECE (numero, nomEspece, TypeEspece, TypeEspece2 , Sprite) values (:number, :name, :TypeEspece, :Type2, :sprite); insert into HABITAT(numEspece, IdZone) values(:numberh, :zone)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute(array('number'=> $newnumber, 'name' => $newname, 'TypeEspece' => $type, 'Type2'=>$type2, 'zone' => $zone, 'sprite' => $sprite, 'numberh' => $newnumber));
+    $sth->execute(array('number'=> $newnumber, 'name' => $newname, 'TypeEspece' => $type, 'Type2'=> $type2, 'zone' => $zone, 'sprite' => $sprite, 'numberh' => $newnumber));
     ?>
 </html>
