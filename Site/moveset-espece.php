@@ -61,23 +61,22 @@
       <td id="sprite"></td>
       </table>
       <button id="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter une attaque</button>
-   </div>
   <div id="mydialog">
-<dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
-      <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
-      <form action="./add/add-to-moveset.php" method="post">
-      <label>PE Requis : <input type="number" id="PE_Requis" name="PE_Requis" min="1" max="100" path="1" required><br>
-      <label>Attaque : <select name="Attack" id="Attack" required>
-        <option value="">--Choisissez--</option>
-        ';
-    include "./search/searchAttaque.php";
-    echo '</select> <br></label>
-        <input type="hidden" name="Numero" value=' . $num . ' />
-        <input type="submit" value="valider">
-      </form>
-      <button onclick="document.getElementById(\'mydialog\').style.visibility=\'hidden\'" style="position: absolute ;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
-    </dialog>
-</div>'
+    <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+          <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
+          <form action="./add/add-to-moveset.php" method="post">
+          <label>PE Requis : <input type="number" id="PE_Requis" name="PE_Requis" min="1" max="100" path="1" required><br>
+          <label>Attaque : <select name="Attack" id="Attack" required>
+            <option value="">--Choisissez--</option>
+            ';
+        include "./search/searchAttaque.php";
+        echo '</select> <br></label>
+            <input type="hidden" name="Numero" value=' . $num . ' />
+            <input type="submit" value="valider">
+          </form>
+          <button onclick="document.getElementById(\'mydialog\').style.visibility=\'hidden\'" style="position: absolute ;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
+        </dialog>
+    </div>'
     ?>
   </div>
   <?php include "footer.php" ?>

@@ -14,8 +14,6 @@
     <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
     <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
-    <script type="text/javascript" src="./js/modal.js"></script>
-
     <title>Efficacite entre les types</title>
 </head>
 
@@ -45,7 +43,7 @@
 
     <div class="TableEff">
         <h2>Table des efficacites</h2>
-        <div id="myGrid" style="width: 95%; height: 305px ;position: fixed;left: 50px;border-radius: 15px;overflow: auto;font-size: larger;" class="ag-theme-alpine"></div>
+        <div id="myGrid" style="width: 100em; height: 100%;position: fixed;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
     </div>
     <script type="text/javascript">
         var Types = <?php echo json_encode($attaques); ?>;
@@ -85,4 +83,24 @@
             new agGrid.Grid(gridDiv, gridOptions);
         });
     </script>
+     <button id="openModal" > Ajouter une efficacité</button>
+    <div id="mydialog">
+    <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading" class="effi">
+      <h1 id="modal-heading">Ajouter une Efficacité</h1>
+      <form action="./add/add-efficacite.php" method="post">
+        <label>Type attaque : <select name="attaque" id="attaque" required>
+            <option value="">--Choisissez--</option>
+            <?php include "./search/searchType.php" ?>
+          </select><br> </label>
+        <label>Type défense : <select name="defense" id="defense" required>
+            <option value="">--Choisissez--</option>
+            <?php include "./search/searchType.php" ?>
+          </select> <br></label>
+        <label>PE Requis : <input type="number" id="coefficient" name="coefficient" min="0" max="3" step="0.5" required><br></label>
+        <input type="submit" value="valider">
+      </form>
+      <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
+    </dialog>
+  </div>
+  <script type="text/javascript" src="./js/modal.js"></script>
 </body>

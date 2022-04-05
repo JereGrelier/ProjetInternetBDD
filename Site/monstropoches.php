@@ -13,13 +13,13 @@
   <meta name="theme-color" content="#ffffff">
   <link rel="stylesheet" href="css/monsite.css" />
   <meta charset="utf-8" />
-  <title>Liste des Monstropoches</title>
+  <title>Liste des monstropochetrons</title>
 </head>
 
 <body>
   <?php include "topnav.php" ?>
   <div class="listeEspece">
-    <h2>Liste des Monstropoches</h2>
+    <h2>Liste des monstropochetrons</h2>
     <?php
     include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
     <table>
@@ -87,11 +87,11 @@
       $dbh = null;
       echo '
       </table>
-      <button id="openModal"> Ajouter un Monstropoche</button>
+      <button id="openModal"> Ajouter un monstropochetron</button>
    </div>
   <div id="mydialog">
 <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading" style="height: 420px;">
-      <h1 id="modal-heading">Ajouter un Monstropoches</h1>
+      <h1 id="modal-heading">Ajouter un monstropochetron</h1>
       <form action="./add/add-monstropoche.php" method="post">
         <label>Surnom : <input type="text" id="Nickname" name="Nickname" required><br></label>
         <label>PV : <input type="number" id="HP" name="HP" min=1 max="100" required><br></label>
