@@ -20,7 +20,7 @@
 <?php 
     include '../connect.php';
     $newname = $_REQUEST['name'];
-    $isJouable = $_REQUEST['Jouable'] ? 1 : 0;
+    $isJouable = isset($_REQUEST['Jouable']) ? 1 : 0;
     $sql = 'insert into PROPRIETAIRE (NomProprietaire, IsJouable) values (:name, :jouable)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('name' => $newname, 'jouable' => $isJouable));
