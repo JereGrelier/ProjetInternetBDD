@@ -151,15 +151,15 @@
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Type : <select name="type" id="type" required>
             <option value="">--Choisissez--</option>
-            <?php include ("../php/search/searchType.php"); ?>
+            <?php include ("./search/searchType.php"); ?>
           </select><br> </label>
         <label>Type 2 : <select name="type-deux" id="type-deux">
             <option value=null>--Choisissez--</option>
-            <?php include ("../php/search/searchType.php"); ?>
+            <?php include ("./search/searchType.php"); ?>
           </select><br> </label>
         <label>Zone : <select name="zone" id="zone" required>
             <option value="">--Choisissez--</option>
-            <?php include ("../php/search/searchType.php"); ?>
+            <?php include (".search/searchType.php"); ?>
           </select> <br></label>
         <input type="submit" value="valider">
       </form>
