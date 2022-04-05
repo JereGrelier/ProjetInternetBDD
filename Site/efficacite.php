@@ -81,6 +81,7 @@
         document.addEventListener('DOMContentLoaded', function() {
             var gridDiv = document.querySelector('#myGrid');
             new agGrid.Grid(gridDiv, gridOptions);
+            gridOptions.api.sizeColumnsToFit();
         });
     </script>
     <button id="openModal"> Ajouter une efficacité</button>
