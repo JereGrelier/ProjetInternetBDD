@@ -30,30 +30,32 @@
         <th>Précision</th>
         <th>Actions</th>
       </tr>
-      <?php
-      $requete = "select * from ATTAQUE, TYPE where ATTAQUE.TypeAttaque = TYPE.idType order by ATTAQUE.nomAttaque asc";
-      /* Si l'execution est reussie... */
-      if ($res = $dbh->query($requete))
-        /* ... on récupère un tableau stockant le résultat */
-        $attaques =  $res->fetchAll();
-      //echo print_r($espece);
-      foreach ($attaques as $att) {
-        echo '<td>' . $att['NomAttaque'] . '</td>';
-        echo '<td>' . $att['NomType'] . '</td>';
-        echo '<td>' . $att['Puissance'] . '</td>';
-        echo '<td>' . $att['Precision'] . '</td>';
-        echo '<td><form method="post" action="./delete/deleteAttaque.php">
+      <tbody>
+        <?php
+        $requete = "select * from ATTAQUE, TYPE where ATTAQUE.TypeAttaque = TYPE.idType order by ATTAQUE.nomAttaque asc";
+        /* Si l'execution est reussie... */
+        if ($res = $dbh->query($requete))
+          /* ... on récupère un tableau stockant le résultat */
+          $attaques =  $res->fetchAll();
+        //echo print_r($espece);
+        foreach ($attaques as $att) {
+          echo '<td>' . $att['NomAttaque'] . '</td>';
+          echo '<td>' . $att['NomType'] . '</td>';
+          echo '<td>' . $att['Puissance'] . '</td>';
+          echo '<td>' . $att['Precision'] . '</td>';
+          echo '<td><form method="post" action="./delete/deleteAttaque.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="' . $att['IdAttaque'] . '"/>
                       <input type="hidden" name="name" value="' . $att['NomAttaque'] . '"/>
                     </form></td>';
-        echo '</tr>' . "\n";
-      }
-      /*liberation de l'objet requete:*/
-      $res->closeCursor();
-      /*fermeture de la connexion avec la base*/
-      $dbh = null;
-      ?>
+          echo '</tr>' . "\n";
+        }
+        /*liberation de l'objet requete:*/
+        $res->closeCursor();
+        /*fermeture de la connexion avec la base*/
+        $dbh = null;
+        ?>
+      </tbody>
     </table>
     <button id="openModal">Ajouter une attaque</button>
   </div>
@@ -76,6 +78,7 @@
 
   <?php include "footer.php" ?>
   <script type="text/javascript" src="./js/modal.js"></script>
+  <script type="text/javascript" src="./js/tri.js"></script>
 </body>
 
 </html>

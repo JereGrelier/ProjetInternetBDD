@@ -19,30 +19,32 @@
         <th>Jouable</th>
         <th>Actions</th>
       </tr>
-      <?php
-      $requete = "select * from PROPRIETAIRE order by PROPRIETAIRE.IdProprietaire asc";
-      /* Si l'execution est reussie... */
-      if ($res = $dbh->query($requete))
-        /* ... on récupère un tableau stockant le résultat */
-        $zones =  $res->fetchAll();
-      //echo print_r($espece);
-      foreach ($zones as $zone) {
-        echo '<td>' . $zone['NomProprietaire'] . '</td>';
-        echo '<td>';
-        ($zone['IsJouable'] == 1) ?  $a = '✓' :  $a = 'X';
-        echo $a . '</td>';
-        echo '<td><form method="post" action="./delete/deleteProprietaire.php">
+      <tbody>
+        <?php
+        $requete = "select * from PROPRIETAIRE order by PROPRIETAIRE.IdProprietaire asc";
+        /* Si l'execution est reussie... */
+        if ($res = $dbh->query($requete))
+          /* ... on récupère un tableau stockant le résultat */
+          $zones =  $res->fetchAll();
+        //echo print_r($espece);
+        foreach ($zones as $zone) {
+          echo '<td>' . $zone['NomProprietaire'] . '</td>';
+          echo '<td>';
+          ($zone['IsJouable'] == 1) ?  $a = '✓' :  $a = 'X';
+          echo $a . '</td>';
+          echo '<td><form method="post" action="./delete/deleteProprietaire.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="' . $zone['IdProprietaire'] . '"/>
                       <input type="hidden" name="name" value="' . $zone['NomProprietaire'] . '"/>
                     </form></td>';
-        echo '</tr>' . "\n";
-      }
-      /*liberation de l'objet requete:*/
-      $res->closeCursor();
-      /*fermeture de la connexion avec la base*/
-      $dbh = null;
-      ?>
+          echo '</tr>' . "\n";
+        }
+        /*liberation de l'objet requete:*/
+        $res->closeCursor();
+        /*fermeture de la connexion avec la base*/
+        $dbh = null;
+        ?>
+      </tbody>
     </table>
     <button id="openModal">Ajouter un propriétaire</button>
   </div>
@@ -59,6 +61,7 @@
   </div>
   <?php include "footer.php" ?>
   <script type="text/javascript" src="./js/modal.js"></script>
+  <script type="text/javascript" src="./js/tri.js"></script>
 </body>
 
 </html>

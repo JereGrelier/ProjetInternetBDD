@@ -40,7 +40,8 @@
               <th>Puissance</th>
               <th>Precision</th>
               <th>Actions</th>
-                </tr>';
+                </tr>
+              <tbody>';
     foreach ($moveset as $move) {
       echo '<tr><td>' . $move['NomAttaque'] . '</td>';
       echo '<td>' . $move['NomType'] . '</td>';
@@ -54,13 +55,11 @@
                     </form></td></tr>';
     }
     /*liberation de l'objet requete:*/
+    echo "</tbody></table>";
     $res->closeCursor();
     /*fermeture de la connexion avec la base*/
     $dbh = null;
-    echo '  
-      <td id="sprite"></td>
-      </table>
-      <button id="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter une attaque</button>
+    echo '<button id="openModal" onclick="document.getElementById(\'mydialog\').style.visibility =\'visible\'> Ajouter une attaque</button>
   <div id="mydialog">
     <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
           <h1 id="modal-heading">Ajouter une attaque au moveset</h1>
@@ -69,8 +68,8 @@
           <label>Attaque : <select name="Attack" id="Attack" required>
             <option value="">--Choisissez--</option>
             ';
-        include "./search/searchAttaque.php";
-        echo '</select> <br></label>
+    include "./search/searchAttaque.php";
+    echo '</select> <br></label>
             <input type="hidden" name="Numero" value=' . $num . ' />
             <input type="submit" value="valider">
           </form>
@@ -81,6 +80,7 @@
   </div>
   <?php include "footer.php" ?>
   <script type="text/javascript" src="./js/modal.js"></script>
+  <script type="text/javascript" src="./js/tri.js"></script>
 </body>
 
 </html>

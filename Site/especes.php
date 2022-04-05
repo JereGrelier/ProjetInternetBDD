@@ -32,43 +32,43 @@
         <th>Image</th>
         <th colspan="2">Actions</th>
       </tr>
-      <?php
-      $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";          /* Si l'execution est reussie... */
-      if ($res = $dbh->query($requete))
-        /* ... on récupère un tableau stockant le résultat */
-        $espece =  $res->fetchAll();
-      //echo print_r($espece);
-      foreach ($espece as $esp) {
-        echo "\t" . '<tr><td>' . $esp['Numero'] . '</td>';
-        echo '<td>' . $esp['NomEspece'] . '</td>';
-        echo '<td>' . $esp['NomType'] . '</td>';
-        if (isset($esp['TypeEspece2'])) {
-          $requete2 = "select * from TYPE where IdType = " .$esp['TypeEspece2'];
-          if ($res2 = $dbh->query($requete2))
-            $type2 = $res2->fetchAll();
-          echo '<td>' .$type2[0]['NomType']. '</td>';
-        }
-        else {
-          echo '<td>-</td>';
-        }
-        echo '<td>' . $esp['NomZone'] . '</td>';
-        echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
-        echo '<td><form method="post" action="./delete/deleteEspece.php">
+      <tbody>
+        <?php
+        $requete = "select * from ESPECE, TYPE, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.idType and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";          /* Si l'execution est reussie... */
+        if ($res = $dbh->query($requete))
+          /* ... on récupère un tableau stockant le résultat */
+          $espece =  $res->fetchAll();
+        //echo print_r($espece);
+        foreach ($espece as $esp) {
+          echo "\t" . '<tr><td>' . $esp['Numero'] . '</td>';
+          echo '<td>' . $esp['NomEspece'] . '</td>';
+          echo '<td>' . $esp['NomType'] . '</td>';
+          if (isset($esp['TypeEspece2'])) {
+            $requete2 = "select * from TYPE where IdType = " . $esp['TypeEspece2'];
+            if ($res2 = $dbh->query($requete2))
+              $type2 = $res2->fetchAll();
+            echo '<td>' . $type2[0]['NomType'] . '</td>';
+          } else {
+            echo '<td>-</td>';
+          }
+          echo '<td>' . $esp['NomZone'] . '</td>';
+          echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
+          echo '<td><form method="post" action="./delete/deleteEspece.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="' . $esp['Numero'] . '"/>
                       <input type="hidden" name="name" value="' . $esp['NomEspece'] . '"/>
                     </form></td>';
-        echo '<td><form method="post" action="./moveset-espece.php">
+          echo '<td><form method="post" action="./moveset-espece.php">
                   <button type="submit" title="Envoyer"><h2 style="color:black">Voir le moveset</h2></button>
                   <input type="hidden" name="id" value="' . $esp['Numero'] . '"/>
                   </form></td>';
-      }
-      /*liberation de l'objet requete:*/
-      $res->closeCursor();
-      /*fermeture de la connexion avec la base*/
-      $dbh = null;
-      ?>
-      <td id='sprite'></td>
+        }
+        /*liberation de l'objet requete:*/
+        $res->closeCursor();
+        /*fermeture de la connexion avec la base*/
+        $dbh = null;
+        ?>
+      </tbody>
     </table>
     <button id="openModal"> Ajouter une espèce</button>
   </div>
@@ -94,9 +94,10 @@
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
     </dialog>
- </div>
+  </div>
   <?php include "footer.php" ?>
   <script type="text/javascript" src="./js/modal.js"></script>
+  <script type="text/javascript" src="./js/tri.js"></script>
 </body>
 
 </html>

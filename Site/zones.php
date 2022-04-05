@@ -27,27 +27,29 @@
         <th>Nom</th>
         <th>Actions</th>
       </tr>
-      <?php
-      $requete = "select * from ZONE order by ZONE.IdZone asc";
-      /* Si l'execution est reussie... */
-      if ($res = $dbh->query($requete))
-        /* ... on récupère un tableau stockant le résultat */
-        $zones =  $res->fetchAll();
-      //echo print_r($espece);
-      foreach ($zones as $zone) {
-        echo '<td>' . $zone['NomZone'] . '</td>';
-        echo '<td><form method="post" action="./delete/deleteZone.php">
+      <tbody>
+        <?php
+        $requete = "select * from ZONE order by ZONE.IdZone asc";
+        /* Si l'execution est reussie... */
+        if ($res = $dbh->query($requete))
+          /* ... on récupère un tableau stockant le résultat */
+          $zones =  $res->fetchAll();
+        //echo print_r($espece);
+        foreach ($zones as $zone) {
+          echo '<td>' . $zone['NomZone'] . '</td>';
+          echo '<td><form method="post" action="./delete/deleteZone.php">
                 <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="' . $zone['IdZone'] . '"/>
                       <input type="hidden" name="name" value="' . $zone['NomZone'] . '"/>
                     </form></td>';
-        echo '</tr>' . "\n";
-      }
-      /*liberation de l'objet requete:*/
-      $res->closeCursor();
-      /*fermeture de la connexion avec la base*/
-      $dbh = null;
-      ?>
+          echo '</tr>' . "\n";
+        }
+        /*liberation de l'objet requete:*/
+        $res->closeCursor();
+        /*fermeture de la connexion avec la base*/
+        $dbh = null;
+        ?>
+      </tbody>
     </table>
     <button id="openModal"> Ajouter une zone</button>
   </div>
@@ -60,9 +62,10 @@
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
     </dialog>
- </div>
+  </div>
   <?php include "footer.php" ?>
   <script type="text/javascript" src="./js/modal.js"></script>
+  <script type="text/javascript" src="./js/tri.js"></script>
 </body>
 
 </html>

@@ -32,46 +32,47 @@
         <th colspan="2">Sprites</th>
         <th>Actions</th>
       </tr>
-      <?php
-      $requete = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = MUTATION.IdPreMutation order by ESPECE.numero asc";
-      $requete2 = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = MUTATION.IdPostMutation order by ESPECE.numero asc";
-      /* Si l'execution est reussie... */
-      if ($res = $dbh->query($requete))
-        /* ... on récupère un tableau stockant le résultat */
-        $espece =  $res->fetchAll();
-      //echo print_r($espece);
-      $i = 0;
-      foreach ($espece as $esp) {
-        /* ... on récupère un tableau stockant le résultat */
-        $requete2 = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = " . $esp['IdPostMutation'] . " order by ESPECE.numero asc";
-        if ($res2 = $dbh->query($requete2))
-          $especePost =  $res2->fetchAll();
-        echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
-        echo '<td>' . $especePost[$i]['NomEspece'] . '</td>';
-        if (isset($esp['IdObjet'])) {
-          $requeteObj = "select * from OBJET where IdObjet = " . $esp['IdObjet'];
-          if ($resObj = $dbh->query($requeteObj))
-            $obj = $resObj->fetch();
-          echo '<td>' . $obj['NomObjet'] . '</td>';
-        } else echo '<td>-</td>';
-        echo '<td>' . $esp['PE_Requis'] . '</td>';
-        echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
-        echo '<td> <img src="' . $especePost[$i]['Sprite'] . '"/></td>';
-        echo '<td><form method="post" action="./delete/deleteMutation.php">
+      <tbody>
+        <?php
+        $requete = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = MUTATION.IdPreMutation order by ESPECE.numero asc";
+        $requete2 = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = MUTATION.IdPostMutation order by ESPECE.numero asc";
+        /* Si l'execution est reussie... */
+        if ($res = $dbh->query($requete))
+          /* ... on récupère un tableau stockant le résultat */
+          $espece =  $res->fetchAll();
+        //echo print_r($espece);
+        $i = 0;
+        foreach ($espece as $esp) {
+          /* ... on récupère un tableau stockant le résultat */
+          $requete2 = "select distinct * from MUTATION, ESPECE where ESPECE.Numero = " . $esp['IdPostMutation'] . " order by ESPECE.numero asc";
+          if ($res2 = $dbh->query($requete2))
+            $especePost =  $res2->fetchAll();
+          echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
+          echo '<td>' . $especePost[$i]['NomEspece'] . '</td>';
+          if (isset($esp['IdObjet'])) {
+            $requeteObj = "select * from OBJET where IdObjet = " . $esp['IdObjet'];
+            if ($resObj = $dbh->query($requeteObj))
+              $obj = $resObj->fetch();
+            echo '<td>' . $obj['NomObjet'] . '</td>';
+          } else echo '<td>-</td>';
+          echo '<td>' . $esp['PE_Requis'] . '</td>';
+          echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
+          echo '<td> <img src="' . $especePost[$i]['Sprite'] . '"/></td>';
+          echo '<td><form method="post" action="./delete/deleteMutation.php">
         <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
         <input type="hidden" name="id" value="' . $esp['IdPreMutation'] . '"/>
         <input type="hidden" name="idp" value="' . $esp['IdPostMutation'] . '"/>
         <input type="hidden" name="pre" value="' . $esp['NomEspece'] . '"/>
         <input type="hidden" name="post" value="' . $especePost[$i]['NomEspece'] . '"/>
       </form></td>';
-        $i = $i + 1;
-      }
-      /*liberation de l'objet requete:*/
-      $res->closeCursor();
-      /*fermeture de la connexion avec la base*/
-      $dbh = null;
-      ?>
-      <td id='sprite'></td>
+          $i = $i + 1;
+        }
+        /*liberation de l'objet requete:*/
+        $res->closeCursor();
+        /*fermeture de la connexion avec la base*/
+        $dbh = null;
+        ?>
+      </tbody>
     </table>
     <button id="openModal"> Ajouter une mutation</button>
   </div>
@@ -100,6 +101,7 @@
   </div>
   <?php include "footer.php" ?>
   <script type="text/javascript" src="./js/modal.js"></script>
+  <script type="text/javascript" src="./js/tri.js"></script>
 </body>
 
 </html>

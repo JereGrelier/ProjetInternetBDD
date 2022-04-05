@@ -30,42 +30,44 @@
         <th colspan="5">Localisation</th>
         <th>Actions</th>
       </tr>
-      <?php
-      $requete = "select * from OBJET order by OBJET.IdObjet asc";
-      /* Si l'execution est reussie... */
-      if ($res = $dbh->query($requete))
-        /* ... on récupère un tableau stockant le résultat */
-        $objets =  $res->fetchAll();
-      //echo print_r($espece);
-      foreach ($objets as $objet) {
-        echo '<td>' . $objet['NomObjet'] . '</td>';
-        echo '<td>';
-        ($objet['IsUnique'] == 1) ?  $a = '✓' : $a = 'X';
-        echo $a . '</td>';
-        echo '<td>' . $objet['BonusPuissance'] . '</td>';
-        $requete2 = "select * from LOCALISATION, ZONE where LOCALISATION.IdObjet = ".$objet['IdObjet']." and LOCALISATION.IdZone = ZONE.IdZone order by ZONE.IdZone asc";
-        if ($res2 = $dbh->query($requete2))
-          $zones = $res2->fetchAll();
-        foreach ($zones as $zone) {
-          echo '<td>' . $zone['NomZone'] . '</td>';
-        }
-        if (count($zones) < 5) {
-          for ($i = 0; $i < 5 - count($zones); $i++) {
-            echo '<td>-</td>';
+      <tbody>
+        <?php
+        $requete = "select * from OBJET order by OBJET.IdObjet asc";
+        /* Si l'execution est reussie... */
+        if ($res = $dbh->query($requete))
+          /* ... on récupère un tableau stockant le résultat */
+          $objets =  $res->fetchAll();
+        //echo print_r($espece);
+        foreach ($objets as $objet) {
+          echo '<td>' . $objet['NomObjet'] . '</td>';
+          echo '<td>';
+          ($objet['IsUnique'] == 1) ?  $a = '✓' : $a = 'X';
+          echo $a . '</td>';
+          echo '<td>' . $objet['BonusPuissance'] . '</td>';
+          $requete2 = "select * from LOCALISATION, ZONE where LOCALISATION.IdObjet = " . $objet['IdObjet'] . " and LOCALISATION.IdZone = ZONE.IdZone order by ZONE.IdZone asc";
+          if ($res2 = $dbh->query($requete2))
+            $zones = $res2->fetchAll();
+          foreach ($zones as $zone) {
+            echo '<td>' . $zone['NomZone'] . '</td>';
           }
-        }
-        echo '<td><form method="post" action="./delete/deleteObjet.php">
+          if (count($zones) < 5) {
+            for ($i = 0; $i < 5 - count($zones); $i++) {
+              echo '<td>-</td>';
+            }
+          }
+          echo '<td><form method="post" action="./delete/deleteObjet.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="' . $objet['IdObjet'] . '"/>
                       <input type="hidden" name="name" value="' . $objet['NomObjet'] . '"/>
                     </form></td>';
-        echo '</tr>' . "\n";
-      }
-      /*liberation de l'objet requete:*/
-      $res->closeCursor();
-      /*fermeture de la connexion avec la base*/
-      $dbh = null;
-      ?>
+          echo '</tr>' . "\n";
+        }
+        /*liberation de l'objet requete:*/
+        $res->closeCursor();
+        /*fermeture de la connexion avec la base*/
+        $dbh = null;
+        ?>
+      </tbody>
     </table>
     <button id="openModal">Ajouter un objet</button>
   </div>
@@ -84,9 +86,10 @@
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="/ProjetInternetBDD/Site/assets/376.png" alt="close" style="width: 50px; height: 50px;" /></button>
     </dialog>
- </div>
+  </div>
   <?php include "footer.php" ?>
   <script type="text/javascript" src="./js/modal.js"></script>
+  <script type="text/javascript" src="./js/tri.js"></script>
 </body>
 
 </html>

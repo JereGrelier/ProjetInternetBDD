@@ -35,57 +35,59 @@
         <th>Propriétaire</th>
         <th>Actions</th>
       </tr>
-      <?php
-      $requete1 = "select * from MONSTROPOCHE, ESPECE where MONSTROPOCHE.NumEspece = ESPECE.Numero order by MONSTROPOCHE.IdMonstropoche asc";
-      /* Si l'execution est reussie... */
-      if ($res1 = $dbh->query($requete1))
-        /* ... on récupère un tableau stockant le résultat */
-        $monstropoches =  $res1->fetchAll();
-      $a = $monstropoches[0]['Numero'];
+      <tbody>
+        <?php
+        $requete1 = "select * from MONSTROPOCHE, ESPECE where MONSTROPOCHE.NumEspece = ESPECE.Numero order by MONSTROPOCHE.IdMonstropoche asc";
+        /* Si l'execution est reussie... */
+        if ($res1 = $dbh->query($requete1))
+          /* ... on récupère un tableau stockant le résultat */
+          $monstropoches =  $res1->fetchAll();
+        $a = $monstropoches[0]['Numero'];
 
-      //echo print_r($espece);
-      foreach ($monstropoches as $monstropoche) {
-        $requeteobj = "select * from MONSTROPOCHE, OBJET where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdObjet = OBJET.IdObjet";
-      if ($resObjet = $dbh->query($requeteobj))
-        $objets = $resObjet->fetchAll();
-        $obj = isset($objets[0]['NomObjet'])? $objets[0]['NomObjet'] : '-';
+        //echo print_r($espece);
+        foreach ($monstropoches as $monstropoche) {
+          $requeteobj = "select * from MONSTROPOCHE, OBJET where IdMonstropoche = " . $monstropoche['IdMonstropoche'] . " and MONSTROPOCHE.IdObjet = OBJET.IdObjet";
+          if ($resObjet = $dbh->query($requeteobj))
+            $objets = $resObjet->fetchAll();
+          $obj = isset($objets[0]['NomObjet']) ? $objets[0]['NomObjet'] : '-';
 
-        $requeteproprio = "select * from MONSTROPOCHE, PROPRIETAIRE where IdMonstropoche = ".$monstropoche['IdMonstropoche']." and MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire";
-      if ($resProprio = $dbh->query($requeteproprio))
-        $proprios = $resProprio->fetchAll();
-        $proprio = isset($proprios[0]['NomProprietaire']) ? $proprios[0]['NomProprietaire'] : '-';
-        echo '<td>' . $monstropoche['Surnom'] . '</td>';
-        echo '<td>' . $monstropoche['Etat'] . '</td>';
-        echo '<td>' . $monstropoche['PV'] . '</td>';
-        echo '<td>' . $monstropoche['PE'] . '</td>';
-        echo '<td>' . $monstropoche['Genre'] . '</td>';
-        echo '<td>' . $monstropoche['NomEspece'] . '</td>';
-        $requete2 = "select * from MOVESET_MONSTROPOCHE, ATTAQUE where MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque and MOVESET_MONSTROPOCHE.IdMonstropoche = " . $monstropoche['IdMonstropoche'] . " order by MOVESET_MONSTROPOCHE.idMonstropoche asc, MOVESET_MONSTROPOCHE.position asc";
-        if ($res2 = $dbh->query($requete2))
-          $attaques = $res2->fetchAll();
-        foreach ($attaques as $attaque) {
-          echo '<td>' . $attaque['NomAttaque'] . '</td>';
-        }
-        if (count($attaques) < 4) {
-          for ($i = 0; $i < 4 - count($attaques); $i++) {
-            echo '<td>-</td>';
+          $requeteproprio = "select * from MONSTROPOCHE, PROPRIETAIRE where IdMonstropoche = " . $monstropoche['IdMonstropoche'] . " and MONSTROPOCHE.IdProprietaire = PROPRIETAIRE.IdProprietaire";
+          if ($resProprio = $dbh->query($requeteproprio))
+            $proprios = $resProprio->fetchAll();
+          $proprio = isset($proprios[0]['NomProprietaire']) ? $proprios[0]['NomProprietaire'] : '-';
+          echo '<td>' . $monstropoche['Surnom'] . '</td>';
+          echo '<td>' . $monstropoche['Etat'] . '</td>';
+          echo '<td>' . $monstropoche['PV'] . '</td>';
+          echo '<td>' . $monstropoche['PE'] . '</td>';
+          echo '<td>' . $monstropoche['Genre'] . '</td>';
+          echo '<td>' . $monstropoche['NomEspece'] . '</td>';
+          $requete2 = "select * from MOVESET_MONSTROPOCHE, ATTAQUE where MOVESET_MONSTROPOCHE.IdAttaque = ATTAQUE.IdAttaque and MOVESET_MONSTROPOCHE.IdMonstropoche = " . $monstropoche['IdMonstropoche'] . " order by MOVESET_MONSTROPOCHE.idMonstropoche asc, MOVESET_MONSTROPOCHE.position asc";
+          if ($res2 = $dbh->query($requete2))
+            $attaques = $res2->fetchAll();
+          foreach ($attaques as $attaque) {
+            echo '<td>' . $attaque['NomAttaque'] . '</td>';
           }
-        }
-        echo '<td>' . $obj . '</td>';
-        echo '<td>' . $proprio . '</td>';
-        echo '<td><form method="post" action="delete/deleteMonstropoche.php">
+          if (count($attaques) < 4) {
+            for ($i = 0; $i < 4 - count($attaques); $i++) {
+              echo '<td>-</td>';
+            }
+          }
+          echo '<td>' . $obj . '</td>';
+          echo '<td>' . $proprio . '</td>';
+          echo '<td><form method="post" action="delete/deleteMonstropoche.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
                       <input type="hidden" name="id" value="' . $monstropoche['IdMonstropoche'] . '"/>
                       <input type="hidden" name="name" value="' . $monstropoche['Surnom'] . '"/>
                     </form></td>';
-        echo '</tr>' . "\n";
-      }
-      /*liberation de l'objet requete:*/
-      $res1->closeCursor();
-      $res2->closeCursor();
-      /*fermeture de la connexion avec la base*/
-      $dbh = null;
-      echo '
+          echo '</tr>' . "\n";
+        }
+        /*liberation de l'objet requete:*/
+        $res1->closeCursor();
+        $res2->closeCursor();
+        /*fermeture de la connexion avec la base*/
+        $dbh = null;
+        echo '
+      </tbody>
       </table>
       <button id="openModal"> Ajouter un monstropochetron</button>
    </div>
@@ -104,44 +106,45 @@
         </select> <br> </label>
         <label>Espèce : <select name="Species" id="Species" required>
         <option value="null">--Choisissez--</option>';
-      include "./search/searchEspece.php";
-      echo '</select> <br></label>
+        include "./search/searchEspece.php";
+        echo '</select> <br></label>
         <label>Attaque : <select name="Attack" id="Attack" required>
         <option value="null">--Choisissez--</option>';
-      include "./search/searchMoveset-Espece.php";
-      echo '
+        include "./search/searchMoveset-Espece.php";
+        echo '
         </select> <br></label>
         <label>Attaque : <select name="Attacke" id="Attacke">
         <option value="null">--Choisissez--</option>';
-      include "./search/searchMoveset-Espece.php";
-      echo '
+        include "./search/searchMoveset-Espece.php";
+        echo '
         </select> <br></label>
         <label>Attaque : <select name="Attackee" id="Attackee">
         <option value="null">--Choisissez--</option>';
-      include "./search/searchMoveset-Espece.php";
-      echo '
+        include "./search/searchMoveset-Espece.php";
+        echo '
         </select> <br></label>
         <label>Attaque : <select name="Attackeee" id="Attackeee">
         <option value="null">--Choisissez--</option>';
-      include "./search/searchMoveset-Espece.php";
-      echo '
+        include "./search/searchMoveset-Espece.php";
+        echo '
         </select> <br></label>
         <label>Objet : <select name="Object" id="Object">
         <option value=null>--Choisissez--</option>';
-      include "./search/searchObjet.php";
-      echo '</select> <br></label>
+        include "./search/searchObjet.php";
+        echo '</select> <br></label>
         <label>Propriétaire : <select name="Owner" id="Owner">
         <option value=null>--Choisissez--</option>';
-      include "./search/searchProprietaire.php";
-      echo '</select> <br></label>
+        include "./search/searchProprietaire.php";
+        echo '</select> <br></label>
         <input type="submit" value="valider">
       </form>
       <button onclick="document.getElementById(\'mydialog\').style.visibility=\'hidden\'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
     </dialog>
 </div>
   </div>;' ?>
-      <?php include "footer.php" ?>
-      <script type="text/javascript" src="./js/modal.js"></script>
+        <?php include "footer.php" ?>
+        <script type="text/javascript" src="./js/modal.js"></script>
+        <script type="text/javascript" src="./js/tri.js"></script>
 </body>
 
 </html>
