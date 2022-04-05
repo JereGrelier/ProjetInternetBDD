@@ -29,7 +29,7 @@
     if ($res = $dbh->query($requete))
       /* ... on récupère un tableau stockant le résultat */
       $moveset =  $res->fetchAll();
-    $nam = isset($moveset[0]['NomEspece']) ? 'de' . $moveset[0]['NomEspece'] : 'vide';
+    $nam = isset($moveset[0]['NomEspece']) ? 'de ' . $moveset[0]['NomEspece'] : 'vide';
     echo '<h2>Moveset ' . $nam . '</h2>';
     $num = intval($_REQUEST['id']);
     echo '<table>
