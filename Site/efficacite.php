@@ -96,7 +96,7 @@
             <option value="">--Choisissez--</option>
             <?php include "./search/searchType.php" ?>
           </select> <br></label>
-        <label>PE Requis : <input type="number" id="PERequis" name="PERequis" min="0" max="3" step="0.5" required><br></label>
+        <label>PE Requis : <input type="number" id="coefficient" name="coefficient" min="0" max="3" step="0.5" required><br></label>
         <input type="submit" value="valider">
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
