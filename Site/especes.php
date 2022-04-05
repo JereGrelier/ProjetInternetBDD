@@ -47,7 +47,8 @@
         headerName: "Numero",
         field: 'num',
         resizable: true,
-        filter: 'agNumberColumnFilter'
+        filter: 'agNumberColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => valueA - valueB,
 
       },
       {
