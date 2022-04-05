@@ -70,6 +70,10 @@
       border-radius: 5px;
   }
   
+  tr {
+      background-color: #999999;
+  }
+  
   img {
       border-radius: 10px;
   }
