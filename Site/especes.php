@@ -26,7 +26,7 @@
 
   <div class="TableEff">
     <h2>Liste des espèces de monstropochetrons</h2>
-    <div id="myGrid" style="width: 100em; height: 130%;position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
+    <div id="myGrid" style="width: 100em; height: 90%;position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
   </div>
   <script type="text/javascript">
     <?php
@@ -151,15 +151,15 @@
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
         <label>Type : <select name="type" id="type" required>
             <option value="">--Choisissez--</option>
-            <?php include ("../php/search/searchType.php") ?>
+            <?php include ("../php/search/searchType.php"); ?>
           </select><br> </label>
         <label>Type 2 : <select name="type-deux" id="type-deux">
             <option value=null>--Choisissez--</option>
-            <?php include ("../php/search/searchType.php") ?>
+            <?php include ("../php/search/searchType.php"); ?>
           </select><br> </label>
         <label>Zone : <select name="zone" id="zone" required>
             <option value="">--Choisissez--</option>
-            <?php include ("../php/search/searchType.php") ?>
+            <?php include ("../php/search/searchType.php"); ?>
           </select> <br></label>
         <input type="submit" value="valider">
       </form>
