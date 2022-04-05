@@ -1,245 +1,241 @@
   h1 {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-      color: black
+      color: black;
   }
-
+  
   p {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
       color: #999999;
   }
-
+  
   a {
       color: #999999;
       text-decoration: none;
   }
-
+  
   h2 {
-    color: white;
+      color: white;
   }
   
- .bigger {
-    margin: 0 auto;
-    width: 90px;
-    height: 50px;
-    font-size: larger;
+  .bigger {
+      margin: 0 auto;
+      width: 90px;
+      height: 50px;
+      font-size: larger;
   }
-
+  
   .topnav {
-    margin: 0 auto;
-    height: 5%;
-    width: 100%;
-    color: #999999;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    font-size: xx-large;
-}
-
-body {
-    background-image: url('../assets/background.jpg');
-    background-color: #0c0c0c;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    position: relative;
-    align-content: center;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    scroll-behavior: smooth;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-.box {
-    margin: 0 auto;
-    width: 75%;
-    background-color: white;
-    align-content: center;
-    align-items: center;
-    align-self: auto;
-    justify-content: center;
-    text-align: center;
-    position: relative;
-    border-radius: 10px;
-}
-
-button {
-    background-color: white;
-    border: 1px solid #999999;
-    color: #999999;
-    border-radius: 5px;
-}
-
-img {
-    border-radius: 10px;
-}
-
-#openModal {
-  position: absolute;
-  top: 0;
-  right: 5em;
-  scale: 2;
-}
-
-
-.logo {
-    width: 35px;
-    height: 35px;
-    filter: invert(17%) sepia(56%) saturate(3131%) hue-rotate(344deg) brightness(132%) contrast(92%);
-}
-
-hr.rounded {
-    border-top: 1px solid #999999;
-    width: 75%;
-    border-radius: 5px;
-}
-
-@media screen and (max-width: 800px) {
-    .box {
-        width: 100%;
-        margin: 0 0 0 0;
-    }
-}
-
-  .move{
+      margin: 0 auto;
+      height: 5%;
+      width: 100%;
+      color: #999999;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      font-size: xx-large;
+  }
+  
+  body {
+      background-image: url('../assets/background.jpg');
+      background-color: #0c0c0c;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      position: relative;
+      align-content: center;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      scroll-behavior: smooth;
+      background-repeat: no-repeat;
+      background-size: cover;
+  }
+  
+  .box {
+      margin: 0 auto;
+      width: 75%;
+      background-color: white;
+      align-content: center;
+      align-items: center;
+      align-self: auto;
+      justify-content: center;
+      text-align: center;
+      position: relative;
+      border-radius: 10px;
+  }
+  
+  button {
+      background-color: white;
+      border: 1px solid #999999;
+      color: #999999;
+      border-radius: 5px;
+  }
+  
+  img {
+      border-radius: 10px;
+  }
+  
+  #openModal {
+      position: absolute;
+      top: 0;
+      right: 5em;
+      scale: 2;
+  }
+  
+  .logo {
+      width: 35px;
+      height: 35px;
+      filter: invert(17%) sepia(56%) saturate(3131%) hue-rotate(344deg) brightness(132%) contrast(92%);
+  }
+  
+  hr.rounded {
+      border-top: 1px solid #999999;
+      width: 75%;
+      border-radius: 5px;
+  }
+  
+  @media screen and (max-width: 800px) {
+      .box {
+          width: 100%;
+          margin: 0 0 0 0;
+      }
+  }
+  
+  .move {
       display: none;
   }
-
+  
   .column {
-    float: left;
-    width: 50%;
+      float: left;
+      width: 50%;
   }
-  
   /* Clear floats after the columns */
+  
   .row:after {
-    content: "";
-    display: table;
-    clear: both;
+      content: "";
+      display: table;
+      clear: both;
   }
-
+  
   .listeEspece {
-    margin-top: 100px;
+      margin-top: 100px;
   }
- 
+  
   table {
-    width: 100%;
-    border-collapse: collapse;
-    border-radius: 1em;
-    overflow: hidden;
-    position: relative;
-    display: table;
-    background-color: white;
-    margin: 0 auto;
-    font-size: x-large;
-    border-bottom-right-radius:0 ;
-    border-top-right-radius: 0;
+      width: 100%;
+      border-collapse: collapse;
+      border-radius: 1em;
+      overflow: hidden;
+      position: relative;
+      display: table;
+      background-color: white;
+      margin: 0 auto;
+      font-size: x-large;
+      border-bottom-right-radius: 0;
+      border-top-right-radius: 0;
   }
-
+  
   .listeEspece tr {
-    padding-bottom: 1%;
-    border-bottom: 1px solid #bdb7b2;
+      padding-bottom: 1%;
+      border-bottom: 1px solid #bdb7b2;
   }
-
   
-
   #mydialog {
-    display: block;
-    overflow: auto;
-    min-width: 400px;
-    min-height: 300%;
-    height: max-content;
-    position: absolute;
-    left: 50%;
-    top: 150%;
-    transform: translate(-50%, -50%);
-    visibility: hidden;
-    align-items: flex-start;
-  }
-
-  #mydialog .effi {
-    display: block;
-    overflow: auto;
-    min-width: 400px;
-    min-height: 900%;
-    height: max-content;
-    position: absolute;
-    left: 50%;
-    top: 750%;
-    transform: translate(-50%, -50%);
-    visibility: hidden;
-    align-items: flex-start;
+      display: block;
+      overflow: auto;
+      min-width: 400px;
+      min-height: 300%;
+      height: max-content;
+      position: absolute;
+      left: 50%;
+      top: 150%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      align-items: flex-start;
   }
   
+  #mydialog .effi {
+      display: block;
+      overflow: auto;
+      min-width: 400px;
+      min-height: 900%;
+      height: max-content;
+      position: absolute;
+      left: 50%;
+      top: 750%;
+      transform: translate(-50%, -50%);
+      visibility: hidden;
+      align-items: flex-start;
+  }
   /* Sidenav menu */
-.sidenav {
-  height: 100%;
-  width: 250px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: -250px;
-  background-image: url("../assets/BackgroundMewnu.png");
-  padding-top: 60px;
-  transition: left 0.5s ease;
-}
-
-/* Sidenav menu links */
-.sidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: black;
-  display: block;
-  transition: 0.3s;
-}
-
-.sidenav a:hover {
-  color: rgb(255, 0, 0);
-}
-
-.sidenav ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
-
-/* Active class */
-.sidenav.active {
-  left: 0;
-}
-
-/* Close btn */
-.sidenav .close {
-  position: absolute;
-  top: 0;
-  left: 218px;
-}
-
-/* Icône burger */
-#MewHidden {
-  position: fixed;
-  height: 100px;
-  width: 100px;
-  z-index: 1;
-  visibility: hidden;
-}
-
-.MewShown {
-  position: sticky;
-  height: 100px;
-  width: 100px;
-  z-index: 1;
-  border-top-left-radius: 0;
-  border-bottom-left-radius:0;
-}
-
-footer {
-  color: white;
-}
-
-.delete { 
-  width: 30%;
-  height: 30%;
-}
-
-.TableEff {
-  margin-top: 100px;
-}
-
+  
+  .sidenav {
+      height: 100%;
+      width: 250px;
+      position: fixed;
+      z-index: 1;
+      top: 0;
+      left: -250px;
+      background-image: url("../assets/BackgroundMewnu.png");
+      padding-top: 60px;
+      transition: left 0.5s ease;
+  }
+  /* Sidenav menu links */
+  
+  .sidenav a {
+      padding: 8px 8px 8px 32px;
+      text-decoration: none;
+      font-size: 25px;
+      color: black;
+      display: block;
+      transition: 0.3s;
+  }
+  
+  .sidenav a:hover {
+      color: rgb(255, 0, 0);
+  }
+  
+  .sidenav ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+  }
+  /* Active class */
+  
+  .sidenav.active {
+      left: 0;
+  }
+  /* Close btn */
+  
+  .sidenav .close {
+      position: absolute;
+      top: 0;
+      left: 218px;
+  }
+  /* Icône burger */
+  
+  #MewHidden {
+      position: fixed;
+      height: 100px;
+      width: 100px;
+      z-index: 1;
+      visibility: hidden;
+  }
+  
+  .MewShown {
+      position: sticky;
+      height: 100px;
+      width: 100px;
+      z-index: 1;
+      border-top-left-radius: 0;
+      border-bottom-left-radius: 0;
+  }
+  
+  footer {
+      color: white;
+  }
+  
+  .delete {
+      width: 30%;
+      height: 30%;
+  }
+  
+  .TableEff {
+      margin-top: 100px;
+  }
