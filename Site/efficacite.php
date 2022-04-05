@@ -85,4 +85,22 @@
             new agGrid.Grid(gridDiv, gridOptions);
         });
     </script>
+    <div id="mydialog">
+    <dialog open class="ModalAddSpecies" role="dialog" aria-modal="true" aria-labelledby="modal-heading">
+      <h1 id="modal-heading">Ajouter une Efficacité</h1>
+      <form action="./add/add-efficacite.php" method="post">
+        <label>Premutation : <select name="attaque" id="attaque" required>
+            <option value="">--Choisissez--</option>
+            <?php include "./search/searchType.php" ?>
+          </select><br> </label>
+        <label>PostMutation : <select name="defense" id="defense" required>
+            <option value="">--Choisissez--</option>
+            <?php include "./search/searchType.php" ?>
+          </select> <br></label>
+        <label>PE Requis : <input type="number" id="PERequis" name="PERequis" min="0" max="3" step="0.5" required><br></label>
+        <input type="submit" value="valider">
+      </form>
+      <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
+    </dialog>
+  </div>
 </body>

@@ -48,13 +48,12 @@
           $especePost =  $res2->fetchAll();
         echo "\t" . '<tr><td>' . $esp['NomEspece'] . '</td>';
         echo '<td>' . $especePost[$i]['NomEspece'] . '</td>';
-        if(isset($esp['IdObjet'])) {
-          $requeteObj = "select * from OBJET where IdObjet = ". $esp['IdObjet'];
-          if($resObj = $dbh->query($requeteObj))
-          $obj = $resObj->fetch();
+        if (isset($esp['IdObjet'])) {
+          $requeteObj = "select * from OBJET where IdObjet = " . $esp['IdObjet'];
+          if ($resObj = $dbh->query($requeteObj))
+            $obj = $resObj->fetch();
           echo '<td>' . $obj['NomObjet'] . '</td>';
-        }
-        else echo '<td>-</td>';
+        } else echo '<td>-</td>';
         echo '<td>' . $esp['PE_Requis'] . '</td>';
         echo '<td> <img src="' . $esp['Sprite'] . '"/></td>';
         echo '<td> <img src="' . $especePost[$i]['Sprite'] . '"/></td>';
@@ -98,7 +97,7 @@
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
     </dialog>
- </div>
+  </div>
   <?php include "footer.php" ?>
   <script type="text/javascript" src="./js/modal.js"></script>
 </body>
