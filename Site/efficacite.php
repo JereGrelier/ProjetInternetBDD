@@ -50,12 +50,14 @@
         var TypesA = <?php echo json_encode($typeAttaque); ?>;
         var columnDefs = [{
             headerName: "Defense\\Attaque",
-            field: 'typesD'
+            field: 'typesD',
+            sortable: true
         }];
         Types.forEach(type => {
             columnDefs.push({
                 headerName: type.NomType,
-                field: type.IdType
+                field: type.IdType,
+                sortable: true
             });
         });
 
@@ -104,5 +106,4 @@
         </dialog>
     </div>
     <script type="text/javascript" src="./js/modal.js"></script>
-    <script type="text/javascript" src="./js/tri.js"></script>
 </body>
