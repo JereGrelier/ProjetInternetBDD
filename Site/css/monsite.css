@@ -132,27 +132,6 @@ hr.rounded {
     border-top-right-radius: 0;
   }
 
-  
-  #right {
-    border-radius: 5%;
-    border-right-width: 13px;
-    border-right-style: solid;
-    border-color: #b9b9b9;
-  }
-
-  
-  .headerListEspece{
-      border-bottom: 1px solid #bdb7b2;
-      background: #b9b9b9;
-    }
-
-  .listeEspece tr {
-    padding-bottom: 1%;
-    border-bottom: 1px solid #bdb7b2;
-  }
-
-  
-
   #mydialog {
     display: block;
     overflow: auto;
