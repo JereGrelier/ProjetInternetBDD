@@ -43,7 +43,7 @@
 
     <div class="TableEff">
         <h2>Table des efficacites</h2>
-        <div id="myGrid" style="width: 100em; height: 100%;position: fixed;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
+        <div id="myGrid" style="width: 100em; position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
     </div>
     <script type="text/javascript">
         var Types = <?php echo json_encode($attaques); ?>;
@@ -76,7 +76,8 @@
         // let the grid know which columns and what data to use
         var gridOptions = {
             columnDefs: columnDefs,
-            rowData: rowData
+            rowData: rowData,
+            domLayout: 'autoHeight',
         };
 
         // setup the grid after the page has finished loading
