@@ -21,6 +21,8 @@
   <?php include "topnav.php" ?>
   <div class="listeEspece">
     <h2>Liste des zones</h2>
+    <div id="myGrid" style="width: 100em; position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine-dark"></div>
+  </div>
     <script type="text/javascript">
     <?php
     include "connect.php";
