@@ -78,7 +78,7 @@
       border-radius: 10px;
   }
   
-  #openModal #validation {
+  #openModal, #validation {
       position: absolute;
       top: 0;
       right: 5em;
