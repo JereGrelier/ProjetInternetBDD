@@ -26,7 +26,7 @@
 
   <div class="TableEff">
     <h2>Liste des espèces de monstropochetrons</h2>
-    <div id="myGrid" style="width: 100em; height: 90%;position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
+    <div id="myGrid" style="width: 100em; position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
   </div>
   <script type="text/javascript">
     <?php
@@ -150,6 +150,7 @@
       columnDefs: columnDefs,
       rowData: rowData,
       rowHeight: 130,
+      domLayout: 'autoHeight',
     };
 
     // setup the grid after the page has finished loading
