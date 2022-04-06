@@ -26,7 +26,7 @@
     $sql = 'delete from MUTATION where IdPreMutation = ? and IdPostMutation = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id, $idp))) { 
-        echo ('<h2>La Mutation de '.$pre. ' en '.$post.' a bien été supprimée de la base</h2>');
+        echo ('<h2>La Mutation de '.$pre. ' en '.$post.' a bien ete supprimee de la base</h2>');
      } else {
         echo('<h2>Error</h2>');
      }

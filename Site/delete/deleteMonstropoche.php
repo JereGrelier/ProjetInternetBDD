@@ -24,7 +24,7 @@
     $sql = 'delete from MONSTROPOCHE where IdMonstropoche = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>Le Monstropochetron '.$name. ' a bien été supprimé de la base</h2>');
+        echo ('<h2>Le Monstropochetron '.$name. ' a bien ete supprime de la base</h2>');
      } else {
         echo('<h2>Error</h2>');
      }
