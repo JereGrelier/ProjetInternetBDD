@@ -22,7 +22,10 @@
     $newname = $_REQUEST['Name'];
     $localisation = $_REQUEST['Zone'];
     $bonus = $_REQUEST['Bonus'];
-    $idO = 'select max(IdObjet) from OBJET' + 1;
+    $idOR = 'select max(IdObjet) from OBJET;';
+    if($resIdO = $dbh->query($idOR))
+    $idO =  $res->fetchAll();
+    print_r($idO);
     $unique = isset($_REQUEST['Unique']) ? 1 : 0;
     print_r($idO);
     $sql = 'insert into OBJET (NomObjet, BonusPuissance, IsUnique) values (:name, :bonus, :unique);
