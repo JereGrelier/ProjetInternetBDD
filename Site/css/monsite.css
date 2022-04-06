@@ -68,6 +68,7 @@
   #openModal {
       position: absolute;
       top: 0;
+      right: 15%;
       scale: 1.5;
       margin-top: 8em;
       border-radius: 16px;
