@@ -25,7 +25,7 @@
     $sql = 'delete from MOVESET_ESPECE where NumEspece = ? and IdAttaque = ?';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($numero, $idAttaque))) { 
-        echo ('<h2>Espece '.$name. ' successfully removed from the base</h2>');
+        echo ('<h2>Suppression réussie</h2>');
      } else {
         echo('<h2>Error</h2>');
      }

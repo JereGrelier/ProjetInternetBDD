@@ -24,7 +24,7 @@
     $sql = 'delete from ESPECE where Numero = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>Espece '.$name. ' successfully removed from the base</h2>');
+        echo ('<h2>L\'Espece '.$name. ' a bien été supprimée de la base</h2>');
      } else {
         echo('<h2>Error</h2>');
      }

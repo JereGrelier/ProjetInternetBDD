@@ -24,7 +24,7 @@
     $sql = 'delete from OBJET where IdObjet = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>'.$name. ' successfully removed from the objects</h2>');
+        echo ('<h2>L\'objet '.$name. ' a bien été supprimé de la base</h2>');
      } else {
         echo('Error');
      }
