@@ -23,6 +23,23 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Contenu de la table `TYPE`
+--
+
+INSERT INTO `TYPE` (`IdType`, `NomType`) VALUES
+(1, 'Vin rouge'),
+(2, 'Champagne'),
+(4, 'Vodka'),
+(5, 'Tequila'),
+(6, 'Rhum'),
+(7, 'Vin rosÃ©'),
+(8, 'Vin blanc'),
+(9, 'Pisco'),
+(21, 'Gin');
+
+-- --------------------------------------------------------
+
+--
 -- Contenu de la table `ATTAQUE`
 --
 
@@ -37,22 +54,25 @@ INSERT INTO `ATTAQUE` (`IdAttaque`, `NomAttaque`, `Puissance`, `Precision`, `Typ
 -- --------------------------------------------------------
 
 --
--- Contenu de la table `EFFICACITE`
+-- Contenu de la table `OBJET`
 --
 
-INSERT INTO `EFFICACITE` (`IdTypeAttaque`, `IdTypeDefense`, `Coefficient`) VALUES
-(1, 2, 2),
-(1, 4, 1),
-(1, 9, 1),
-(2, 1, 1),
-(2, 4, 1),
-(4, 1, 2),
-(4, 2, 1),
-(6, 7, 1),
-(7, 9, 0),
-(8, 6, 1),
-(9, 2, 3),
-(9, 7, 0);
+INSERT INTO `OBJET` (`IdObjet`, `NomObjet`, `BonusPuissance`, `IsUnique`) VALUES
+(24, 'GlaÃ§on', 1.8, 0),
+(25, 'Touillette', 1.1, 0),
+(26, 'Dessous de verre', 0.4, 0),
+(27, 'Tranche de citron', 2.4, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Contenu de la table `PROPRIETAIRE`
+--
+
+INSERT INTO `PROPRIETAIRE` (`IdProprietaire`, `NomProprietaire`, `IsJouable`) VALUES
+(1, 'Enzo Naudy', 0),
+(2, 'Jeremy Grelier', 1),
+(17, 'Bastian Hologne', 1);
 
 -- --------------------------------------------------------
 
@@ -96,6 +116,26 @@ INSERT INTO `ESPECE` (`Numero`, `NomEspece`, `TypeEspece`, `TypeEspece2`, `Sprit
 -- --------------------------------------------------------
 
 --
+-- Contenu de la table `EFFICACITE`
+--
+
+INSERT INTO `EFFICACITE` (`IdTypeAttaque`, `IdTypeDefense`, `Coefficient`) VALUES
+(1, 2, 2),
+(1, 4, 1),
+(1, 9, 1),
+(2, 1, 1),
+(2, 4, 1),
+(4, 1, 2),
+(4, 2, 1),
+(6, 7, 1),
+(7, 9, 0),
+(8, 6, 1),
+(9, 2, 3),
+(9, 7, 0);
+
+-- --------------------------------------------------------
+
+--
 -- Contenu de la table `HABITAT`
 --
 
@@ -131,31 +171,6 @@ INSERT INTO `HABITAT` (`NumEspece`, `IdZone`) VALUES
 (12, 6),
 (20, 6),
 (493, 6);
-
--- --------------------------------------------------------
-
---
--- Contenu de la table `LOCALISATION`
---
-
-INSERT INTO `LOCALISATION` (`IdObjet`, `IdZone`) VALUES
-(27, 2),
-(24, 3),
-(25, 3),
-(24, 4),
-(26, 15);
-
--- --------------------------------------------------------
-
---
--- Contenu de la table `MONSTROPOCHE`
---
-
-INSERT INTO `MONSTROPOCHE` (`IdMonstropoche`, `Surnom`, `Etat`, `PV`, `PE`, `Genre`, `NumEspece`, `IdObjet`, `IdProprietaire`) VALUES
-(2, 'Bastian H', 'Reproduction', 10, 0, 'Non binaire', 5, NULL, 1),
-(57, 'YOANN D S', 'Repos', 32, 0, 'Binaire', 9, NULL, NULL),
-(75, 'DEUS', 'Repos', 100, 0, 'Femelle', 493, 27, 17),
-(76, 'Mackognac', 'Repos', 100, 0, 'Male', 12, 24, 17);
 
 -- --------------------------------------------------------
 
@@ -223,57 +238,27 @@ INSERT INTO `MUTATION` (`IdPreMutation`, `IdPostMutation`, `IdObjet`, `PE_Requis
 -- --------------------------------------------------------
 
 --
--- Contenu de la table `OBJET`
+-- Contenu de la table `MONSTROPOCHE`
 --
 
-INSERT INTO `OBJET` (`IdObjet`, `NomObjet`, `BonusPuissance`, `IsUnique`) VALUES
-(24, 'GlaÃ§on', 1.8, 0),
-(25, 'Touillette', 1.1, 0),
-(26, 'Dessous de verre', 0.4, 0),
-(27, 'Tranche de citron', 2.4, 1);
+INSERT INTO `MONSTROPOCHE` (`IdMonstropoche`, `Surnom`, `Etat`, `PV`, `PE`, `Genre`, `NumEspece`, `IdObjet`, `IdProprietaire`) VALUES
+(2, 'Bastian H', 'Reproduction', 10, 0, 'Non binaire', 5, NULL, 1),
+(57, 'YOANN D S', 'Repos', 32, 0, 'Binaire', 9, NULL, NULL),
+(75, 'DEUS', 'Repos', 100, 0, 'Femelle', 493, 27, 17),
+(76, 'Mackognac', 'Repos', 100, 0, 'Male', 12, 24, 17);
 
 -- --------------------------------------------------------
 
 --
--- Contenu de la table `PROPRIETAIRE`
+-- Contenu de la table `LOCALISATION`
 --
 
-INSERT INTO `PROPRIETAIRE` (`IdProprietaire`, `NomProprietaire`, `IsJouable`) VALUES
-(1, 'Enzo Naudy', 0),
-(2, 'Jeremy Grelier', 1),
-(17, 'Bastian Hologne', 1);
-
--- --------------------------------------------------------
-
---
--- Contenu de la table `TYPE`
---
-
-INSERT INTO `TYPE` (`IdType`, `NomType`) VALUES
-(1, 'Vin rouge'),
-(2, 'Champagne'),
-(4, 'Vodka'),
-(5, 'Tequila'),
-(6, 'Rhum'),
-(7, 'Vin rosÃ©'),
-(8, 'Vin blanc'),
-(9, 'Pisco'),
-(21, 'Gin');
-
--- --------------------------------------------------------
-
---
--- Contenu de la table `ZONE`
---
-
-INSERT INTO `ZONE` (`IdZone`, `NomZone`) VALUES
-(1, 'Bar'),
-(2, 'Cave a vin'),
-(3, 'Chai'),
-(4, 'Brasserie'),
-(5, 'Pub'),
-(6, 'Distillerie'),
-(15, 'DiscothÃ¨que');
+INSERT INTO `LOCALISATION` (`IdObjet`, `IdZone`) VALUES
+(27, 2),
+(24, 3),
+(25, 3),
+(24, 4),
+(26, 15);
 
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
