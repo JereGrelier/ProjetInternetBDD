@@ -22,15 +22,17 @@
     $newname = $_REQUEST['Name'];
     $localisation = $_REQUEST['Zone'];
     $bonus = $_REQUEST['Bonus'];
+    $sql = 'insert into OBJET (NomObjet, BonusPuissance, IsUnique) values (:name, :bonus, :unique);';
+    $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    $sth->execute(array('name' => $newname, 'bonus'=>$bonus, 'unique' => $unique));
     $idOR = 'select max(IdObjet) from OBJET';
     if($resIdO = $dbh->query($idOR))
     $idO =  $resIdO->fetchAll();
     print_r($idO[0]);
     $unique = isset($_REQUEST['Unique']) ? 1 : 0;
-    $sql = 'insert into OBJET (NomObjet, BonusPuissance, IsUnique) values (:name, :bonus, :unique);
-            insert into LOCALISATION values (:id, :zone)';
-    $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute(array('name' => $newname, 'bonus'=>$bonus, 'unique' => $unique, 'id' => intval($idO[0]), 'zone' => $localisation ));
+    $sqlL = 'insert into LOCALISATION values (:id, :zone)';
+    $sthL = $dbh->prepare($sqlL, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
+    $sthL->execute(array('id' => $idO[0], 'zone' => $localisation ));
     $resIdO->closeCursor();
     $dbh = null;
     ?>
