@@ -31,7 +31,7 @@
   <script type="text/javascript">
     <?php
     include "connect.php";
-    $requete = "select * from ESPECE, TYPE, TYPE as T2, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.IdType or T2.IdType = ESPECE.TypeEspece2 and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";
+    $requete = "select * from ESPECE, TYPE, TYPE as T2, HABITAT, ZONE where ESPECE.TypeEspece = TYPE.IdType and T2.IdType = ESPECE.TypeEspece2 and ESPECE.Numero = HABITAT.NumEspece and HABITAT.IdZone = ZONE.IdZone order by ESPECE.numero asc";
     /* Si l'execution est reussie... */
     if ($res = $dbh->query($requete))
       /* ... on récupère un tableau stockant le résultat */
