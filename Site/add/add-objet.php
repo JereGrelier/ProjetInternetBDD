@@ -25,10 +25,13 @@
     $idOR = 'select max(IdObjet) from OBJET;';
     if($resIdO = $dbh->query($idOR))
     $idO =  $resIdO->fetchAll();
+    print_r(intval($idO[0]));
     $unique = isset($_REQUEST['Unique']) ? 1 : 0;
     $sql = 'insert into OBJET (NomObjet, BonusPuissance, IsUnique) values (:name, :bonus, :unique);
             insert into LOCALISATION values (:id, :zone)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('name' => $newname, 'bonus'=>$bonus, 'unique' => $unique, 'id' => intval($idO[0]), 'zone' => $localisation ));
+    $res->closeCursor();
+    $dbh = null;
     ?>
 </html>
