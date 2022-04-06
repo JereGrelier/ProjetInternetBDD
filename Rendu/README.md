@@ -1,10 +1,10 @@
 # Installation de l'application "Monstropochetrons"
 
-NB : Nous recommandons l'utilisation d'un serveur LAMP ( ou wamp ) pour utiliser l'application.
+NB : Nous recommandons l'utilisation d'un serveur LAMP ( ou WAMP ) pour utiliser l'application.
 
 ## Etape 1 : Installer et peupler la base de donnée
 
-Sur MySql, créez une base de données appelée "enaudy" et utiliser les scripts ... pour créer la base et ... pour la peupler
+Sur MySql, créez une base de données appelée "enaudy" et utiliser les scripts "Create.sql" pour créer la base et "Insert.sql" pour la peupler
 
 ## Etape 2 : Installer le site
 
@@ -12,4 +12,4 @@ NB : Par défaut, les modalités de connexion sont stockées dans le fichier "co
 
 ## Suppression de la base
 
-Pour supprimer la base, utilisez le script ...
+Pour supprimer la base, utilisez le script "Drop.sql"
