@@ -68,8 +68,8 @@
   #openModal {
       position: absolute;
       top: 0;
-      right: 5em;
-      scale: 2;
+      right: 15%;
+      scale: 1.5;
       margin-top: 8em;
       border-radius: 16px;
   }
@@ -85,6 +85,7 @@
 
 .tableButton {
     background-color: #181d1f;
+    color: white;
 }
   
   @media screen and (max-width: 800px) {
@@ -164,7 +165,7 @@
   
   .sidenav {
       height: 100%;
-      width: 250px;
+      width: 15%;
       position: fixed;
       z-index: 1;
       top: 0;
