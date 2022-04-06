@@ -20,43 +20,108 @@
   <?php include "topnav.php" ?>
   <div class="listeEspece">
     <h2>Liste des Attaques</h2>
+    <script type="text/javascript">
     <?php
-    include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
-    <table>
-      <tr>
-        <th>Nom</th>
-        <th>Type</th>
-        <th>Puissance</th>
-        <th>Précision</th>
-        <th>Actions</th>
-      </tr>
-      <tbody>
-        <?php
-        $requete = "select * from ATTAQUE, TYPE where ATTAQUE.TypeAttaque = TYPE.idType order by ATTAQUE.nomAttaque asc";
-        /* Si l'execution est reussie... */
-        if ($res = $dbh->query($requete))
-          /* ... on récupère un tableau stockant le résultat */
-          $attaques =  $res->fetchAll();
-        //echo print_r($espece);
-        foreach ($attaques as $att) {
-          echo '<td>' . $att['NomAttaque'] . '</td>';
-          echo '<td>' . $att['NomType'] . '</td>';
-          echo '<td>' . $att['Puissance'] . '</td>';
-          echo '<td>' . $att['Precision'] . '</td>';
-          echo '<td><form method="post" action="./delete/deleteAttaque.php">
-                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="' . $att['IdAttaque'] . '"/>
-                      <input type="hidden" name="name" value="' . $att['NomAttaque'] . '"/>
-                    </form></td>';
-          echo '</tr>' . "\n";
+    include "connect.php";
+    $requete = "select * from ATTAQUE, TYPE where TYPE.IdType = ATTAQUE.TypeAttaque";
+    /* Si l'execution est reussie... */
+    if ($res = $dbh->query($requete))
+      /* ... on récupère un tableau stockant le résultat */
+      $attaques =  $res->fetchAll();
+    /*liberation de l'objet requete:*/
+    $res->closeCursor();
+    /*fermeture de la connexion avec la base*/
+    $dbh = null;
+    ?>
+    var attaques = <?php echo json_encode($attaques); ?>;
+
+    var columnDefs = [{
+        headerName: "Nom",
+        field: 'name',
+        resizable: true,
+        filter: 'agTextColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => {
+                if (valueA == valueB) return 0;
+                return (valueA > valueB) ? 1 : -1;
+            }
+      },
+      {
+      headerName: "Type",
+        field: 'type',
+        resizable: true,
+        filter: 'agTextColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => {
+                if (valueA == valueB) return 0;
+                return (valueA > valueB) ? 1 : -1;
+            }
+      },
+      {
+        headerName: "Puissance",
+        field: 'power',
+        resizable: true,
+        filter: 'agNumberColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => valueA - valueB,
+
+      },
+      {
+        headerName: "Precision",
+        field: 'precision',
+        resizable: true,
+        filter: 'agNumberColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => valueA - valueB,
+
+      },
+      {
+        headerName: "Action",
+        field: 'Action',
+        resizable: true,
+        sortable: false,
+        cellRenderer: function(params) {
+          // Display the image
+          /* This is a function that will display the image of the species. */
+          let link = `<form method="post" action="delete/deleteProprietaire.php">
+                      <button class="tableButton" type="submit" name="btnEnvoiForm" title="Envoyer"><h2>Supprimer</h2></button>
+                      <input type="hidden" name="id" value=${params.value}/>
+                    </form>`
+          return link;
         }
-        /*liberation de l'objet requete:*/
-        $res->closeCursor();
-        /*fermeture de la connexion avec la base*/
-        $dbh = null;
-        ?>
-      </tbody>
-    </table>
+      },
+    ];
+
+    // specify the data
+    var rowData = [];
+    attaques.forEach(attaque => {
+      rowData.push({
+        name: attaque.NomAttaque,
+        Action: attaque.IdAttaque,
+        power: attaque.Puissance,
+        type: attaque.Nomtype,
+        precision: attaque.Precision,
+      })
+    });
+
+    // let the grid know which columns and what data to use
+    var gridOptions = {
+      defaultColDef: {
+        sortable: true,
+        cellStyle: {
+          fontSize: '22px',
+          textAlign: 'center'
+        }
+      },
+      columnDefs: columnDefs,
+      rowData: rowData,
+      rowHeight: 70,
+      domLayout: 'autoHeight',
+    };
+
+    // setup the grid after the page has finished loading
+    document.addEventListener('DOMContentLoaded', function() {
+      var gridDiv = document.querySelector('#myGrid');
+      new agGrid.Grid(gridDiv, gridOptions);
+      gridOptions.api.sizeColumnsToFit();
+    });
+  </script>
     <button id="openModal">Ajouter une attaque</button>
   </div>
   <div id="mydialog">
