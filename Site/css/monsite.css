@@ -49,20 +49,7 @@
       -moz-background-size: cover;
       -o-background-size: cover;
   }
-  
-  .box {
-      margin: 0 auto;
-      width: 75%;
-      background-color: white;
-      align-content: center;
-      align-items: center;
-      align-self: auto;
-      justify-content: center;
-      text-align: center;
-      position: relative;
-      border-radius: 10px;
-  }
-  
+    
   button {
       background-color: white;
       border: 1px solid #999999;
@@ -85,18 +72,6 @@
       scale: 2;
       margin-top: 8em;
       border-radius: 16px;
-  }
-  
-  .logo {
-      width: 35px;
-      height: 35px;
-      filter: invert(17%) sepia(56%) saturate(3131%) hue-rotate(344deg) brightness(132%) contrast(92%);
-  }
-  
-  hr.rounded {
-      border-top: 1px solid #999999;
-      width: 75%;
-      border-radius: 5px;
   }
   
   @media screen and (max-width: 800px) {
