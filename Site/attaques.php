@@ -13,6 +13,7 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
   <title>Liste des Attaques</title>
 </head>
 
