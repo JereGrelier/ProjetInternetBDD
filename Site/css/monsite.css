@@ -82,6 +82,10 @@
     border: 1px solid #999999;
     color: #999999;
 }
+
+.tableButton {
+    background-color: #181d1f;
+}
   
   @media screen and (max-width: 800px) {
       .box {

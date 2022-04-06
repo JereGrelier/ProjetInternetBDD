@@ -26,7 +26,7 @@
 
   <div class="TableEff">
     <h2>Liste des espèces de monstropochetrons</h2>
-    <div id="myGrid" style="width: 100em; position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
+    <div id="myGrid" style="width: 100em; position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine-dark"></div>
   </div>
   <script type="text/javascript">
     <?php
@@ -112,11 +112,11 @@
           // Display the image
           /* This is a function that will display the image of the species. */
           let link = `<form method="post" action="delete/deleteEspece.php">
-                      <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
+                      <button class="tableButton" type="submit" name="btnEnvoiForm" title="Envoyer"><h2>Supprimer</h2></button>
                       <input type="hidden" name="id" value=${params.value}/>
                     </form><br>
                     <form method="post" action="./moveset-espece.php">
-                  <button type="submit" title="Envoyer"><h2 style="color:black">Voir le moveset</h2></button>
+                  <button type="submit" class="tableButton" title="Envoyer"><h2>Voir le moveset</h2></button>
                   <input type="hidden" name="id" value=${params.value}/>
                   </form>`;
           return link;
