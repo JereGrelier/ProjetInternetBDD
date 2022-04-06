@@ -24,7 +24,7 @@
     $bonus = $_REQUEST['Bonus'];
     $idOR = 'select max(IdObjet) from OBJET;';
     if($resIdO = $dbh->query($idOR))
-    $idO =  $res->fetchAll();
+    $idO =  $resIdO->fetchAll();
     print_r($idO);
     $unique = isset($_REQUEST['Unique']) ? 1 : 0;
     print_r($idO);
