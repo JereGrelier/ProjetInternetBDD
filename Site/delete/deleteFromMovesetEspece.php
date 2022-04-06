@@ -22,7 +22,7 @@
     $numero = intval($_REQUEST['NumEspece']);
     $name =$_REQUEST['name'];
     $idAttaque = $_REQUEST['IdAttaque'];
-    $sql = 'delete from MOVESET_ESPECE where Numero = ? and IdAttaque = ?';
+    $sql = 'delete from MOVESET_ESPECE where NumEspece = ? and IdAttaque = ?';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($numero, $idAttaque))) { 
         echo ('<h2>Espece '.$name. ' successfully removed from the base</h2>');
