@@ -10,6 +10,7 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="../css/monsite.css" />
 <script>
     setTimeout(function(){location.href="../efficacite.php"} , 500);
 </script>
@@ -25,5 +26,6 @@
     $sql = 'insert into EFFICACITE values (:att, :def, :coef)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('att' => $att, 'def' => $def, 'coef' => $coef));
+    echo '<h2>Ajout Reussi</h2>'
     ?>
 </html>

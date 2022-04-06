@@ -10,6 +10,7 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="../css/monsite.css" />
 <script>
     setTimeout(function(){location.href="../attaques.php"} , 500);
 </script>
@@ -26,5 +27,6 @@
     $sql = 'insert into ATTAQUE (`NomAttaque`,`Puissance`,`Precision`,`TypeAttaque`) values (:name, :power, :precision, :type);';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('name' => $newname, 'power' => $power, 'precision' => $precision, 'type' => $type));
+    echo '<h2>Ajout Reussi</h2>'
     ?>
 </html>

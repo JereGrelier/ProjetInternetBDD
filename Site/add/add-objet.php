@@ -10,6 +10,7 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="../css/monsite.css" />
 <script>
     setTimeout(function(){location.href="../objets.php"} , 1000);
 </script>
@@ -36,5 +37,6 @@
     $sthL->execute(array('id' => $idO[0], 'zone' => $localisation ));
     $resIdO->closeCursor();
     $dbh = null;
+    echo '<h2>Ajout Reussi</h2>'
     ?>
 </html>

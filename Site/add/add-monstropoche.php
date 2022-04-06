@@ -11,6 +11,7 @@
     <meta name="msapplication-TileColor" content="#da532c">
     <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
     <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="../css/monsite.css" />
     <script>
         setTimeout(function() {
             location.href = "../monstropoches.php"
@@ -45,7 +46,6 @@ $requete1 = "select * from MONSTROPOCHE where MONSTROPOCHE.Surnom = '" . $newnic
 if ($res1 = $dbh->query($requete1))
     /* ... on récupère un tableau stockant le résultat */
     $monstropoches =  $res1->fetchAll();
-echo $monstropoches[0]['IdMonstropoche'];
 $sqlA1 = 'insert into MOVESET_MONSTROPOCHE (IdAttaque, idMonstropoche, Position) values (:attaque, :idMonstropoche, 1);';
 $sthA1 = $dbh->prepare($sqlA1, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
 $sthA1->execute(array('attaque' => $attack, 'idMonstropoche' => $monstropoches[0]['IdMonstropoche']));
@@ -66,6 +66,7 @@ if ($attacke) {
     $sthA2 = $dbh->prepare($sqlA2, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sthA2->execute(array('attaquee' => $attacke, 'idMonstropoche' => $monstropoches[0]['IdMonstropoche']));
 }
+echo '<h2>Ajout Reussi</h2>'
 ?>
 
 </html>

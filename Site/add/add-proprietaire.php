@@ -10,6 +10,7 @@
         <meta name="msapplication-TileColor" content="#da532c">
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
+        <link rel="stylesheet" href="../css/monsite.css" />
 <script>
     setTimeout(function(){location.href="../proprietaires.php"} , 500);
 </script>
@@ -24,5 +25,6 @@
     $sql = 'insert into PROPRIETAIRE (NomProprietaire, IsJouable) values (:name, :jouable)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('name' => $newname, 'jouable' => $isJouable));
+    echo '<h2>Ajout Reussi</h2>'
     ?>
 </html>
