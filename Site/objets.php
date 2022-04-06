@@ -77,7 +77,7 @@
       <form action="./add/add-objet.php" method="post">
         <label>Nom : <input type="text" id="Name" name="Name" required><br></label>
         <label>Bonus : <input type="number" id="Bonus" name="Bonus" min="0" max="3" step="0.1" required><br></label>
-        <label>Zone : <select name="Zone" id="Zone">
+        <label>Localisation : <select name="Zone" id="Zone" required>
             <option value="">--Choisissez--</option>
             <?php include "./search/searchZone.php" ?>
           </select><br> </label>
