@@ -27,8 +27,8 @@
     $sth->execute(array('name' => $newname, 'bonus'=>$bonus, 'unique' => $unique));
     $idOR = 'select max(IdObjet) from OBJET';
     if($resIdO = $dbh->query($idOR))
-    $idO =  $resIdO->fetchAll();
-    print_r($idO[0]);
+    $idOT =  $resIdO->fetchAll();
+    $idO = $idOT[0];
     print_r(intval($idO[0]));
     $localisation = $_REQUEST['Zone'];
     $sqlL = 'insert into LOCALISATION values (:id, :zone)';
