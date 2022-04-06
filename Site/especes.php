@@ -177,7 +177,7 @@
           </select><br> </label>
         <label>Zone : <select name="zone" id="zone" required>
             <option value="">--Choisissez--</option>
-            <?php include (".search/searchZone.php"); ?>
+            <?php include ("./search/searchZone.php"); ?>
           </select> <br></label>
         <input id="validation" type="submit" value="valider">
       </form>
