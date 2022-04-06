@@ -20,8 +20,8 @@
 <?php 
     include '../connect.php';
     $newname = $_REQUEST['Name'];
-    $localisation = $_REQUEST['Zone'];
     $bonus = $_REQUEST['Bonus'];
+    $unique = isset($_REQUEST['Unique']) ? 1 : 0;
     $sql = 'insert into OBJET (NomObjet, BonusPuissance, IsUnique) values (:name, :bonus, :unique);';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sth->execute(array('name' => $newname, 'bonus'=>$bonus, 'unique' => $unique));
@@ -29,7 +29,7 @@
     if($resIdO = $dbh->query($idOR))
     $idO =  $resIdO->fetchAll();
     print_r($idO[0]);
-    $unique = isset($_REQUEST['Unique']) ? 1 : 0;
+    $localisation = $_REQUEST['Zone'];
     $sqlL = 'insert into LOCALISATION values (:id, :zone)';
     $sthL = $dbh->prepare($sqlL, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
     $sthL->execute(array('id' => $idO[0], 'zone' => $localisation ));
