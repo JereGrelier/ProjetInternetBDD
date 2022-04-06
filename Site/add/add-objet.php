@@ -29,6 +29,6 @@
     $sql = 'insert into OBJET (NomObjet, BonusPuissance, IsUnique) values (:name, :bonus, :unique);
             insert into LOCALISATION values (:id, :zone)';
     $sth = $dbh->prepare($sql, array(PDO::ATTR_CURSOR => PDO::CURSOR_FWDONLY));
-    $sth->execute(array('name' => $newname, 'bonus'=>$bonus, 'unique' => $unique, 'id' => $idO[0], 'zone' => $localisation ));
+    $sth->execute(array('name' => $newname, 'bonus'=>$bonus, 'unique' => $unique, 'id' => intval($idO[0]), 'zone' => $localisation ));
     ?>
 </html>
