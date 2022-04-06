@@ -70,7 +70,7 @@
           </select><br> </label>
         <label>Puissance : <input type="number" id="power" name="power" min=10 step="10" max=250 required><br></label>
         <label>Précision : <input type="number" id="precision" name="precision" min=50 step="10" max=100 required><br></label>
-        <input type="submit" value="valider">
+        <input id="validation" type="submit" value="valider">
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
     </dialog>

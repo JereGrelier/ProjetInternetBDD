@@ -71,7 +71,7 @@
     include "./search/searchAttaque.php";
     echo '</select> <br></label>
             <input type="hidden" name="Numero" value=' . $num . ' />
-            <input type="submit" value="valider">
+            <input id="validation" type="submit" value="valider">
           </form>
           <button onclick="document.getElementById(\'mydialog\').style.visibility=\'hidden\'" style="position: absolute ;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;"/></button>
         </dialog>

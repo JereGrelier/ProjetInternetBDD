@@ -82,7 +82,7 @@
             <?php include "./search/searchZone.php" ?>
           </select><br> </label>
         <label>Unique? <input type="checkbox" id="Unique" name="Unique"><br></label>
-        <input type="submit" value="valider">
+        <input id="validation" type="submit" value="valider">
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="/ProjetInternetBDD/Site/assets/376.png" alt="close" style="width: 50px; height: 50px;" /></button>
     </dialog>

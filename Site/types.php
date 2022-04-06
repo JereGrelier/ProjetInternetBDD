@@ -58,7 +58,7 @@
       <h1 id="modal-heading">Ajouter un Type</h1>
       <form action="./add/add-type.php" method="post">
         <label>Nom : <input type="text" id="name" name="name" required><br></label>
-        <input type="submit" value="valider">
+        <input id="validation" type="submit" value="valider">
       </form>
       <button onclick="document.getElementById('mydialog').style.visibility='hidden'" style="position: inherit;top: -4px;left: 80%;border: none;background: transparent;"><img src="assets/376.png" alt="close" style="width: 60px; height: 60px;" /></button>
     </dialog>
