@@ -26,7 +26,7 @@
   <script type="text/javascript">
     <?php
     include "connect.php";
-    $requete = "select * from Objet";
+    $requete = "select * from OBJET";
     /* Si l'execution est reussie... */
     if ($res = $dbh->query($requete))
       /* ... on récupère un tableau stockant le résultat */
