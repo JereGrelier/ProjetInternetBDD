@@ -76,8 +76,11 @@
 
   #validation {
     scale: 1.5;
-    margin-top: 8em;
+    margin-top: 2em;
     border-radius: 16px;
+    background-color: white;
+    border: 1px solid #999999;
+    color: #999999;
 }
   
   @media screen and (max-width: 800px) {
