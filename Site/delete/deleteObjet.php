@@ -20,11 +20,11 @@
 <?php
     include '../connect.php';
     $id = intval($_REQUEST['id']);
-    $name =$_REQUEST['name'];
+    
     $sql = 'delete from OBJET where IdObjet = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>L\'objet '.$name. ' a bien ete supprime de la base</h2>');
+        echo ('<h2>L\'objet a bien ete supprime de la base</h2>');
      } else {
         echo('Error');
      }

@@ -20,11 +20,11 @@
 <?php
     include '../connect.php';
     $id = intval($_REQUEST['id']);
-    $name =$_REQUEST['name'];
+    
     $sql = 'delete from PROPRIETAIRE where IdProprietaire = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>'.$name. ' n\'est plus un propriétaire</h2>');
+        echo ('<h2>Le proprietaire a bien ete supprime</h2>');
      } else {
         echo('Error');
      }

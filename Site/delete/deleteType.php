@@ -20,11 +20,11 @@
 <?php
     include '../connect.php';
     $id = intval($_REQUEST['id']);
-    $name =$_REQUEST['name'];
+    
     $sql = 'delete from TYPE where IdType = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>Le type '.$name. ' a bien ete supprime de la base</h2>');
+        echo ('<h2>Le type  a bien ete supprime de la base</h2>');
      } else {
         echo('Error');
      }

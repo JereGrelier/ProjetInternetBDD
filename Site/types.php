@@ -56,7 +56,7 @@
         cellRenderer: function(params) {
           // Display the image
           /* This is a function that will display the image of the species. */
-          let link = `<form method="post" action="delete/deleteProprietaire.php">
+          let link = `<form method="post" action="delete/deleteType.php">
                       <button class="tableButton" type="submit" name="btnEnvoiForm" title="Envoyer"><h2>Supprimer</h2></button>
                       <input type="hidden" name="id" value=${params.value}/>
                     </form>`

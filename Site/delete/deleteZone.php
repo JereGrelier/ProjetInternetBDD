@@ -20,11 +20,11 @@
 <?php
     include '../connect.php';
     $id = intval($_REQUEST['id']);
-    $name =$_REQUEST['name'];
+    
     $sql = 'delete from ZONE where IdZone = ? ';
     $sth = $dbh->prepare($sql);
     if ($sth->execute(array($id))) { 
-        echo ('<h2>La zone '.$name. ' a bien ete supprimee de la base</h2>');
+        echo ('<h2>La zone a bien ete supprimee de la base</h2>');
      } else {
         echo('Error');
      }
