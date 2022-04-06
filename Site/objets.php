@@ -14,61 +14,105 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
 </head>
 
 <body>
   <?php include "topnav.php" ?>
   <div class="listeEspece">
     <h2>Liste des objets</h2>
+    <div id="myGrid" style="width: 100em; position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
+  </div>
+  <script type="text/javascript">
     <?php
-    include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
-    <table>
-      <tr>
-        <th>Nom</th>
-        <th>Unique</th>
-        <th>Bonus de puissance</th>
-        <th colspan="5">Localisation</th>
-        <th>Actions</th>
-      </tr>
-      <tbody>
-        <?php
-        $requete = "select * from OBJET order by OBJET.IdObjet asc";
-        /* Si l'execution est reussie... */
-        if ($res = $dbh->query($requete))
-          /* ... on récupère un tableau stockant le résultat */
-          $objets =  $res->fetchAll();
-        //echo print_r($espece);
-        foreach ($objets as $objet) {
-          echo '<td>' . $objet['NomObjet'] . '</td>';
-          echo '<td>';
-          ($objet['IsUnique'] == 1) ?  $a = '✓' : $a = 'X';
-          echo $a . '</td>';
-          echo '<td>' . $objet['BonusPuissance'] . '</td>';
-          $requete2 = "select * from LOCALISATION, ZONE where LOCALISATION.IdObjet = " . $objet['IdObjet'] . " and LOCALISATION.IdZone = ZONE.IdZone order by ZONE.IdZone asc";
-          if ($res2 = $dbh->query($requete2))
-            $zones = $res2->fetchAll();
-          foreach ($zones as $zone) {
-            echo '<td>' . $zone['NomZone'] . '</td>';
-          }
-          if (count($zones) < 5) {
-            for ($i = 0; $i < 5 - count($zones); $i++) {
-              echo '<td>-</td>';
+    include "connect.php";
+    $requete = "select * from Objet";
+    /* Si l'execution est reussie... */
+    if ($res = $dbh->query($requete))
+      /* ... on récupère un tableau stockant le résultat */
+      $objects =  $res->fetchAll();
+    /*liberation de l'objet requete:*/
+    $res->closeCursor();
+    /*fermeture de la connexion avec la base*/
+    $dbh = null;
+    ?>
+    var objects = <?php echo json_encode($objects); ?>;
+
+    var columnDefs = [{
+        headerName: "Nom",
+        field: 'name',
+        resizable: true,
+        filter: 'agTextColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => {
+                if (valueA == valueB) return 0;
+                return (valueA > valueB) ? 1 : -1;
             }
-          }
-          echo '<td><form method="post" action="./delete/deleteObjet.php">
+      },
+      {
+        headerName: "Bonus de puissance",
+        field: 'bonus',
+        resizable: true,
+        filter: 'agNumberColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => valueA - valueB,
+
+      },
+      {
+        headerName: "Unique",
+        field: 'playable',
+        filter: 'agTextColumnFilter',
+        resizable: true,
+      },
+      {
+        headerName: "Action",
+        field: 'Action',
+        resizable: true,
+        sortable: false,
+        cellRenderer: function(params) {
+          // Display the image
+          /* This is a function that will display the image of the species. */
+          let link = `<form method="post" action="delete/deleteProprietaire.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="' . $objet['IdObjet'] . '"/>
-                      <input type="hidden" name="name" value="' . $objet['NomObjet'] . '"/>
-                    </form></td>';
-          echo '</tr>' . "\n";
+                      <input type="hidden" name="id" value=${params.value}/>
+                    </form>`
+          return link;
         }
-        /*liberation de l'objet requete:*/
-        $res->closeCursor();
-        /*fermeture de la connexion avec la base*/
-        $dbh = null;
-        ?>
-      </tbody>
-    </table>
+      },
+    ];
+
+    // specify the data
+    var rowData = [];
+    objects.forEach(object => {
+      console.log(object);
+      rowData.push({
+        name: object.NomObjet,
+        playable: object.IsUnique == 1 ? '✓' : 'X',
+        bonus: object.BonusPuissance,
+        Action: object.IdObjet
+      })
+    });
+
+    // let the grid know which columns and what data to use
+    var gridOptions = {
+      defaultColDef: {
+        sortable: true,
+        cellStyle: {
+          fontSize: '22px',
+          textAlign: 'center'
+        }
+      },
+      columnDefs: columnDefs,
+      rowData: rowData,
+      rowHeight: 70,
+      domLayout: 'autoHeight',
+    };
+
+    // setup the grid after the page has finished loading
+    document.addEventListener('DOMContentLoaded', function() {
+      var gridDiv = document.querySelector('#myGrid');
+      new agGrid.Grid(gridDiv, gridOptions);
+      gridOptions.api.sizeColumnsToFit();
+    });
+  </script>
     <button id="openModal">Ajouter un objet</button>
   </div>
   <div id="mydialog">
