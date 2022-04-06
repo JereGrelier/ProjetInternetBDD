@@ -11,7 +11,7 @@
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
  <link rel="stylesheet" href="../css/monsite.css" />
- <title>Deleting zone</title>
+ <title>Suppression zone</title>
  <script>
     setTimeout(function(){location.href="../types.php"} , 1000);
 </script>

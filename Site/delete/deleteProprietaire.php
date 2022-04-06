@@ -11,7 +11,7 @@
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
  <link rel="stylesheet" href="../css/monsite.css" />
- <title>Deleting owner</title>
+ <title>Suppression owner</title>
  <script>
     setTimeout(function(){location.href="../proprietaires.php"} , 1000);
 </script>

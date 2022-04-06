@@ -11,7 +11,7 @@
         <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
         <meta name="theme-color" content="#ffffff">
  <link rel="stylesheet" href="../css/monsite.css" />
- <title>Deleting object</title>
+ <title>Suppression object</title>
  <script>
     setTimeout(function(){location.href="../objets.php"} , 1000);
 </script>
