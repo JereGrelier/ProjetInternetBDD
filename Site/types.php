@@ -13,6 +13,7 @@
   <meta name="msapplication-TileColor" content="#da532c">
   <meta name="msapplication-config" content="/ProjetInternetBDD/Site/assets/icons/browserconfig.xml">
   <meta name="theme-color" content="#ffffff">
+  <script src="https://unpkg.com/ag-grid-community/dist/ag-grid-community.min.js"></script>
   <title>Liste des Types</title>
 </head>
 
@@ -20,37 +21,81 @@
   <?php include "topnav.php" ?>
   <div class="listeEspece">
     <h2>Liste des types</h2>
+    <div id="myGrid" style="width: 100em; position: absolute;left: 50px;border-radius: 15px;overflow: auto;font-size: large;" class="ag-theme-alpine"></div>
+  </div>
+  <script type="text/javascript">
     <?php
-    include "connect.php"; /* Le fichier connect.php contient les identifiants de connexion */ ?>
-    <table>
-      <tr>
-        <th>Nom</th>
-        <th>Actions</th>
-      </tr>
-      <tbody>
-        <?php
-        $requete = "select * from TYPE order by TYPE.IdType asc";
-        /* Si l'execution est reussie... */
-        if ($res = $dbh->query($requete))
-          /* ... on récupère un tableau stockant le résultat */
-          $zones =  $res->fetchAll();
-        //echo print_r($espece);
-        foreach ($zones as $zone) {
-          echo '<td>' . $zone['NomType'] . '</td>';
-          echo '<td><form method="post" action="./delete/deleteType.php">
+    include "connect.php";
+    $requete = "select * from TYPE";
+    /* Si l'execution est reussie... */
+    if ($res = $dbh->query($requete))
+      /* ... on récupère un tableau stockant le résultat */
+      $types =  $res->fetchAll();
+    /*liberation de l'objet requete:*/
+    $res->closeCursor();
+    /*fermeture de la connexion avec la base*/
+    $dbh = null;
+    ?>
+    var types = <?php echo json_encode($types); ?>;
+
+    var columnDefs = [{
+        headerName: "Nom",
+        field: 'name',
+        resizable: true,
+        filter: 'agTextColumnFilter',
+        comparator: (valueA, valueB, nodeA, nodeB, isInverted) => {
+                if (valueA == valueB) return 0;
+                return (valueA > valueB) ? 1 : -1;
+            }
+      },
+      {
+        headerName: "Action",
+        field: 'Action',
+        resizable: true,
+        sortable: false,
+        cellRenderer: function(params) {
+          // Display the image
+          /* This is a function that will display the image of the species. */
+          let link = `<form method="post" action="delete/deleteProprietaire.php">
                       <button type="submit" name="btnEnvoiForm" title="Envoyer"><h2 style="color:black">Supprimer</h2></button>
-                      <input type="hidden" name="id" value="' . $zone['IdType'] . '"/>
-                      <input type="hidden" name="name" value="' . $zone['NomType'] . '"/>
-                    </form></td>';
-          echo '</tr>' . "\n";
+                      <input type="hidden" name="id" value=${params.value}/>
+                    </form>`
+          return link;
         }
-        /*liberation de l'objet requete:*/
-        $res->closeCursor();
-        /*fermeture de la connexion avec la base*/
-        $dbh = null;
-        ?>
-      </tbody>
-    </table>
+      },
+    ];
+
+    // specify the data
+    var rowData = [];
+    types.forEach(type => {
+      rowData.push({
+        name: type.NomType,
+        Action: type.IdType
+      })
+    });
+
+    // let the grid know which columns and what data to use
+    var gridOptions = {
+      defaultColDef: {
+        sortable: true,
+        cellStyle: {
+          fontSize: '22px',
+          textAlign: 'center'
+        }
+      },
+      columnDefs: columnDefs,
+      rowData: rowData,
+      rowHeight: 70,
+      domLayout: 'autoHeight',
+    };
+
+    // setup the grid after the page has finished loading
+    document.addEventListener('DOMContentLoaded', function() {
+      var gridDiv = document.querySelector('#myGrid');
+      new agGrid.Grid(gridDiv, gridOptions);
+      gridOptions.api.sizeColumnsToFit();
+    });
+  </script>
     <button id="openModal"> Ajouter un type</button>
   </div>
   <div id="mydialog">
