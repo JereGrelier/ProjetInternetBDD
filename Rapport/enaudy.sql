@@ -23,10 +23,28 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
+-- Suppression des tables
+--
+
+DROP TABLE IF EXISTS `EFFICACITE`;
+DROP TABLE IF EXISTS `LOCALISATION`;
+DROP TABLE IF EXISTS `HABITAT`;
+DROP TABLE IF EXISTS `MOVESET_ESPECE`;
+DROP TABLE IF EXISTS `MOVESET_MONSTROPOCHE`;
+DROP TABLE IF EXISTS `MUTATION`;
+DROP TABLE IF EXISTS `ZONE`;
+DROP TABLE IF EXISTS `ATTAQUE`;
+DROP TABLE IF EXISTS `MONSTROPOCHE`;
+DROP TABLE IF EXISTS `OBJET`;
+DROP TABLE IF EXISTS `PROPRIETAIRE`;
+DROP TABLE IF EXISTS `ESPECE`;
+DROP TABLE IF EXISTS `TYPE`;
+
+
+--
 -- Structure de la table `ATTAQUE`
 --
 
-DROP TABLE IF EXISTS `ATTAQUE`;
 CREATE TABLE IF NOT EXISTS `ATTAQUE` (
   `IdAttaque` int(11) NOT NULL AUTO_INCREMENT,
   `NomAttaque` text NOT NULL,
@@ -55,7 +73,6 @@ INSERT INTO `ATTAQUE` (`IdAttaque`, `NomAttaque`, `Puissance`, `Precision`, `Typ
 -- Structure de la table `EFFICACITE`
 --
 
-DROP TABLE IF EXISTS `EFFICACITE`;
 CREATE TABLE IF NOT EXISTS `EFFICACITE` (
   `IdTypeAttaque` int(11) NOT NULL,
   `IdTypeDefense` int(11) NOT NULL,
@@ -88,7 +105,6 @@ INSERT INTO `EFFICACITE` (`IdTypeAttaque`, `IdTypeDefense`, `Coefficient`) VALUE
 -- Structure de la table `ESPECE`
 --
 
-DROP TABLE IF EXISTS `ESPECE`;
 CREATE TABLE IF NOT EXISTS `ESPECE` (
   `Numero` int(11) NOT NULL,
   `NomEspece` text NOT NULL,
@@ -143,7 +159,6 @@ INSERT INTO `ESPECE` (`Numero`, `NomEspece`, `TypeEspece`, `TypeEspece2`, `Sprit
 -- Structure de la table `HABITAT`
 --
 
-DROP TABLE IF EXISTS `HABITAT`;
 CREATE TABLE IF NOT EXISTS `HABITAT` (
   `NumEspece` int(11) NOT NULL,
   `IdZone` int(11) NOT NULL,
@@ -194,7 +209,6 @@ INSERT INTO `HABITAT` (`NumEspece`, `IdZone`) VALUES
 -- Structure de la table `LOCALISATION`
 --
 
-DROP TABLE IF EXISTS `LOCALISATION`;
 CREATE TABLE IF NOT EXISTS `LOCALISATION` (
   `IdObjet` int(11) NOT NULL,
   `IdZone` int(11) NOT NULL,
@@ -219,7 +233,6 @@ INSERT INTO `LOCALISATION` (`IdObjet`, `IdZone`) VALUES
 -- Structure de la table `MONSTROPOCHE`
 --
 
-DROP TABLE IF EXISTS `MONSTROPOCHE`;
 CREATE TABLE IF NOT EXISTS `MONSTROPOCHE` (
   `IdMonstropoche` int(11) NOT NULL AUTO_INCREMENT,
   `Surnom` text NOT NULL,
@@ -252,7 +265,6 @@ INSERT INTO `MONSTROPOCHE` (`IdMonstropoche`, `Surnom`, `Etat`, `PV`, `PE`, `Gen
 -- Structure de la table `MOVESET_ESPECE`
 --
 
-DROP TABLE IF EXISTS `MOVESET_ESPECE`;
 CREATE TABLE IF NOT EXISTS `MOVESET_ESPECE` (
   `IdAttaque` int(11) NOT NULL,
   `NumEspece` int(11) NOT NULL,
@@ -283,7 +295,6 @@ INSERT INTO `MOVESET_ESPECE` (`IdAttaque`, `NumEspece`, `PE_Requis`) VALUES
 -- Structure de la table `MOVESET_MONSTROPOCHE`
 --
 
-DROP TABLE IF EXISTS `MOVESET_MONSTROPOCHE`;
 CREATE TABLE IF NOT EXISTS `MOVESET_MONSTROPOCHE` (
   `IdAttaque` int(11) NOT NULL,
   `IdMonstropoche` int(11) NOT NULL,
@@ -316,7 +327,6 @@ INSERT INTO `MOVESET_MONSTROPOCHE` (`IdAttaque`, `IdMonstropoche`, `Position`) V
 -- Structure de la table `MUTATION`
 --
 
-DROP TABLE IF EXISTS `MUTATION`;
 CREATE TABLE IF NOT EXISTS `MUTATION` (
   `IdPreMutation` int(11) NOT NULL,
   `IdPostMutation` int(11) NOT NULL,
@@ -356,7 +366,6 @@ INSERT INTO `MUTATION` (`IdPreMutation`, `IdPostMutation`, `IdObjet`, `PE_Requis
 -- Structure de la table `OBJET`
 --
 
-DROP TABLE IF EXISTS `OBJET`;
 CREATE TABLE IF NOT EXISTS `OBJET` (
   `IdObjet` int(11) NOT NULL AUTO_INCREMENT,
   `NomObjet` text NOT NULL,
@@ -381,7 +390,6 @@ INSERT INTO `OBJET` (`IdObjet`, `NomObjet`, `BonusPuissance`, `IsUnique`) VALUES
 -- Structure de la table `PROPRIETAIRE`
 --
 
-DROP TABLE IF EXISTS `PROPRIETAIRE`;
 CREATE TABLE IF NOT EXISTS `PROPRIETAIRE` (
   `IdProprietaire` int(11) NOT NULL AUTO_INCREMENT,
   `NomProprietaire` text NOT NULL,
@@ -404,7 +412,6 @@ INSERT INTO `PROPRIETAIRE` (`IdProprietaire`, `NomProprietaire`, `IsJouable`) VA
 -- Structure de la table `TYPE`
 --
 
-DROP TABLE IF EXISTS `TYPE`;
 CREATE TABLE IF NOT EXISTS `TYPE` (
   `IdType` int(11) NOT NULL AUTO_INCREMENT,
   `NomType` text NOT NULL,
@@ -432,7 +439,6 @@ INSERT INTO `TYPE` (`IdType`, `NomType`) VALUES
 -- Structure de la table `ZONE`
 --
 
-DROP TABLE IF EXISTS `ZONE`;
 CREATE TABLE IF NOT EXISTS `ZONE` (
   `IdZone` int(11) NOT NULL AUTO_INCREMENT,
   `NomZone` text NOT NULL,
